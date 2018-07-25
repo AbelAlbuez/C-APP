@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Admin extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,11 +18,20 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('form');
+		//Añadiremos las validaciones de ls libreria
+		$this->load->helper('url'); //para redireccionar paginas
+		$this->load->library('form_validation');
+	
+	}
 	public function index()
 	{
-		$this->load->view('layout/menu.php');
-		$this->load->view('welcome_message');
-		$this->load->view('layout/footer.php');
-
+		$this->load->view('admin/menu_lateral.php');
+		/*$this->load->view('admin/header.php');
+		
+		$this->load->view('admin/footer.php');*/
 	}
 }
