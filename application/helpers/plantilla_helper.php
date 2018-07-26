@@ -1,11 +1,13 @@
 <?php
 
-class plantilla{
-	static $instancia = null;
-	static function iniciar(){
-		self::$instancia=new plantilla();
-	}
-	function __construct(){
+	class plantilla
+	{
+			static $instancia = null;
+			static function iniciar()
+			{
+				self::$instancia=new plantilla();
+			}
+			function __construct(){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +26,8 @@ class plantilla{
   <!-- Page level plugin CSS-->
   <link href="<?php echo base_url('/extra/panel/');?>vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="<?php echo base_url('/extra/panel/');?>css/sb-admin.css" rel="stylesheet">
+	<link href="<?php echo base_url('/extra/panel/');?>css/sb-admin.css" rel="stylesheet">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -210,4 +213,4 @@ class plantilla{
 
 }
 
-
+#Fin de la plantilla_helper.php
