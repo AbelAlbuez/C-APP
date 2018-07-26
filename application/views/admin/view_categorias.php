@@ -32,16 +32,20 @@
 							<?php
 							foreach ($listado as $categoria ) {?>
 							<tr>
-								<td><?php echo $categoria->id?></td>	
-								<td><?php echo $categoria->nombre?> </td>
-								<td>
-								<a href="<?php echo base_url('panel/categorias/eliminar/')?>
-								<?php echo $categoria->id?>">Eliminar</a> -
-								<a href="<?php echo base_url('panel/categorias/modificar/')?>
-								<?php echo $categoria->id?>">Editar</a> - 
-								<a href="<?php echo base_url('panel/subCategorias/load/')?>
-								<?php echo $categoria->id?>">Ver SubCategorias</a>
-								</td>
+									<td><?php echo $categoria->id?></td>	
+									<td><?php echo $categoria->nombre?> </td>
+									<td>
+								
+										<a href="<?php echo base_url('panel/categorias/eliminar/')?>
+										<?php echo $categoria->id?>">Eliminar</a> -
+										
+										<a href="<?php echo base_url('panel/categorias/modificar/')?>
+										<?php echo $categoria->id?>">Editar</a> - 
+										
+										<a href="<?php echo base_url('panel/subCategorias/load/')?>
+										<?php echo $categoria->id?>">Ver SubCategorias</a>
+										
+									</td>
 								</tr>
 		
 		<?php }?>
