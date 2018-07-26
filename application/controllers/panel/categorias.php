@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Categorias extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -25,13 +25,32 @@ class Admin extends CI_Controller {
 		//Añadiremos las validaciones de ls libreria
 		$this->load->helper('url'); //para redireccionar paginas
 		$this->load->library('form_validation');
-	
+		$this->load->model('M_categoria');
+	}
+	function mis_reglas(){
+		$this->form_validation->set_rules('nombre', 'Nombre', 'required|max_length[60]|min_length[3]');
 	}
 	public function index()
 	{
-		$this->load->view('view_panel_admin.php');
-	//	$this->load->view('admin/tables.php');
+		$data['listado'] = $this->M_categoria->get_todos();
+		$this->load->view('admin/view_categorias.php', $data);
 		
+
 	
 	}
+
+	public function agregar(){
+		$this->load->view('admin/view_add_categorias.php');
+	}
+	public function modificar($id = null){
+		if($id==null or !is_numeric($id)){
+			echo 'Error con el id';
+			return ;
+		}}
+	public function eliminar($id = null){
+			if($id==null or !is_numeric($id)){
+				echo 'Error con el id';
+				return ;
+			}}
+
 }

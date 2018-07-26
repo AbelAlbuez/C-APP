@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Usuarios extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -29,9 +29,9 @@ class Admin extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->view('view_panel_admin.php');
-	//	$this->load->view('admin/tables.php');
-		
-	
+		$this->load->view('admin/view_usuarios.php');
+	}
+	public function agregar(){
+		$this->load->view('admin/view_add_usuarios.php');
 	}
 }
