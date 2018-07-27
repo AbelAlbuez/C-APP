@@ -78,7 +78,7 @@ class Categorias extends CI_Controller {
 			$this->mis_reglas();
 			if($this->form_validation->run()==TRUE){
 				$this->M_categoria->edit($id);
-				redirect('panel/categorias/'.$id);	
+				redirect('panel/categorias/');	
 			}else{
 				$this->load->view('admin/view_add_categorias');
 			}
@@ -108,8 +108,12 @@ class Categorias extends CI_Controller {
 			
 			echo "
 			<script>
-			alert('ELIMINO');
-			</script>
+			swal({
+				title: 'Good job!',
+				text: 'You clicked the button!',
+				icon: 'success',
+				button: 'Aww yiss!',
+			});
 			";
 			redirect('panel/categorias');	
 		}else{
@@ -118,9 +122,12 @@ class Categorias extends CI_Controller {
 				if(empty($data['datos_categorias'])){
 					echo "Este personaje no existe";
 				}else{
-				
-end;
-				//	redirect('panel/categorias');
+					echo "<h1>entro</h1>";
+
+					echo "<script>";
+					echo "swal('hola');";
+					echo "</script>";
+			
 				}
 		}
 		
