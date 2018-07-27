@@ -5,11 +5,15 @@ $input_nombre = array(
 	'id'    	 => 	'nombre',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-
-//	'value'		 =>		set_value('con_email',@$datos_contactos[0]->con_email)
+	'value'		 =>		set_value('nombre',@$datos_categorias[0]->nombre)
 );
-
 ?>
+
   <div class="content-wrapper">
-   <h1>Agregar Categorias</h1>
+  <?php echo form_open();?><br>
+<?php echo form_label('Nombre');?><br>
+<?php echo form_input($input_nombre);?><br>
+<?php echo form_error('nombre') ?><br>
+<?php echo form_submit('btn_enviar', 'Guardar');?><br>
+<?php echo form_close();?>
 </div>

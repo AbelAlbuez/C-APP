@@ -50,11 +50,13 @@ class plantilla{
             <span class="nav-link-text">Usuarios</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseUser">
-            <li>
-              <a href="<?php echo base_url('panel/usuarios');?>">Listar</a>
+		  <li>
+			  <a href="<?php echo base_url('panel/usuarios');?>">
+			  <i class="fa fa-list" aria-hidden="true"></i> Listar</a>
             </li>
-            <li>
-              <a href="<?php echo base_url('panel/usuarios/agregar');?>">Agregar</a>
+			<li>
+			  <a href="<?php echo base_url('panel/usuarios/agregar');?>">
+			  <i class="fa fa-plus" aria-hidden="true"></i> Agregar</a>
             </li>
           </ul>
         </li>
@@ -64,11 +66,15 @@ class plantilla{
             <span class="nav-link-text">Categorias</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-              <a href="<?php echo base_url('panel/categorias');?>">Listar</a>
+		  <li>
+			  <a href="<?php echo base_url('panel/categorias');?>">
+			  <i class="fa fa-list" aria-hidden="true"></i> Listar</a>
             </li>
-            <li>
-              <a href="<?php echo base_url('panel/categorias/agregar');?>">Agregar</a>
+			<li>
+	
+			<li>
+			  <a href="<?php echo base_url('panel/categorias/agregar');?>">
+			  <i class="fa fa-plus" aria-hidden="true"></i> Agregar</a>
             </li>
           </ul>
 		</li>
@@ -78,11 +84,13 @@ class plantilla{
             <span class="nav-link-text">Eventos</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseEventos">
-            <li>
-              <a href="<?php echo base_url('panel/eventos');?>">Listar</a>
+		  <li>
+			  <a href="<?php echo base_url('panel/eventos');?>">
+			  <i class="fa fa-list" aria-hidden="true"></i> Listar</a>
             </li>
-            <li>
-              <a href="<?php echo base_url('panel/eventos/agregar');?>">Agregar</a>
+			<li>
+			  <a href="<?php echo base_url('panel/eventos/agregar');?>">
+			  <i class="fa fa-plus" aria-hidden="true"></i> Agregar</a>
             </li>
           </ul>
 		</li>
@@ -92,11 +100,13 @@ class plantilla{
             <span class="nav-link-text">Noticias</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseNoticias">
-            <li>
-              <a href="<?php echo base_url('panel/noticias');?>">Listar</a>
+		  <li>
+			  <a href="<?php echo base_url('panel/noticias');?>">
+			  <i class="fa fa-list" aria-hidden="true"></i> Listar</a>
             </li>
-            <li>
-              <a href="<?php echo base_url('panel/noticias/agregar');?>">Agregar</a>
+			<li>
+			  <a href="<?php echo base_url('panel/noticias/agregar');?>">
+			  <i class="fa fa-plus" aria-hidden="true"></i> Agregar</a>
             </li>
           </ul>
         </li>
@@ -175,7 +185,9 @@ class plantilla{
   <!-- Bootstrap core JavaScript-->
   <script src="<?php echo base_url('/extra/panel/');?>vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url('/extra/panel/');?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
+		<!-- Core plugin JavaScript-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="<?php echo base_url('/extra/panel/');?>vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="<?php echo base_url('/extra/panel/');?>vendor/chart.js/Chart.min.js"></script>
