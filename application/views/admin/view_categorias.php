@@ -3,13 +3,9 @@
 <?php if(empty($listado)){?>
 	<h1>Sin Categoria</h1>
 	<?php }else {?>
-
-	 <h1>Tienes (<?php echo count($listado)?>) categoria</h1>
-
-
 	 <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Listado de Categorias</div>
+          <i class="fa fa-table"></i> Listado de Categorias - (<?php echo count($listado)?>) Categoria</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

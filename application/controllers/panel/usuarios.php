@@ -17,7 +17,8 @@ class Usuarios extends CI_Controller {
 		$this->form_validation->set_rules('apodo', 'Apodo', 'required|max_length[60]|min_length[3]');
 		$this->form_validation->set_rules('correo', 'Correo', 'required|max_length[60]|min_length[3]|valid_email');
 		$this->form_validation->set_rules('fecha', 'Fecha', 'trim');
-		$this->form_validation->set_rules('tipo', 'Tipo', 'required|max_length[60]|min_length[3]');
+		$this->form_validation->set_rules('tipo', 'Tipo', 'trim');
+		$this->form_validation->set_rules('permisos', 'Permisos', 'trim');
 	
 	}
 	public function index()
@@ -41,7 +42,7 @@ class Usuarios extends CI_Controller {
 		if($id==null or !is_numeric($id)){
 			echo 'Error con el id';
 			return ;
-		}
+		}else{
 		if($this->input->post()){
 			$this->mis_reglas();
 			if($this->form_validation->run()==TRUE){
@@ -60,42 +61,32 @@ class Usuarios extends CI_Controller {
 					$this->load->view('admin/view_add_usuarios', $data);
 				}
 			}
+		}
 		
 		
 		
 	}
-	public function eliminar($id = null){
+	public function addAdmin($id = null){
 		if($id==null or !is_numeric($id)){
 			echo 'Error con el id';
 			return ;
-		}
-		
-		if($this->input->post()){
-			$id_eliminar = $this->input->post('id');
-			$this->M_usuarios->delete($id_eliminar);
-			redirect('panel/usuarios');	
 		}else{
-			$data['datos_usuarios'] =$this->M_usuarios->get_by_id($id);
-		
-				if(empty($data['datos_usuarios'])){
-					echo "Este personaje no existe";
+				$data['datos_usuarios'] =$this->M_usuarios->get_by_id($id);
+				if ($data['datos_usuarios'][0]->permisos=="Master"){
+					$this->M_usuarios->removeAdmin($id);
+					redirect('panel/usuarios/');
 				}else{
-					
-
+					$this->M_usuarios->setAdmin($id);
+					redirect('panel/usuarios/');
 				}
+			
+				
+				
+			
+			
+		
+			
 		}
-		
-
-			}
-
-
-	public function addSubCategoria($id = null){
-				if($id==null or !is_numeric($id)){
-					echo 'Error con el id';
-					return ;
-	}else{
-		$this->load->view('admin/view_add_subcategorias.php');
-		
-	}}
+	}
 
 }

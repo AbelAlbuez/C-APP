@@ -9,12 +9,12 @@
 	
 	<?php }else {?>
 
-	 <h1>Tienes (<?php echo count($listado)?>) Subcategorias</h1>
+
 
 
 	 <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Listado de Subcategorias</div>
+          <i class="fa fa-table"></i> Listado de Subcategorias - (<?php echo count($listado)?>) Subcategorias</div>
         <div class="card-body">
 		
           <div class="table-responsive">

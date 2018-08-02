@@ -36,6 +36,28 @@ class M_usuarios extends CI_Model{
 		$query = $this->db->where('id',$id); 
 		$this->db->delete('usuario');
 	}
+	function setAdmin($id)
+	{
+		if ($this->db->query('UPDATE `usuario` SET `permisos`= "Master" WHERE id = '.$id))
+		{
+			return true;
+		}else
+		{
+			return false;
+		};
+		
+	}
+	function removeAdmin($id)
+	{
+		if ($this->db->query('UPDATE `usuario` SET `permisos`= "Usuario" WHERE id = '.$id))
+		{
+			return true;
+		}else
+		{
+			return false;
+		};
+	}
+	
 }
 
 /* Fin del archivo M_contacto.php */ 
