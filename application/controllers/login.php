@@ -20,15 +20,30 @@ class Login extends CI_Controller {
 		$this->load->view('login',$data);
     }
     
-    public function IniciarSesion (){
-        if(isset($_POST)){
+    public function IniciarSesion ()
+    {
+        if(isset($_POST))
+        {
             $this->m_login->validar($_POST);
 
         }
 
     }
-    public function CerrarSesion (){
+    public function CerrarSesion ()
+    {
         $this->m_login->CerrarSesion();
+        
+    }
+
+    public function Registrar()
+    {
+        if(isset($_POST))
+        {
+            $this->m_login->Registrar($_POST);
+        }else{
+            $data['categorias'] = $this->m_categoria->get_todos(); 
+            $this->load->view('Register',$data);
+        }
         
     }
 }
