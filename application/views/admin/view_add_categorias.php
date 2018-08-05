@@ -7,10 +7,11 @@ $input_nombre = array(
 	'size'  	 => 	'100',
 	'value'		 =>		set_value('nombre',@$datos_categorias[0]->nombre)
 );
+
 ?>
 
-  <div class="content-wrapper">
-  <?php echo form_open();?><br>
+<div class="content-wrapper">
+<?php echo form_open();?><br>
 <?php echo form_label('Nombre');?><br>
 <?php echo form_input($input_nombre);?><br>
 <?php echo form_error('nombre') ?><br>

@@ -3,21 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+
 	function __construct()
 	{
 		parent::__construct();
@@ -25,13 +11,82 @@ class Usuarios extends CI_Controller {
 		//Añadiremos las validaciones de ls libreria
 		$this->load->helper('url'); //para redireccionar paginas
 		$this->load->library('form_validation');
+		$this->load->model('M_usuarios');
+	}
+	function mis_reglas(){
+		$this->form_validation->set_rules('apodo', 'Apodo', 'required|max_length[60]|min_length[3]');
+		$this->form_validation->set_rules('correo', 'Correo', 'required|max_length[60]|min_length[3]|valid_email');
+		$this->form_validation->set_rules('fecha', 'Fecha', 'trim');
+		$this->form_validation->set_rules('tipo', 'Tipo', 'trim');
+		$this->form_validation->set_rules('permisos', 'Permisos', 'trim');
 	
 	}
 	public function index()
 	{
-		$this->load->view('admin/view_usuarios.php');
+		$data['listado'] = $this->M_usuarios->get_todos();
+		$this->load->view('admin/view_usuarios.php', $data);
+		
+
+	
 	}
-	public function agregar(){
-		$this->load->view('admin/view_add_usuarios.php');
+
+	function get_by_id($id){
+	
+		$query = $this->db->where('id',$id); 
+		$query = $this->db->get('usuario'); 
+		return $query->result(); // retornamos lo obtenidos
+		//esto funciona como un select
 	}
+
+	public function modificar($id = null){
+		if($id==null or !is_numeric($id)){
+			echo 'Error con el id';
+			return ;
+		}else{
+		if($this->input->post()){
+			$this->mis_reglas();
+			if($this->form_validation->run()==TRUE){
+				$this->M_usuarios->edit($id);
+				redirect('panel/usuarios/');	
+			}else{
+				$this->load->view('admin/view_add_usuarios');
+			}
+			}else{
+				$data['datos_usuarios'] =$this->M_usuarios->get_by_id($id);
+		
+				if(empty($data['datos_usuarios'])){
+					echo "Este personaje no existe";
+				}else{
+					//print_r($data['datos_categorias']);
+					$this->load->view('admin/view_add_usuarios', $data);
+				}
+			}
+		}
+		
+		
+		
+	}
+	public function addAdmin($id = null){
+		if($id==null or !is_numeric($id)){
+			echo 'Error con el id';
+			return ;
+		}else{
+				$data['datos_usuarios'] =$this->M_usuarios->get_by_id($id);
+				if ($data['datos_usuarios'][0]->permisos=="Master"){
+					$this->M_usuarios->removeAdmin($id);
+					redirect('panel/usuarios/');
+				}else{
+					$this->M_usuarios->setAdmin($id);
+					redirect('panel/usuarios/');
+				}
+			
+				
+				
+			
+			
+		
+			
+		}
+	}
+
 }
