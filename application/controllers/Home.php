@@ -8,6 +8,7 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->model('m_categoria');
 		$this->load->helper('plantilla_usuarios');
+		session_start();
 	}
 
 	public function index()

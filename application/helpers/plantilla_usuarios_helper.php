@@ -77,10 +77,22 @@
 						</li>
 						
 					</ul>
-
-					<a class="nav-link" href="#" style="color:white!important;"> Bienvenido, <b> Angel Reyes </b> </a>
+					<?php 
 					
-					<button class="btn btn-secondary my-2 my-sm-0" type="submit"> PUBLICAR ANUNCIO </button>
+					if (!empty($_SESSION)){
+						$nombre = $_SESSION['usuario']->apodo;
+						$linkCerrar = base_url('login/CerrarSesion');
+						
+						echo "<a class='nav-link' href='#' style='color:white!important;'> Bienvenido, <b>{$nombre}</b> </a> ";
+						echo"<a class='nav-link' href='{$linkCerrar}'  style='color:white!important;' >Salir</a>";
+						echo "<button class='btn btn-secondary my-2 my-sm-0' type='submit'> PUBLICAR ANUNCIO </button>";
+					}else{
+						$linkIniciar = base_url('login');
+						echo"<a class='nav-link' href='{$linkIniciar}' style='color:white!important;'>Iniciar Sesion<b></b> </a> ";
+					} ?>		
+						
+					
+					
 
 					<!-- SESIONES -->
 					
