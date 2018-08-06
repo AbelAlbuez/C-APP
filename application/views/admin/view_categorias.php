@@ -35,12 +35,14 @@
 									
 				
 
-								<a href="<?php echo base_url('panel/categorias/eliminar/')?><?php echo $categoria->id?>"  
-								data-toggle="modal" data-target="#exampleModalCenter">
+								<a href="#" 
+								onclick="eliminarCategoria()">
 								Eliminar
 								</a> - 
+								<a id="eliminarCategoria" href="<?php echo base_url('panel/categorias/eliminar/')?>
+								<?php echo $categoria->id?>" style="display:none" >Prueba</a>
 								<a href="<?php echo base_url('panel/categorias/modificar/')?>
-								<?php echo $categoria->id;   $id_eliminar =$categoria->id;?>" >Editar</a> - 
+								<?php echo $categoria->id;   ?>" >Editar</a> - 
 								<a href="<?php echo base_url('panel/subCategorias/load/')?>
 								<?php echo $categoria->id?>">Ver SubCategorias</a>
 								</td>

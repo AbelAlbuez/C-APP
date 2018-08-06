@@ -118,32 +118,13 @@ class Subcategorias extends CI_Controller {
 			echo 'Error con el id';
 			return ;
 		}else {
-		
-		
-		if($this->input->post()){
-			$id_eliminar = $this->input->post('id');
-			$this->M_subcategorias->delete($id_eliminar);
-			
-			echo "
-			<script>
-			alert('ELIMINO');
-			</script>
-			";
+			$this->M_subcategorias->delete($id);
 			redirect('panel/categorias');	
-		}else{
-			$data['datos_categorias'] =$this->M_subcategorias->get_by_id($id);
 		
-				if(empty($data['datos_categorias'])){
-					echo "Este personaje no existe";
-				}else{
-				
-end;
-				//	redirect('panel/categorias');
-				}
 		}
 	}
 
-			}
+			
 	public function addSubCategoria($id = null){
 				if($id==null or !is_numeric($id)){
 					echo 'Error con el id';

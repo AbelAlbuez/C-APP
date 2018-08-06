@@ -86,27 +86,10 @@ class Categorias extends CI_Controller {
 		if($id==null or !is_numeric($id)){
 			echo 'Error con el id';
 			return ;
-		}
-		
-		if($this->input->post()){
-			$id_eliminar = $this->input->post('id');
-			$this->M_categoria->delete($id_eliminar);
-			
-			
-			
-			redirect('panel/categorias');	
 		}else{
-			$data['datos_categorias'] =$this->M_categoria->get_by_id($id);
-		
-				if(empty($data['datos_categorias'])){
-					echo "Este personaje no existe";
-				}else{
-					
-
-				}
+			$this->M_categoria->delete($id);
+			redirect('panel/categorias');	
 		}
-		
-
 			}
 
 

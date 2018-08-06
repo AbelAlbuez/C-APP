@@ -27,7 +27,9 @@
   <link href="<?php echo base_url('/extra/panel/');?>vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
 	<link href="<?php echo base_url('/extra/panel/');?>css/sb-admin.css" rel="stylesheet">
+	<link href="<?php echo base_url('/extra/panel/');?>css/style.css" rel="stylesheet">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -46,33 +48,29 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-     
-		
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseUser" data-parent="#exampleAccordion">
-		  <i class="fa fa-user-md" aria-hidden="true"></i>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="<?php echo base_url('admin');?>">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Banners</span>
+          </a>
+        </li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+				<a class="nav-link" href="<?php echo base_url('panel/usuarios');?>">
+				<i class="fa fa-user-md" aria-hidden="true"></i>
             <span class="nav-link-text">Usuarios</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseUser">
-		  <li>
-			  <a href="<?php echo base_url('panel/usuarios');?>">
-			  <i class="fa fa-list" aria-hidden="true"></i> Listar</a>
-            </li>
-		
-          </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-          <i class="fa fa-fw fa-table"></i>
+		
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCategorias" data-parent="#exampleAccordion">
+          <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Categorias</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
+          <ul class="sidenav-second-level collapse" id="collapseCategorias">
 		  <li>
 			  <a href="<?php echo base_url('panel/categorias');?>">
 			  <i class="fa fa-list" aria-hidden="true"></i> Listar</a>
             </li>
-			<li>
-	
 			<li>
 			  <a href="<?php echo base_url('panel/categorias/agregar');?>">
 			  <i class="fa fa-plus" aria-hidden="true"></i> Agregar</a>
@@ -114,8 +112,37 @@
    
         
       </ul>
+     <!--Otro menu-->
+		 <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fa fa-user-circle-o" aria-hidden="true"></i> Abel Albuez Sanchez
+            <span class="d-lg-none">
+						Abel Albuez Sanchez
      
-     
+            </span>
+            <span class="indicator text-primary d-none d-lg-block">
+           
+            </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+            <h6 class="dropdown-header">Ajustes de la cuenta:</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+						<i class="fa fa-cog" ></i>
+              <strong>Editar Perfil</strong>
+            </a>
+						<div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+						<i class="fa fa-fw fa-sign-out"></i>
+            <strong>Cerrar Session</strong>
+            </a>
+        </li>
+        
+      
+       
+      </ul>
+
     </div>
   </nav>
 
@@ -128,12 +155,13 @@
 	function __destruct(){
 		?>
 
-  <!-- Bootstrap core JavaScript-->
+	<!-- Bootstrap core JavaScript-->
+	<script src="<?php echo base_url('/extra/panel/');?>js/index.js"></script>
   <script src="<?php echo base_url('/extra/panel/');?>vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url('/extra/panel/');?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<!-- Core plugin JavaScript-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
     <script src="<?php echo base_url('/extra/panel/');?>vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="<?php echo base_url('/extra/panel/');?>vendor/chart.js/Chart.min.js"></script>

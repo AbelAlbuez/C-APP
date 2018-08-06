@@ -44,9 +44,12 @@
 								<td><?php echo $categoria->nombre?> </td>
 								<td>
 							
-								<a href="#" data-toggle="modal" data-target="#exampleModalCenter">
+								<a href="#" 
+								onclick="eliminarSubCategoria()">
 								Eliminar
 								</a> - 
+								<a id="eliminarSubCategoria" href="<?php echo base_url('panel/subcategorias/eliminar/')?>
+								<?php echo $categoria->id?>" style="display:none" >Prueba</a>
 							
 								<a href="<?php echo base_url('panel/subcategorias/modificar/')?>
 								<?php echo $categoria->id?>">Editar</a> - 
