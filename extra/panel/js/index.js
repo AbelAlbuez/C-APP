@@ -1,4 +1,4 @@
-function eliminarCategoria(){
+function eliminarCategoria(id){
 	//$("#eliminarCategoria").href= "hola mundo";
 	swal({
 		title: "Estas seguro de eliminar esta categoria?",
@@ -12,7 +12,7 @@ function eliminarCategoria(){
 				swal("El archivo fue eliminado correctamente!", {
 				icon: "success",
 			  }).then((eliminado) =>{
-				document.getElementById("eliminarCategoria").click();
+				document.getElementById("eliminarCategoria"+id).click();
 			  });  
 			  
 		} else {
@@ -21,7 +21,7 @@ function eliminarCategoria(){
 		}
 	  });
 }
-function eliminarSubCategoria(){
+function eliminarSubCategoria(id){
 	//$("#eliminarCategoria").href= "hola mundo";
 	swal({
 		title: "Estas seguro de eliminar esta subcategoria?",
@@ -35,7 +35,7 @@ function eliminarSubCategoria(){
 				swal("El archivo fue eliminado correctamente!", {
 				icon: "success",
 			  }).then((eliminado) =>{
-				document.getElementById("eliminarSubCategoria").click();
+				document.getElementById("eliminarSubCategoria"+id).click();
 			  });  
 			  
 		} else {
@@ -57,7 +57,7 @@ function eliminarEventos(){
 				swal("El evento fue eliminado correctamente!", {
 				icon: "success",
 			  }).then((eliminado) =>{
-				document.getElementById("eliminarEventos").click();
+				document.getElementById("eliminarEventos"+id).click();
 			  });  
 			  
 		} else {
@@ -66,7 +66,7 @@ function eliminarEventos(){
 		}
 	  });
 }
-function eliminarNoticias(){
+function eliminarNoticias(id){
 	swal({
 		title: "Estas seguro de eliminar esta noticia?",
 		text: "Una vez eliminado, no podrá recuperar este archivo!",
@@ -79,7 +79,7 @@ function eliminarNoticias(){
 				swal("El archivo fue eliminado correctamente!", {
 				icon: "success",
 			  }).then((eliminado) =>{
-				document.getElementById("eliminarNoticias").click();
+				document.getElementById("eliminarNoticias"+id).click();
 			  });  
 			  
 		} else {
@@ -88,7 +88,8 @@ function eliminarNoticias(){
 		}
 	  });
 }
-function eliminarBanner(){
+function eliminarBanner(id){
+
 	swal({
 		title: "Estas seguro de eliminar este Banner?",
 		text: "Una vez eliminado, no podrá recuperar este banner!",
@@ -101,7 +102,7 @@ function eliminarBanner(){
 				swal("El banner fue eliminado correctamente!", {
 				icon: "success",
 			  }).then((eliminado) =>{
-				document.getElementById("eliminarNoticias").click();
+					document.getElementById("eliminarBanner"+id).click();
 			  });  
 			  
 		} else {

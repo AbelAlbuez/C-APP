@@ -40,10 +40,10 @@
 				
 
 								<a href="#" 
-								onclick="eliminarCategoria()">
+								onclick="eliminarCategoria(<?php echo $categoria->id;   ?>)">
 								Eliminar
 								</a> - 
-								<a id="eliminarCategoria" href="<?php echo base_url('panel/categorias/eliminar/')?>
+								<a id="eliminarCategoria<?php echo $categoria->id;   ?>" href="<?php echo base_url('panel/categorias/eliminar/')?>
 								<?php echo $categoria->id?>" style="display:none" >Prueba</a>
 								<a href="<?php echo base_url('panel/categorias/modificar/')?>
 								<?php echo $categoria->id;   ?>" >Editar</a> - 

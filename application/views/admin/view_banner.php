@@ -11,7 +11,7 @@
 	</tr>
 	<tr>
 		<td>Descripcion</td>
-		<td><input type="text" name="titulo" class="form-control"></td>
+		<td><input type="text" name="descripcion" class="form-control"></td>
 	</tr>
 	<tr>
 		<td>Imagen</td>

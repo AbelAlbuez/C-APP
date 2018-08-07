@@ -55,10 +55,10 @@
 								<td><?php echo $eventos->url_imagen?></td>	
 
 								<td>
-								<a href="#" onclick="eliminarEventos()">
+								<a href="#" onclick="eliminarEventos(<?php echo $eventos->id?>)">
 								Eliminar
 								</a> - 
-								<a id="eliminarEventos" href="<?php echo base_url('panel/eventos/eliminar/')?>
+								<a id="eliminarEventos<?php echo $eventos->id?>" href="<?php echo base_url('panel/eventos/eliminar/')?>
 								<?php echo $eventos->id?>" style="display:none" >Prueba</a>
 								
 								<a href="<?php echo base_url('panel/eventos/modificar/')?>

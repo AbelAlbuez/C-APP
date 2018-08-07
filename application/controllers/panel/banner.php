@@ -18,19 +18,21 @@ class Banner extends CI_Controller {
 		$this->load->view('admin/view_read_banner.php', $data);
 	
 	}
-	public function preview(){
+	 function preview(){
 		$data['listado'] = $this->M_banner->get_todos();
 		$this->load->view('admin/preview_banner.php',$data);
 	}
-	public function eliminar($id = null){
+	 function eliminar($id = null)
+	{
 		if($id==null or !is_numeric($id)){
 			echo 'Error con el id';
 			return ;
 		}else{
+	
 			$this->M_banner->delete($id);
 			redirect('panel/banner');	
 		}
-			}
+	}
 	function subirImagen(){
 		$config['upload_path'] = './uploads/imagenesBanner';
         $config['allowed_types'] = 'gif|jpg|png';
@@ -59,7 +61,7 @@ class Banner extends CI_Controller {
 			$data['url_imagen'] = $imagen;
 			$data['descripcion'] = $descripcion;
 			$data['error']='';
-			$this->load->view('admin/view_banner.php', $data);
+			redirect('panel/banner');	
             
 		}	
 	}

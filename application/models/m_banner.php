@@ -20,7 +20,7 @@ class M_banner extends CI_Model{
 		return $query->result(); // retornamos lo obtenidos
 		//esto funciona como un select
 	}
-	function uploadBanner($titulo,$imagen){
+	function uploadBanner($titulo,$imagen, $descripcion){
 		$data = array(
 			'titulo' => $titulo,
 			'descripcion'=> $descripcion,

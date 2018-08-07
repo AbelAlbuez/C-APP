@@ -9,7 +9,7 @@
         <div class="card-header">
 					<i class="fa fa-table"></i> Listado de Banner - (<?php echo count($listado)?>) Categoria 
 				<br>
-				<a href="<?php echo base_url('panel/banner/subirImagen/')?>">Agregar Banner</a>
+				<a href="<?php echo base_url('panel/banner/subirImagen/')?>">Agregar Banner</a> -
 				<a href="<?php echo base_url('panel/banner/preview')?>">Previsualizar contenido</a>
 				</div>
         <div class="card-body">
@@ -36,16 +36,15 @@
 							<?php
 							foreach ($listado as $banner ) {?>
 							<tr>
-							
 								<td><?php echo $banner->id?></td>	
 								<td><?php echo $banner->titulo?> </td>
 								<td><?php echo $banner->descripcion?> </td>
 								<td>
-								<a href="#" onclick="eliminarBanner()">
+								<a href="#" onclick="eliminarBanner(<?php echo $banner->id?>)">
 								Eliminar
 								</a> - 
-								<a id="eliminarBanner" href="<?php echo base_url('panel/banner/eliminar/')?>
-								<?php echo $banner->id?>" style="display:none" >Prueba</a>
+								<a id="eliminarBanner<?php echo $banner->id ?>" href="<?php echo base_url('panel/banner/eliminar/'.$banner->id)?>"
+								 style="display:none" >Prueba</a>
 								<a href="<?php echo base_url('panel/banner/modificar/')?>
 								<?php echo $banner->id;   ?>" >Editar</a> - 
 								

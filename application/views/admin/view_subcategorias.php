@@ -47,10 +47,10 @@
 								<td>
 							
 								<a href="#" 
-								onclick="eliminarSubCategoria()">
+								onclick="eliminarSubCategoria(<?php echo $categoria->id?>)">
 								Eliminar
 								</a> - 
-								<a id="eliminarSubCategoria" href="<?php echo base_url('panel/subcategorias/eliminar/')?>
+								<a id="eliminarSubCategoria<?php echo $categoria->id?>" href="<?php echo base_url('panel/subcategorias/eliminar/')?>
 								<?php echo $categoria->id?>" style="display:none" >Prueba</a>
 							
 								<a href="<?php echo base_url('panel/subcategorias/modificar/')?>
