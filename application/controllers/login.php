@@ -11,6 +11,7 @@ class Login extends CI_Controller {
         $this->load->model('m_login');
         $this->load->helper('plantilla_usuarios');
         $this->load->helper('url');
+        
 	}
 
 	public function index()
@@ -37,9 +38,10 @@ class Login extends CI_Controller {
 
     public function Registrar()
     {
-        if(isset($_POST))
+        if(isset($_POST) and !empty($_POST) )
         {
             $this->m_login->Registrar($_POST);
+            
         }else{
             $data['categorias'] = $this->m_categoria->get_todos(); 
             $this->load->view('Register',$data);

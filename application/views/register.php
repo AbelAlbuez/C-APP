@@ -7,7 +7,7 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Registro</div>
       <div class="card-body">
-        <form method="post" action="<?php echo base_url('index.php/login/Registrar');  ?>" >
+        <form method="post" action="<?php echo base_url('index.php/login/Registrar')?>" >
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
@@ -36,7 +36,8 @@
               </div>
             </div>
           </div> -->
-          <a class="btn btn-primary btn-block" href="login.html">Register</a>
+          
+          <button class="btn btn-primary btn-block" type="submit" > Registrar</button>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="<?php echo base_url('index.php/login/Registrar')?>">Login Page</a>
