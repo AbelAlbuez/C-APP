@@ -67,7 +67,7 @@ class Eventos extends CI_Controller {
 				 $evento['hora'] = $this->input->post('hora');
 				 $evento['link'] = $this->input->post('link');
 				 $evento['url_imagen'] = $file_info['file_name'];
-				 $evento['id_usuario'] = $_SESSION['usuario']->id;
+				// $evento['id_usuario'] = $_SESSION['usuario']->id;
 				 $this->M_eventos->add($evento);
 				 redirect('panel/eventos/');
 					

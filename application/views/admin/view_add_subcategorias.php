@@ -19,7 +19,7 @@ $this->load->model('M_categoria');
 
 if(empty($datos_contactos[0]->id)){
 	$input_idcategoria = array(
-		'type'  	 => 	'text',
+		'type'  	 => 	'hidden',
 		'name'  	 => 	'idcategoria',
 		'id'    	 => 	'idcategoria',
 		'maxlength'  => 	'60',
@@ -30,7 +30,7 @@ if(empty($datos_contactos[0]->id)){
 	);
 }else{
 	$input_idcategoria = array(
-		'type'  	 => 	'text',
+		'type'  	 => 	'hidden',
 		'name'  	 => 	'idcategoria',
 		'id'    	 => 	'idcategoria',
 		'maxlength'  => 	'60',
@@ -45,17 +45,18 @@ if(empty($datos_contactos[0]->id)){
   <div class="content-wrapper">
 <div class="content-div">
 
-		<h1>Nueva Subcategoría</h1>
+		<h1>Subcategoría</h1>
 
 <?php echo form_open();?><br>
 
 <?php echo form_label('Nombre');?><br>
 <?php echo form_input($input_nombre);?><br>
 <?php echo form_error('nombre') ?><br>
-<?php echo form_label('IdCategoria');?><br>
+<?php// echo form_label('IdCategoria');?><br>
 <?php echo form_input($input_idcategoria);?><br>
 <?php echo form_error('IdCategoria') ?><br>
 <?php echo form_submit($submit);?><br>
+<a href="<?php echo base_url('panel/subcategorias/load/'.$input_idcategoria['value'])?>">Volver</a>
 <?php echo form_close();?>
 </div>
 </div>
@@ -67,7 +68,8 @@ if(empty($datos_contactos[0]->id)){
 	}
 	.content-div{
 		width: 60%;
-		margin: 20%;
+		margin: 0 20%;
+		margin-top: 80px;
 		border: 1px solid rgb(206, 206, 206);
 		padding: 20px;
 		border-radius: 5px;

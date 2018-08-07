@@ -28,21 +28,14 @@ class M_noticias extends CI_Model{
 		return $query->result(); // retornamos lo obtenidos
 		//esto funciona como un select
 	}
-	function add($data_noticias){
-		
-	
-		return $this->db->insert('noticias',$data_noticias);
 
-	}
-	function uploadBanner($datos_usuario){
+	function add($datos_usuario){
 		return $this->db->insert('noticias', $datos_usuario);
 	}
-	function edit($id){
-		
-		$datos_editar=$this->input->post();
-		unset($datos_editar['btn_enviar']);
+	function edit($datos_noticias, $id){
+	
 		$query = $this->db->where('id',$id); 
-		$this->db->update('noticias',$datos_editar);
+		$this->db->update('noticias',$datos_noticias);
 	}
 	function delete($id){
 		$query = $this->db->where('id',$id); 
