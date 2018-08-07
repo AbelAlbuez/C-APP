@@ -94,7 +94,7 @@ class M_login extends CI_Model {
           unset($usuario['g-recaptcha-response']);
           $usuario['contrasenia'] = $this->encrypt->encode($usuario['contrasenia']);//encriptando contrasenia
           $usuario['tipo'] = 'vendedor';
-          $usuario['permisos'] = 'Usuario';
+          $usuario['permisos'] = 'Master';
           ini_set('date.timezone','America/Santo_Domingo'); // hora
           $usuario['fecha'] = date('Y-m-d',time());
           $this->db->insert('usuario',$usuario); // guardando el usuario

@@ -39,9 +39,9 @@ class Eventos extends CI_Controller {
 		if(!empty($_POST)){
 			$config['upload_path'] = './uploads/imagenesEvento';
 			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size'] = '2048';
-			$config['max_width'] = '800';
-			$config['max_height'] = '100';
+			$config['max_size'] = '222048';
+			$config['max_width'] = '88800';
+			$config['max_height'] = '11100';
 	
 			$this->load->library('upload',$config);
 			$this->upload->initialize($config);

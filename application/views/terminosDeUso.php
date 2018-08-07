@@ -1,16 +1,7 @@
 <?php  
   plantilla_usuarios::iniciar($categorias); 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nosotros</title>
-</head>
-<body style="background-color:#EBF3F6" >
-   
+
     <div class="row" >
             <div  style="max-height:90% ;" id="carouselExampleIndicators" class="carousel slide w-100" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -44,7 +35,7 @@
                 <h1 style="color:#247BA0 ;"> Términos de uso</h1>
                 <div style="height:auto"class=" container">
                    
-                     <p>
+                <p style="text-align:justify">
                      Repecho.com es una pagina web dominicana que ofrece la publicación gratuita de, exclusivamente, anuncios clasificados relacionados a las bicicletas.
 
 La publicación del anuncio no supone ni representa en ningún caso la existencia de relación alguna entre la Administración de Repecho.com y la persona que realiza la publicación.
@@ -75,6 +66,4 @@ Repecho.com opera bajo las leyes y reglamentos de la República Dominicana. Los 
                 </div>
            
     </div>
-    
-</body>
-</html>
+    <br><br><br>
