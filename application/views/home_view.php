@@ -1,3 +1,1 @@
-<?php  
-  plantilla_usuarios::iniciar($categorias); 
-?>
+<?php plantilla_usuarios::iniciar($categorias); ?>
