@@ -40,6 +40,7 @@ class M_categoria extends CI_Model{
 	
 	function delete($id)
 	{
+		echo $id;
 		$query = $this->db->where('id',$id); 
 		$this->db->delete('categoria');
 	}

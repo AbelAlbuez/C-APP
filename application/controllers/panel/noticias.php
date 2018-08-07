@@ -21,17 +21,96 @@ class Noticias extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('form');
-		//Añadiremos las validaciones de ls libreria
-		$this->load->helper('url'); //para redireccionar paginas
-		$this->load->library('form_validation');
+		$this->load->helper(array('url','form')); //para redireccionar paginas
+		$this->load->library(array('form_validation', 'upload'));
+		$this->load->model('M_noticias');
+
 	
 	}
 	public function index()
 	{
-		$this->load->view('admin/view_noticias.php');
+		$data['noticias_listado'] = $this->M_noticias->get_todos();
+		//$this->load->view('admin/view_categorias.php', $data);
+		$this->load->view('admin/view_noticias.php', $data);
 	}
 	public function agregar(){
-		$this->load->view('admin/view_add_noticias.php');
+			$data['error']='';
+			$this->load->view('admin/view_add_noticias.php',$data);
 	}
+	function subirImagen(){
+		$config['upload_path'] = './uploads/noticias';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '2048';
+        $config['max_width'] = '800';
+        $config['max_height'] = '100';
+
+		$this->load->library('upload',$config);
+		$this->upload->initialize($config);
+
+        if (!$this->upload->do_upload("fileimagen")) {
+            $data['error'] = $this->upload->display_errors();
+			$this->load->view('admin/view_add_noticias.php',$data);
+        } else {
+
+            $file_info = $this->upload->data();
+         //   $this->crearMiniatura($file_info['file_name']);
+			$titulo = $this->input->post('titulo');
+			$descripcion = $this->input->post('descripcion');
+            $imagen = $file_info['file_name'];
+            $datos_usuario= array('titulo'=> $titulo, 'descripcion'=> $descripcion, 'url_imagen'=> $imagen);
+            $subir = $this->M_noticias->uploadBanner($datos_usuario);      
+           /* $data['titulo'] = $titulo;
+			$data['url_imagen'] = $imagen;
+			$data['descripcion'] = $descripcion;
+			$data['error']='';*/
+			redirect('panel/noticias');	
+            
+		}	
+	}
+
+	function get_by_id($id){
+	
+		$query = $this->db->where('id',$id); 
+		$query = $this->db->get('noticias'); 
+		return $query->result(); // retornamos lo obtenidos
+		//esto funciona como un select
+	}
+
+	public function modificar($id = null){
+		if($id==null or !is_numeric($id)){
+			echo 'Error con el id';
+			return ;
+		}
+		if($this->input->post()){
+			$this->mis_reglas();
+			if($this->form_validation->run()==TRUE){
+				$this->M_noticias->edit($id);
+				redirect('panel/noticias/');	
+			}else{
+				$this->load->view('admin/view_add_noticias.php');
+			}
+			}else{
+				$data['datos_noticias'] =$this->M_noticias->get_by_id($id);
+		
+				if(empty($data['datos_noticias'])){
+					echo "Este personaje no existe";
+				}else{
+					//print_r($data['datos_categorias']);
+					$this->load->view('admin/view_add_noticias.php', $data);
+				}
+			}
+		
+		
+		
+	}
+	public function eliminar($id = null){
+		if($id==null or !is_numeric($id)){
+			echo 'Error con el id';
+			return ;
+		}else{
+			$this->M_noticias->delete($id);
+			redirect('panel/noticias');	
+		}
+			}
+
 }

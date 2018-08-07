@@ -1,21 +1,23 @@
 <?php  plantilla::iniciar();?>
 <div class="content-wrapper">
-	<div >
-	  <a class="btn btn-primary" href="<?php echo base_url('panel/subcategorias/agregar/')?>
-								<?php echo $listado_contado[0]->id?>">  Añadir SubCategoria</a>
-	  </div>
+
 <?php if(empty($listado)){?>
-	<h1>Sin SubCategorias</h1>
+	<h1>Sin SubCategorias</h1> <br><br>
+	<a href="<?php echo base_url('panel/subcategorias/agregar/')?>
+	<?php echo $listado_contado[0]->id?>" >Agregar Subcategoria</a>
 	
 	<?php }else {?>
 
-	 <h1>Tienes (<?php echo count($listado)?>) Subcategorias</h1>
+
 
 
 	 <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Listado de Subcategorias</div>
-        <div class="card-body">
+					<i class="fa fa-table"></i> Listado de Subcategorias - (<?php echo count($listado)?>) Subcategorias
+				 <br>
+				 <a href="<?php echo base_url('panel/subcategorias/agregar/')?>
+	<?php echo $listado_contado[0]->id?>" >Agregar Subcategoria</a>
+					<div class="card-body">
 		
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -43,8 +45,14 @@
 								<td><?php echo $categoria->idcategoria?> </td>	
 								<td><?php echo $categoria->nombre?> </td>
 								<td>
-								<a href="<?php echo base_url('panel/subcategorias/eliminar/')?>
-								<?php echo $categoria->id?>">Eliminar</a> -
+							
+								<a href="#" 
+								onclick="eliminarSubCategoria(<?php echo $categoria->id?>)">
+								Eliminar
+								</a> - 
+								<a id="eliminarSubCategoria<?php echo $categoria->id?>" href="<?php echo base_url('panel/subcategorias/eliminar/')?>
+								<?php echo $categoria->id?>" style="display:none" >Prueba</a>
+							
 								<a href="<?php echo base_url('panel/subcategorias/modificar/')?>
 								<?php echo $categoria->id?>">Editar</a> - 
 								
@@ -59,10 +67,11 @@
           </div>
 		</div>
 		
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      
 	  </div>
 	  
 	  
+		
 </div>
 
 

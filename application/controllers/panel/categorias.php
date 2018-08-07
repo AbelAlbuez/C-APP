@@ -35,7 +35,7 @@ class Categorias extends CI_Controller {
 			//$this->load->model('M_contactos');
 			$id_insertado = $this->M_categoria->add();
 			
-			redirect('panel/categorias','refresh');
+			redirect('panel/categorias');
 			
 		}else{
 			//echo "Error en la validacion </br>";
@@ -86,38 +86,10 @@ class Categorias extends CI_Controller {
 		if($id==null or !is_numeric($id)){
 			echo 'Error con el id';
 			return ;
-		}
-		
-		if($this->input->post()){
-			$id_eliminar = $this->input->post('id');
-			$this->M_categoria->delete($id_eliminar);
-			
-			echo "
-			<script>
-			swal({
-				title: 'Good job!',
-				text: 'You clicked the button!',
-				icon: 'success',
-				button: 'Aww yiss!',
-			});
-			";
-			redirect('panel/categorias');	
 		}else{
-			$data['datos_categorias'] =$this->M_categoria->get_by_id($id);
-		
-				if(empty($data['datos_categorias'])){
-					echo "Este personaje no existe";
-				}else{
-					echo "<h1>entro</h1>";
-
-					echo "<script>";
-					echo "swal('hola');";
-					echo "</script>";
-			
-				}
+			$this->M_categoria->delete($id);
+			redirect('panel/categorias');	
 		}
-		
-
 			}
 
 

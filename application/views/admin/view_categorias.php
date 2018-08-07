@@ -1,15 +1,15 @@
 <?php  plantilla::iniciar();?>
 <div class="content-wrapper">
 <?php if(empty($listado)){?>
-	<h1>Sin Categoria</h1>
+	<h1>Sin Categoria</h1> <br><br>
+	<a href="<?php echo base_url('panel/categorias/agregar/')?>" >Agregar Categoria</a>
 	<?php }else {?>
-
-	 <h1>Tienes (<?php echo count($listado)?>) categoria</h1>
-
-
 	 <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Listado de Categorias</div>
+					<i class="fa fa-table"></i> Listado de Categorias - (<?php echo count($listado)?>) Categoria 
+				<br>
+				<a href="<?php echo base_url('panel/categorias/agregar/')?>" >Agregar Categoria</a>
+				</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -32,31 +32,21 @@
 							<?php
 							foreach ($listado as $categoria ) {?>
 							<tr>
-									<td><?php echo $categoria->id?></td>	
-									<td><?php echo $categoria->nombre?> </td>
-									<td>
-								
-										<a href="<?php echo base_url('panel/categorias/eliminar/')?>
-										<?php echo $categoria->id?>">Eliminar</a> -
-										
-										<a href="<?php echo base_url('panel/categorias/modificar/')?>
-										<?php echo $categoria->id?>">Editar</a> - 
-										
-										<a href="<?php echo base_url('panel/subCategorias/load/')?>
-										<?php echo $categoria->id?>">Ver SubCategorias</a>
-										
-									</td>
+							
 								<td><?php echo $categoria->id?></td>	
 								<td><?php echo $categoria->nombre?> </td>
 								<td>
 									
-								<a href="<?php echo base_url('panel/categorias/eliminar/')?>
-								<?php echo $categoria->id?>" 
-								>Eliminar</a> -
+				
 
-
+								<a href="#" 
+								onclick="eliminarCategoria(<?php echo $categoria->id;   ?>)">
+								Eliminar
+								</a> - 
+								<a id="eliminarCategoria<?php echo $categoria->id;   ?>" href="<?php echo base_url('panel/categorias/eliminar/')?>
+								<?php echo $categoria->id?>" style="display:none" >Prueba</a>
 								<a href="<?php echo base_url('panel/categorias/modificar/')?>
-								<?php echo $categoria->id?>" >Editar</a> - 
+								<?php echo $categoria->id;   ?>" >Editar</a> - 
 								<a href="<?php echo base_url('panel/subCategorias/load/')?>
 								<?php echo $categoria->id?>">Ver SubCategorias</a>
 								</td>
@@ -64,14 +54,16 @@
 		
 		<?php }?>
 
-              
+         
+<?php }?>     
               </tbody>
             </table>
           </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+
 			</div>
-			
+
+
+
 </div>
 
-<?php }?>
