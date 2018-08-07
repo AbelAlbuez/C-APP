@@ -49,8 +49,8 @@
           </a>
         </li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="<?php echo base_url('admin');?>">
-            <i class="fa fa-fw fa-dashboard"></i>
+          <a class="nav-link" href="<?php echo base_url('panel/banner');?>">
+					<i class="fa fa-check-square" aria-hidden="true"></i>
             <span class="nav-link-text">Banners</span>
           </a>
         </li>
@@ -61,53 +61,24 @@
           </a>
         </li>
 		
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCategorias" data-parent="#exampleAccordion">
-          <i class="fa fa-fw fa-area-chart"></i>
+
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="<?php echo base_url('panel/categorias');?>">
+					<i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Categorias</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseCategorias">
-		  <li>
-			  <a href="<?php echo base_url('panel/categorias');?>">
-			  <i class="fa fa-list" aria-hidden="true"></i> Listar</a>
-            </li>
-			<li>
-			  <a href="<?php echo base_url('panel/categorias/agregar');?>">
-			  <i class="fa fa-plus" aria-hidden="true"></i> Agregar</a>
-            </li>
-          </ul>
-		</li>
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseEventos" data-parent="#exampleAccordion">
-          <i class="fa fa-fw fa-area-chart"></i>
+        </li>
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="<?php echo base_url('panel/eventos');?>">
+					<i class="fa fa-calculator" aria-hidden="true"></i>
             <span class="nav-link-text">Eventos</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseEventos">
-		  <li>
-			  <a href="<?php echo base_url('panel/eventos');?>">
-			  <i class="fa fa-list" aria-hidden="true"></i> Listar</a>
-            </li>
-			<li>
-			  <a href="<?php echo base_url('panel/eventos/agregar');?>">
-			  <i class="fa fa-plus" aria-hidden="true"></i> Agregar</a>
-            </li>
-          </ul>
-		</li>
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseNoticias" data-parent="#exampleAccordion">
+        </li>
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="<?php echo base_url('panel/noticias');?>">
           <i class="fa fa-newspaper-o" aria-hidden="true"></i>
             <span class="nav-link-text">Noticias</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseNoticias">
-		  <li>
-			  <a href="<?php echo base_url('panel/noticias');?>">
-			  <i class="fa fa-list" aria-hidden="true"></i> Listar</a>
-            </li>
-			<li>
-			  <a href="<?php echo base_url('panel/noticias/agregar');?>">
-			  <i class="fa fa-plus" aria-hidden="true"></i> Agregar</a>
-            </li>
-          </ul>
         </li>
    
         
@@ -156,18 +127,19 @@
 		?>
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="<?php echo base_url('/extra/panel/');?>js/index.js"></script>
-  <script src="<?php echo base_url('/extra/panel/');?>vendor/jquery/jquery.min.js"></script>
+
+  	<script src="<?php echo base_url('/extra/panel/');?>vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url('/extra/panel/');?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<!-- Core plugin JavaScript-->
 
-
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="<?php echo base_url('/extra/panel/');?>vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="<?php echo base_url('/extra/panel/');?>vendor/chart.js/Chart.min.js"></script>
     <script src="<?php echo base_url('/extra/panel/');?>vendor/datatables/jquery.dataTables.js"></script>
     <script src="<?php echo base_url('/extra/panel/');?>vendor/datatables/dataTables.bootstrap4.js"></script>
-    <!-- Custom scripts for all pages-->
+		<!-- Custom scripts for all pages-->
+		<script src="<?php echo base_url('/extra/panel/');?>js/index.js"></script>
     <script src="<?php echo base_url('/extra/panel/');?>js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="<?php echo base_url('/extra/panel/');?>js/sb-admin-datatables.min.js"></script>

@@ -13,6 +13,7 @@ class M_usuarios extends CI_Model{
 		$query = $this->db->get('usuario'); 
 		return $query->result(); 
 	}
+
 	
 	function get_by_id($id)
 	{
@@ -20,9 +21,6 @@ class M_usuarios extends CI_Model{
 		$query = $this->db->get('usuario'); 
 		return $query->result(); 
 	}
-
-	
-
 	function edit($id)
 	{
 		$datos_editar=$this->input->post();
@@ -30,12 +28,20 @@ class M_usuarios extends CI_Model{
 		$query = $this->db->where('id',$id); 
 		$this->db->update('usuario',$datos_editar);
 	}
-	
-	function delete($id)
-	{
-		$query = $this->db->where('id',$id); 
-		$this->db->delete('usuario');
+	//Apareceran todos los usuarios menos el actual
+	function getUser($id){
+		if ($this->db->query('SELECT * FROM usuario 
+ 
+		WHERE id <> $id'))
+		{
+			return $query->result(); 
+		}
+		else
+		{
+			return false;
+		};
 	}
+	
 	function setAdmin($id)
 	{
 		if ($this->db->query('UPDATE `usuario` SET `permisos`= "Master" WHERE id = '.$id))
