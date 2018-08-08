@@ -49,11 +49,7 @@
 								<!-- <a id="eliminarBanner<?php //echo $banner->id ?>" href="<?php //echo base_url('panel/banner/eliminar/'.$banner->id)?>"
 								 style="display:none" >Prueba</a> -->
 								<a href="<?php echo base_url('panel/banner/modificar/')?>
-<<<<<<< HEAD
 								<?php echo $banner->id;   ?>" >Editar</a> 
-=======
-								<?php echo $banner->id;   ?>" >Editar</a>
->>>>>>> 09439732249bb3f4f777e6cfd16328c5e6d74efa
 								
 								</td>
 								</tr>
