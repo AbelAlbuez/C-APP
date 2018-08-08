@@ -13,34 +13,57 @@ class M_login extends CI_Model {
 
     public function validar ($usuario)
     {
-      session_start();
-      $correo = $usuario['correo'];
-      $contrasenia =$usuario['contrasenia'];
-      $query = $this->db->query( "SELECT * FROM usuario WHERE correo= '$correo'");
-      $resultado = $query->result();
-      if((count($resultado)+0 ) > 0)
-      { 
-        $contraseniaValida= $this->encrypt->decode($resultado[0]->contrasenia);
-        if($contraseniaValida == $contrasenia )
-        {
-          $_SESSION['usuario'] = $resultado[0];
-          if($_SESSION['usuario']->tipo == 1)
+      $captcha_answer = $this->input->post('g-recaptcha-response');
+      $response = $this->recaptcha->verifyResponse($captcha_answer);
+     
+      if($response['success'])
+      {
+        session_start();
+        unset($usuario['g-recaptcha-response']);
+        $correo = $usuario['correo'];
+        $contrasenia =$usuario['contrasenia'];
+        $query = $this->db->query( "SELECT * FROM usuario WHERE correo= '$correo'");
+        $resultado = $query->result();
+        if((count($resultado)+0 ) > 0)
+        { 
+          $contraseniaValida= $this->encrypt->decode($resultado[0]->contrasenia);
+          if($contraseniaValida == $contrasenia )
           {
-            $this->load->view('view_panel_admin.php');
+            $_SESSION['usuario'] = $resultado[0];
+            if($_SESSION['usuario']->tipo == 1)
+            {
+              $this->load->view('view_panel_admin.php');
+            }else
+            {
+              $this->IrHome();
+            }
+            
           }else
           {
-            $this->IrHome();
+            //Si la contrasenia es incorrecta
+            $data['categorias'] = $this->m_categoria->get_todos();
+            $data['alerta'] = 'danger';
+            $data['mensaje'] = 'Clave incorrecta';
+            $this->load->view('login', $data);
           }
-          
-        }else
-        {
-          echo"Aqui deberia ir una alerta , contrasenia incorrecta";
         }
+        else
+        {
+          //Si el correo es incorrecto
+          $data['categorias'] = $this->m_categoria->get_todos();
+          $data['alerta'] = 'danger';
+          $data['mensaje'] = 'Correo incorrecto';
+          $this->load->view('login', $data);
+        }
+
+      }else{
+        //captchat no valido
+        $data['categorias'] = $this->m_categoria->get_todos();
+        $data['alerta'] = 'danger';
+        $data['mensaje'] = 'Captchat no valido';
+        $this->load->view('login', $data);
       }
-      else
-      {
-        $this->IrHome();
-      }
+      
 
     }
 
@@ -51,47 +74,58 @@ class M_login extends CI_Model {
             session_destroy();
             session_start();
             $this->IrHome();
-        
-    }
-
-    public function Registrar($usuario)
-    { 
-                                               //confirmar si ya esta registrado el correo
-      $correo = $usuario['correo'];   
-      $query = $this->db->query( "SELECT * FROM usuario WHERE correo= '$correo' ");
-      $resultado = $query->result();
-      if((count($resultado)+0 ) <= 0)
-      {                                        //guardando
-
-        $usuario['contrasenia'] = $this->encrypt->encode($usuario['contrasenia']);//encriptando contrasenia
-        $usuario['tipo'] = 1;
-        ini_set('date.timezone','America/Santo_Domingo'); // hora
-        $usuario['fecha'] = date('Y-m-d',time());
-        $this->db->insert('usuario',$usuario); // guardando el usuario
-
-        //iniciando sesion
-        $contrasenia = $usuario['contrasenia'];
-        $query = $this->db->query( "SELECT * FROM usuario WHERE correo= '$correo' AND contrasenia= '$contrasenia'");
-        $resultado = $query->result();
-        if((count($resultado)+0 ) > 0)
-        {
-          session_start();
-          $_SESSION['usuario'] = $resultado[0];
+            
+          }
           
-          $this->IrHome();
+          public function Registrar($usuario)
+    { 
+      $captcha_answer = $this->input->post('g-recaptcha-response');
+      $response = $this->recaptcha->verifyResponse($captcha_answer);
+     
+      if($response['success'])
+      {
+        //confirmar si ya esta registrado el correo
+        $correo = $usuario['correo'];   
+        $query = $this->db->query( "SELECT * FROM usuario WHERE correo= '$correo' ");
+        $resultado = $query->result();
+        if((count($resultado)+0 ) <= 0)
+        {                                        //guardando
+          unset($usuario['g-recaptcha-response']);
+          $usuario['contrasenia'] = $this->encrypt->encode($usuario['contrasenia']);//encriptando contrasenia
+          $usuario['tipo'] = 2;
+          ini_set('date.timezone','America/Santo_Domingo'); // hora
+          $usuario['fecha'] = date('Y-m-d',time());
+          $this->db->insert('usuario',$usuario); // guardando el usuario
+  
+          //iniciando sesion
+          $contrasenia = $usuario['contrasenia'];
+          $query = $this->db->query( "SELECT * FROM usuario WHERE correo= '$correo' AND contrasenia= '$contrasenia'");
+          $resultado = $query->result();
+          if((count($resultado)+0 ) > 0)
+          {
+            session_start();
+            $_SESSION['usuario'] = $resultado[0];
+            
+            $this->IrHome();
+          }
+          else
+          {
+            echo "hay un maco";
+          }
+        }else{
+          var_dump($resultado);
+          echo count($resultado) ;
+          echo "Este correo ya ha sido registrado";
         }
-        else
-        {
-          echo "hay un maco";
-        }
+
       }else{
-        var_dump($resultado);
-        echo count($resultado) ;
-        echo "Este correo ya ha sido registrado";
+        $data['categorias'] = $this->m_categoria->get_todos(); 
+        $this->load->view('register', $data);
       }
+     
       
         
-    }
+    }//aqui termina el metodo
 
     function IrHome()
     {

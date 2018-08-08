@@ -30,6 +30,7 @@
 					position:fixed;
 				}
 			</style>
+			<script src='https://www.google.com/recaptcha/api.js'></script>
 		</head>
 		<body>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">

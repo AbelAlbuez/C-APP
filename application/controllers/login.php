@@ -11,6 +11,7 @@ class Login extends CI_Controller {
         $this->load->model('m_login');
         $this->load->helper('plantilla_usuarios');
         $this->load->helper('url');
+        $this->load->library('recaptcha');
         
 	}
 

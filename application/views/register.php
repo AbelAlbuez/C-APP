@@ -24,6 +24,7 @@
             <label for="contrasenia">Clave</label>
             <input name="contrasenia" class="form-control" id="contrasenia" type="password" aria-describedby="emailHelp" placeholder="Clave">
           </div>
+          <td><?php echo $this->recaptcha->render(); ?> </td>
           <!-- <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">

@@ -7,6 +7,16 @@
       <div class="card-header">Login</div>
       <div class="card-body">
         <form method="post" action="<?php echo base_url('index.php/login/IniciarSesion');  ?>" >
+        <?php
+            if(isset($alerta))
+            {
+              echo"
+              <div class='alert alert-{$alerta}' role='alert'>
+                {$mensaje}
+              </div>";
+            }
+        ?>
+          
           <div class="form-group">
             <label for="exampleInputEmail1">Email </label>
             <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" name="correo" placeholder="Enter email">
@@ -18,7 +28,7 @@
           <div class="form-group">
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Recordar Clave</label>
+              <td><?php echo $this->recaptcha->render(); ?> </td>
             </div>
           </div>
           
