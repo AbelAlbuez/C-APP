@@ -34,38 +34,38 @@ class Noticias extends CI_Controller {
 		$this->load->view('admin/view_noticias.php', $data);
 	}
 	public function agregar(){
+			$data['error']='';
+			$this->load->view('admin/view_add_noticias.php',$data);
+	}
+	function subirImagen(){
+		$config['upload_path'] = './uploads/noticias';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '2048';
+        $config['max_width'] = '800';
+        $config['max_height'] = '100';
 
-		if($this->input->post()){
+		$this->load->library('upload',$config);
+		$this->upload->initialize($config);
 
+        if (!$this->upload->do_upload("fileimagen")) {
+            $data['error'] = $this->upload->display_errors();
+			$this->load->view('admin/view_add_noticias.php',$data);
+        } else {
 
-			$config['upload_path'] = './uploads/noticias';
-			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size'] = '2048';
-			$config['max_width'] = '2000';
-			$config['max_height'] = '2000';
-	
-			$this->load->library('upload',$config);
-			$this->upload->initialize($config);
-	
-		  
-				$file_info = $this->upload->data();
-	
-			 //   $this->crearMiniatura($file_info['file_name']);
-	
-				$titulo = $this->input->post('titulo');
-				$descripcion = $this->input->post('descripcion');
-				$imagen = $file_info['file_name'];
-				$data_noticia=array('titulo'=>$titulo, 'descripcion'=>$descripcion, 'url_imagen'=>$imagen);
-				$subir =$this->M_noticias->add($data_noticia); 
-			
-				redirect('panel/noticias');     
-					
-		}else{
-			$this->load->view('admin/view_add_noticias.php');
-		}
-
+            $file_info = $this->upload->data();
+         //   $this->crearMiniatura($file_info['file_name']);
+			$titulo = $this->input->post('titulo');
+			$descripcion = $this->input->post('descripcion');
+            $imagen = $file_info['file_name'];
+            $datos_usuario= array('titulo'=> $titulo, 'descripcion'=> $descripcion, 'url_imagen'=> $imagen);
+            $subir = $this->M_noticias->uploadBanner($datos_usuario);      
+           /* $data['titulo'] = $titulo;
+			$data['url_imagen'] = $imagen;
+			$data['descripcion'] = $descripcion;
+			$data['error']='';*/
+			redirect('panel/noticias');	
             
-		
+		}	
 	}
 
 	function get_by_id($id){

@@ -18,6 +18,8 @@ class Admin extends CI_Controller {
 	{
 		// if($_SESSION['usuario']->tipo == 1)
 		// {
+		 if($_SESSION['usuario']->permisos == 'Master')
+		 {
 			$this->load->view('view_panel_admin.php');
 			// }else{
 			// 	$data['categorias'] = $this->m_categoria->get_todos(); 

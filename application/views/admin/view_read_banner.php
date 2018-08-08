@@ -3,13 +3,13 @@
 <div class="content-wrapper">
 <?php if(empty($listado)){?>
 	<h1>Sin Banner</h1> <br><br>
-	<a href="<?php echo base_url('panel/banner/subirImagen/')?>" >Agregar Banner</a>
+	<!-- <a href="<?php //echo base_url('panel/banner/subirImagen/')?>" >Agregar Banner</a> -->
 	<?php }else {?>
 	 <div class="card mb-3">
         <div class="card-header">
-					<i class="fa fa-table"></i> Listado de Banner - (<?php echo count($listado)?>) Categoria 
+					<i class="fa fa-table"></i> Listado de Banner - (<?php echo count($listado)?>) Banner 
 				<br>
-				<a href="<?php echo base_url('panel/banner/subirImagen/')?>">Agregar Banner</a> -
+				<!-- <a href="<?php// echo base_url('panel/banner/subirImagen/')?>">Agregar Banner</a> - -->
 				<a href="<?php echo base_url('panel/banner/preview')?>">Previsualizar contenido</a>
 				</div>
         <div class="card-body">
@@ -20,14 +20,16 @@
                   <th> ID</th>
 									<th>Titulo</th>
 									<th>Descripcion</th>
+									<th>Posicion</th>
 									<th>Acciones</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-				<th> ID</th>
+									<th> ID</th>
 									<th>Titulo</th>
 									<th>Descripcion</th>
+									<th>Posicion</th>
 									<th>Acciones</th>
                 </tr>
               </tfoot>
@@ -39,14 +41,15 @@
 								<td><?php echo $banner->id?></td>	
 								<td><?php echo $banner->titulo?> </td>
 								<td><?php echo $banner->descripcion?> </td>
+								<td><?php echo $banner->posicion?> </td>
 								<td>
-								<a href="#" onclick="eliminarBanner(<?php echo $banner->id?>)">
+								<!-- <a href="#" onclick="eliminarBanner(<?php //echo $banner->id?>)">
 								Eliminar
-								</a> - 
-								<a id="eliminarBanner<?php echo $banner->id ?>" href="<?php echo base_url('panel/banner/eliminar/'.$banner->id)?>"
-								 style="display:none" >Prueba</a>
+								</a> -  -->
+								<!-- <a id="eliminarBanner<?php //echo $banner->id ?>" href="<?php //echo base_url('panel/banner/eliminar/'.$banner->id)?>"
+								 style="display:none" >Prueba</a> -->
 								<a href="<?php echo base_url('panel/banner/modificar/')?>
-								<?php echo $banner->id;   ?>" >Editar</a> - 
+								<?php echo $banner->id;   ?>" >Editar</a> 
 								
 								</td>
 								</tr>
