@@ -9,20 +9,29 @@
       <div class="card-body">
         <form method="post" action="<?php echo base_url('index.php/login/Registrar')?>" >
           <div class="form-group">
+          <?php
+          if(isset($alerta))
+          {
+            echo"
+            <div class='alert alert-{$alerta}' role='alert'>
+              {$mensaje}
+            </div>";
+          }
+          ?>
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputName">Apodo</label>
-                <input name="apodo" class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Apodo">
+                <input required name="apodo" class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Apodo">
               </div>
               <div class="col-md-6">
                 <label for="correo">Correo</label>
-                <input name="correo" class="form-control" id="correo" type="email" aria-describedby="nameHelp" placeholder="Correo">
+                <input required name="correo" class="form-control" id="correo" type="email" aria-describedby="nameHelp" placeholder="Correo">
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="contrasenia">Clave</label>
-            <input name="contrasenia" class="form-control" id="contrasenia" type="password" aria-describedby="emailHelp" placeholder="Clave">
+            <input required name="contrasenia" class="form-control" id="contrasenia" type="password" aria-describedby="emailHelp" placeholder="Clave">
           </div>
           <td><?php echo $this->recaptcha->render(); ?> </td>
           <!-- <div class="form-group">

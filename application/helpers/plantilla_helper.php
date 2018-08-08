@@ -88,11 +88,8 @@
 		 <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<i class="fa fa-user-circle-o" aria-hidden="true"></i> Abel Albuez Sanchez
-            <span class="d-lg-none">
-						Abel Albuez Sanchez
-     
-            </span>
+					<i class="fa fa-user-circle-o" aria-hidden="true"></i> <?php if (!empty($_SESSION)){$nombre = $_SESSION['usuario']->apodo; echo $nombre; }  ?>
+            
             <span class="indicator text-primary d-none d-lg-block">
            
             </span>
@@ -105,7 +102,7 @@
               <strong>Editar Perfil</strong>
             </a>
 						<div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item" href="<?php echo base_url('login/CerrarSesion'); ?>">
 						<i class="fa fa-fw fa-sign-out"></i>
             <strong>Cerrar Session</strong>
             </a>

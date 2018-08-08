@@ -18,7 +18,7 @@ class M_login extends CI_Model {
      
       if($response['success'])
       {
-        session_start();
+        
         unset($usuario['g-recaptcha-response']);
         $correo = $usuario['correo'];
         $contrasenia =$usuario['contrasenia'];
@@ -30,12 +30,12 @@ class M_login extends CI_Model {
           if($contraseniaValida == $contrasenia )
           {
             $_SESSION['usuario'] = $resultado[0];
-            if($_SESSION['usuario']->tipo == 1)
+            if($_SESSION['usuario']->permisos == 'Master')
             {
-              $this->load->view('view_panel_admin.php');
+              redirect('admin/');
             }else
             {
-              $this->IrHome();
+              redirect('home/');
             }
             
           }else
@@ -79,6 +79,7 @@ class M_login extends CI_Model {
           
           public function Registrar($usuario)
     { 
+      
       $captcha_answer = $this->input->post('g-recaptcha-response');
       $response = $this->recaptcha->verifyResponse($captcha_answer);
      
@@ -92,7 +93,8 @@ class M_login extends CI_Model {
         {                                        //guardando
           unset($usuario['g-recaptcha-response']);
           $usuario['contrasenia'] = $this->encrypt->encode($usuario['contrasenia']);//encriptando contrasenia
-          $usuario['tipo'] = 2;
+          $usuario['tipo'] = 'vendedor';
+          $usuario['permisos'] = 'Usuario';
           ini_set('date.timezone','America/Santo_Domingo'); // hora
           $usuario['fecha'] = date('Y-m-d',time());
           $this->db->insert('usuario',$usuario); // guardando el usuario
@@ -103,19 +105,21 @@ class M_login extends CI_Model {
           $resultado = $query->result();
           if((count($resultado)+0 ) > 0)
           {
-            session_start();
+            
             $_SESSION['usuario'] = $resultado[0];
             
-            $this->IrHome();
+            redirect('home/');
           }
           else
           {
             echo "hay un maco";
           }
         }else{
-          var_dump($resultado);
-          echo count($resultado) ;
-          echo "Este correo ya ha sido registrado";
+          $data['alerta']='danger';
+          $data['mensaje'] = 'El email ya ha sido registrado , intenta con otro .';
+          $data['categorias'] = $this->m_categoria->get_todos(); 
+          $this->load->view('register', $data);
+          
         }
 
       }else{

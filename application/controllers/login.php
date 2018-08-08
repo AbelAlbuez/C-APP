@@ -17,19 +17,32 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-        
-		$data['categorias'] = $this->m_categoria->get_todos(); 
-		$this->load->view('login',$data);
+        session_start();
+        if(empty($_SESSION))
+        {
+            $data['categorias'] = $this->m_categoria->get_todos(); 
+            $this->load->view('login',$data);
+        }else{
+            $data['categorias'] = $this->m_categoria->get_todos(); 
+            $this->load->view('home_view',$data);
+        }
     }
     
     public function IniciarSesion ()
     {
-        if(isset($_POST))
+        session_start();
+        if(empty($_SESSION))
         {
-            $this->m_login->validar($_POST);
+            if(isset($_POST))
+            {
+                $this->m_login->validar($_POST);
+
+            }
+        }else{
+            $data['categorias'] = $this->m_categoria->get_todos(); 
+            $this->load->view('home_view',$data); 
 
         }
-
     }
     public function CerrarSesion ()
     {
@@ -39,13 +52,20 @@ class Login extends CI_Controller {
 
     public function Registrar()
     {
-        if(isset($_POST) and !empty($_POST) )
-        {
-            $this->m_login->Registrar($_POST);
-            
+        session_start();
+        
+        if(empty($_SESSION)){
+            if(isset($_POST) and !empty($_POST) )
+            {
+                $this->m_login->Registrar($_POST);
+                
+            }else{
+                $data['categorias'] = $this->m_categoria->get_todos(); 
+                $this->load->view('Register',$data);
+            }
         }else{
             $data['categorias'] = $this->m_categoria->get_todos(); 
-            $this->load->view('Register',$data);
+            $this->load->view('home_view',$data);  
         }
         
     }

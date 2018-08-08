@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_categoria extends CI_Model{
+class M_categoria_accesorios extends CI_Model{
 	
 	function __construct()
 	{
@@ -11,22 +11,20 @@ class M_categoria extends CI_Model{
 
 	function get_todos()
 	{
-		$query = $this->db->get('categoria'); 
+		$query = $this->db->get('categoria_accesorios'); 
 		return $query->result(); 
 	}
 	
 	function get_by_id($id)
 	{
-		$query = $this->db->where('id',$id); 
-		$query = $this->db->get('categoria'); 
+		$query = $this->db->where('id', $id); 
+		$query = $this->db->get('categoria_accesorios'); 
 		return $query->result(); 
 	}
 
-	function add()
+	function add($data)
 	{
-		$datos_insertar=$this->input->post();
-		unset($datos_insertar['btn_enviar']);
-		$this->db->insert('categoria',$datos_insertar);
+		$this->db->insert('categoria_accesorios', $data);
 		return $this->db->insert_id();
 	}
 
@@ -35,14 +33,13 @@ class M_categoria extends CI_Model{
 		$datos_editar=$this->input->post();
 		unset($datos_editar['btn_enviar']);
 		$query = $this->db->where('id',$id); 
-		$this->db->update('categoria',$datos_editar);
+		$this->db->update('categoria_accesorios',$datos_editar);
 	}
 	
 	function delete($id)
 	{
-		echo $id;
 		$query = $this->db->where('id',$id); 
-		$this->db->delete('categoria');
+		return ($this->db->delete('categoria_accesorios')) ? true : false ;
 	}
 
 }

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_categoria extends CI_Model{
+class M_imagenes extends CI_Model{
 	
 	function __construct()
 	{
@@ -11,40 +11,34 @@ class M_categoria extends CI_Model{
 
 	function get_todos()
 	{
-		$query = $this->db->get('categoria'); 
+		$query = $this->db->get('imagenes'); 
 		return $query->result(); 
 	}
 	
 	function get_by_id($id)
 	{
-		$query = $this->db->where('id',$id); 
-		$query = $this->db->get('categoria'); 
+		$query = $this->db->where('id_anuncio',$id); 
+		$query = $this->db->get('imagenes'); 
 		return $query->result(); 
 	}
 
-	function add()
+	function add($data)
 	{
-		$datos_insertar=$this->input->post();
-		unset($datos_insertar['btn_enviar']);
-		$this->db->insert('categoria',$datos_insertar);
+		$this->db->insert('imagenes', $data);
 		return $this->db->insert_id();
 	}
 
 	function edit($id)
 	{
 		$datos_editar=$this->input->post();
-		unset($datos_editar['btn_enviar']);
 		$query = $this->db->where('id',$id); 
-		$this->db->update('categoria',$datos_editar);
+		$this->db->update('imagenes',$datos_editar);
 	}
 	
 	function delete($id)
 	{
-		echo $id;
 		$query = $this->db->where('id',$id); 
-		$this->db->delete('categoria');
+        return ($this->db->delete('imagenes')) ? true : false ;
 	}
 
 }
-
-/* Fin del archivo m_categoria.php */ 
