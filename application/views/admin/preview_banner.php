@@ -1,8 +1,13 @@
-<?php  plantilla::iniciar();
-
-?>
+<?php  plantilla::iniciar();?>
 <div class="content-wrapper">
+<?php if(empty($listado)){?>
+	<h1>Sin Categoria</h1> <br><br>
+	<a href="<?php echo base_url('panel/categorias/agregar/')?>" >Agregar Categoria</a>
+	<?php }else {?>
 
+
+				<?php
+							foreach ($listado as $categoria ) {?>
 	<div class="banel-principal">
 		<img class="img-principal" src="https://www.tuexperto.com/wp-content/uploads/2018/03/paisajes.jpg" alt="">
 	</div>
@@ -20,6 +25,11 @@
 		</div>
 
 	</div>
+			
+	<?php }?>
+
+         
+<?php }?>    
 
 </div>
 
