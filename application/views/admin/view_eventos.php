@@ -55,13 +55,18 @@
 								<td><?php echo $eventos->url_imagen?></td>	
 
 								<td>
-								<a href="#" onclick="eliminarEventos(<?php echo $eventos->id?>)">
+								<!-- onclick="eliminarEventos(<?php echo $eventos->id?>)" -->
+								<a href="<?php echo base_url('panel/eventos/eliminar/'.$eventos->id)?>" >
+								
 								Eliminar
-								</a> - 
+								</a>
+
+								
+								- 
 								<a id="eliminarEventos<?php echo $eventos->id?>" href="<?php echo base_url('panel/eventos/eliminar/')?>
 								<?php echo $eventos->id?>" style="display:none" >Prueba</a>
 								
-								<a href="<?php echo base_url('panel/eventos/modificar/')?>
+								<a href="<?php echo base_url('panel/eventos/modificar/') ;?> 
 								<?php echo $eventos->id;   ?>" >Editar</a>
 							
 						

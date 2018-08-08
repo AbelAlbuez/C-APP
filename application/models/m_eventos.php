@@ -9,7 +9,7 @@ class M_eventos extends CI_Model{
 			$this->load->database();
 	}
 	function get_todos(){
-	
+		
 		$query = $this->db->get('eventos'); 
 		return $query->result(); // retornamos lo obtenidos
 		//esto funciona como un select
@@ -28,11 +28,10 @@ class M_eventos extends CI_Model{
 		return $query->result(); // retornamos lo obtenidos
 		//esto funciona como un select
 	}
-	function add(){
+	function add($evento){
 	
-		$datos_insertar=$this->input->post();
-		unset($datos_insertar['btn_enviar']);
-		$this->db->insert('eventos',$datos_insertar);
+		
+		$this->db->insert('eventos',$evento);
 		return $this->db->insert_id();
 
 	}

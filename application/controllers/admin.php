@@ -16,12 +16,12 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		if($_SESSION['usuario']->tipo == 1)
-		{
+		// if($_SESSION['usuario']->tipo == 1)
+		// {
 			$this->load->view('view_panel_admin.php');
-        }else{
-			$data['categorias'] = $this->m_categoria->get_todos(); 
-			$this->load->view('home_view', $data);
-		}
+			// }else{
+			// 	$data['categorias'] = $this->m_categoria->get_todos(); 
+			// 	$this->load->view('home_view', $data);
+			// }
 	}
 }
