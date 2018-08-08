@@ -21,11 +21,10 @@ class Noticias extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('form');
-		//Añadiremos las validaciones de ls libreria
-		$this->load->helper('url'); //para redireccionar paginas
-		$this->load->library('form_validation');
+		$this->load->helper(array('url','form')); //para redireccionar paginas
+		$this->load->library(array('form_validation', 'upload'));
 		$this->load->model('M_noticias');
+
 	
 	}
 	public function index()
@@ -35,25 +34,38 @@ class Noticias extends CI_Controller {
 		$this->load->view('admin/view_noticias.php', $data);
 	}
 	public function agregar(){
-		$this->load->view('admin/view_add_noticias.php');
-		//esto es para ver si tengo algo en post
-		if($this->input->post()){
-			$this->mis_reglas();
-		if ($this->form_validation->run() == TRUE){
-			/*echo "Informacion recibida </br>";
-			print_r($this->input->post());*/
-			//$this->load->model('M_contactos');
-			$id_insertado = $this->M_noticias->add();
-			
-			redirect('panel/noticias');
-			
-		}else{
-			//echo "Error en la validacion </br>";
-			$this->load->view('admin/view_add_noticias.php');
-		}
-		}else{
-			$this->load->view('admin/view_add_noticias.php');
-		}
+
+		
+		$config['upload_path'] = './uploads/noticias';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '2048';
+        $config['max_width'] = '2000';
+        $config['max_height'] = '2000';
+
+		$this->load->library('upload',$config);
+		$this->upload->initialize($config);
+
+        if (!$this->upload->do_upload("url_imagen")) {
+			$data['error'] = $this->upload->display_errors();
+			$this->load->view('admin/view_add_noticias.php', $data);
+		
+        } else {
+
+            $file_info = $this->upload->data();
+
+         //   $this->crearMiniatura($file_info['file_name']);
+
+			$titulo = $this->input->post('titulo');
+			$descripcion = $this->input->post('descripcion');
+			$imagen = $file_info['file_name'];
+
+			$this->M_noticias->add($titulo,$imagen, $descripcion); 
+			redirect('panel/noticias');     
+            
+			$data['error']='';
+				
+            
+		}	
 	}
 
 	function get_by_id($id){

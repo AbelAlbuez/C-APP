@@ -28,12 +28,10 @@ class M_noticias extends CI_Model{
 		return $query->result(); // retornamos lo obtenidos
 		//esto funciona como un select
 	}
-	function add(){
-	
-		$datos_insertar=$this->input->post();
-		unset($datos_insertar['btn_enviar']);
-		$this->db->insert('noticias',$datos_insertar);
-		return $this->db->insert_id();
+	function add($data_noticias){
+		
+		echo $data_noticias;
+		return $this->db->insert('noticias',$data_noticias);
 
 	}
 	function edit($id){

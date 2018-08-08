@@ -37,8 +37,8 @@ class Banner extends CI_Controller {
 		$config['upload_path'] = './uploads/imagenesBanner';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '2048';
-        $config['max_width'] = '1013';
-        $config['max_height'] = '313';
+        $config['max_width'] = '800';
+        $config['max_height'] = '100';
 
 		$this->load->library('upload',$config);
 		$this->upload->initialize($config);

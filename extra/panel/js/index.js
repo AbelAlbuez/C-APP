@@ -1,3 +1,5 @@
+
+
 function eliminarCategoria(id){
 	//$("#eliminarCategoria").href= "hola mundo";
 	swal({
