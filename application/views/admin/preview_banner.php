@@ -6,27 +6,29 @@
 	<?php }else {?>
 
 
-				<?php
-							foreach ($listado as $banner ) {?>
+				
 	<div class="banel-principal">
-		<img class="img-principal" src="<?php echo $listado->url_imagen?>" alt="">
+		<img class="img-principal" 
+		src="<?php echo base_url('uploads/imagenesBanner/').$listado[0]->url_imagen;?>" alt="">
 	</div>
 
 	<div class="wrapable">
 
 		<div class="banel-secundario">
-			<img class="img-secundaria" src="<?php echo $listado->url_imagen?>"
+			<img class="img-secundaria" 
+			src="<?php echo base_url('uploads/imagenesBanner/').$listado[1]->url_imagen?>"
 			alt="">
 		</div>
 
 		<div class="banel-secundario">
-			<img class="img-secundaria" src="<?php echo $listado->url_imagen?>"
+			<img class="img-secundaria" 
+			src="<?php echo base_url('uploads/imagenesBanner/').$listado[2]->url_imagen?>"
 			alt="">
 		</div>
 
 	</div>
 			
-	<?php }?>
+
 
          
 <?php }?>    
