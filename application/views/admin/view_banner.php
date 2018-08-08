@@ -11,7 +11,7 @@
 	</tr>
 	<tr>
 		<td>Descripcion (Solo Lectura)</td>
-		<td><input readonly id="descripcion" name="descripcion" class="form-control" ></td>
+		<td><input  id="descripcion" name="descripcion" class="form-control" value="<?php echo $datos_banner[0]->descripcion;?>"></td>
 	</tr>
 	<tr>
 		<td>Imagen</td>
