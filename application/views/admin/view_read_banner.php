@@ -46,7 +46,7 @@
 								<a id="eliminarBanner<?php echo $banner->id ?>" href="<?php echo base_url('panel/banner/eliminar/'.$banner->id)?>"
 								 style="display:none" >Prueba</a>
 								<a href="<?php echo base_url('panel/banner/modificar/')?>
-								<?php echo $banner->id;   ?>" >Editar</a> - 
+								<?php echo $banner->id;   ?>" >Editar</a> 
 								
 								</td>
 								</tr>
