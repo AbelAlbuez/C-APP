@@ -35,37 +35,37 @@ class Noticias extends CI_Controller {
 	}
 	public function agregar(){
 
-		
-		$config['upload_path'] = './uploads/noticias';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = '2048';
-        $config['max_width'] = '2000';
-        $config['max_height'] = '2000';
+		if($this->input->post()){
 
-		$this->load->library('upload',$config);
-		$this->upload->initialize($config);
 
-        if (!$this->upload->do_upload("url_imagen")) {
-			$data['error'] = $this->upload->display_errors();
-			$this->load->view('admin/view_add_noticias.php', $data);
-		
-        } else {
+			$config['upload_path'] = './uploads/noticias';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = '2048';
+			$config['max_width'] = '2000';
+			$config['max_height'] = '2000';
+	
+			$this->load->library('upload',$config);
+			$this->upload->initialize($config);
+	
+		  
+				$file_info = $this->upload->data();
+	
+			 //   $this->crearMiniatura($file_info['file_name']);
+	
+				$titulo = $this->input->post('titulo');
+				$descripcion = $this->input->post('descripcion');
+				$imagen = $file_info['file_name'];
+				$data_noticia=array('titulo'=>$titulo, 'descripcion'=>$descripcion, 'url_imagen'=>$imagen);
+				$subir =$this->M_noticias->add($data_noticia); 
+			
+				redirect('panel/noticias');     
+					
+		}else{
+			$this->load->view('admin/view_add_noticias.php');
+		}
 
-            $file_info = $this->upload->data();
-
-         //   $this->crearMiniatura($file_info['file_name']);
-
-			$titulo = $this->input->post('titulo');
-			$descripcion = $this->input->post('descripcion');
-			$imagen = $file_info['file_name'];
-
-			$this->M_noticias->add($titulo,$imagen, $descripcion); 
-			redirect('panel/noticias');     
             
-			$data['error']='';
-				
-            
-		}	
+		
 	}
 
 	function get_by_id($id){

@@ -43,7 +43,7 @@ $input_descripcion = array(
 
 <?php echo form_label('Url Imagen');?><br>
 <?php echo form_input($input_url_imagen);?><br>
-<?php echo $error;?>
+
 
 <?php echo form_submit('btn_enviar', 'Guardar');?><br>
 <?php echo form_close();?>

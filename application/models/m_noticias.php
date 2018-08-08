@@ -30,7 +30,7 @@ class M_noticias extends CI_Model{
 	}
 	function add($data_noticias){
 		
-		echo $data_noticias;
+	
 		return $this->db->insert('noticias',$data_noticias);
 
 	}
