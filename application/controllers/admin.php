@@ -15,13 +15,21 @@ class Admin extends CI_Controller {
 	}
 
 	public function index()
-	{
-		 if($_SESSION['usuario']->permisos == 'Master')
-		 {
-			$this->load->view('view_panel_admin.php');
-			 }else{
-			 	$data['categorias'] = $this->m_categoria->get_todos(); 
-			 	$this->load->view('home_view', $data);
-			}
+	{   
+		if(!empty($_SESSION)){
+			if($_SESSION['usuario']->permisos == 'Master')
+			{
+			   $this->load->view('view_panel_admin.php');
+				}else{
+					$data['categorias'] = $this->m_categoria->get_todos(); 
+					$this->load->view('home_view', $data);
+			   }
+
+		}else{
+			$data['categorias'] = $this->m_categoria->get_todos(); 
+			$this->load->view('home_view', $data);
+		
+		}
+		 
 	}
 }
