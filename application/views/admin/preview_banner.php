@@ -7,20 +7,20 @@
 
 
 				<?php
-							foreach ($listado as $categoria ) {?>
+							foreach ($listado as $banner ) {?>
 	<div class="banel-principal">
-		<img class="img-principal" src="https://www.tuexperto.com/wp-content/uploads/2018/03/paisajes.jpg" alt="">
+		<img class="img-principal" src="<?php echo $listado->url_imagen?>" alt="">
 	</div>
 
 	<div class="wrapable">
 
 		<div class="banel-secundario">
-			<img class="img-secundaria" src="https://s-media-cache-ak0.pinimg.com/originals/6d/06/f5/6d06f5b859c7580fbf91e5d6378b4109.jpg"
+			<img class="img-secundaria" src="<?php echo $listado->url_imagen?>"
 			alt="">
 		</div>
 
 		<div class="banel-secundario">
-			<img class="img-secundaria" src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Tateyama_from_jiigatake_20_2001_11_20.jpg"
+			<img class="img-secundaria" src="<?php echo $listado->url_imagen?>"
 			alt="">
 		</div>
 
