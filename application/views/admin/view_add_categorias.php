@@ -41,7 +41,8 @@ $submit = array(
 	}
 	.content-div{
 		width: 60%;
-		margin: 20%;
+		margin: 0 20%;
+		margin-top: 130px;
 		border: 1px solid rgb(206, 206, 206);
 		padding: 20px;
 		border-radius: 5px;

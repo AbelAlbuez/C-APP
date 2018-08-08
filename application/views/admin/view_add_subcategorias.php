@@ -45,7 +45,7 @@ if(empty($datos_contactos[0]->id)){
   <div class="content-wrapper">
 <div class="content-div">
 
-		<h1>Nueva Subcategoría</h1>
+		<h1>Subcategoría</h1>
 
 <?php echo form_open();?><br>
 
@@ -67,7 +67,8 @@ if(empty($datos_contactos[0]->id)){
 	}
 	.content-div{
 		width: 60%;
-		margin: 20%;
+		margin: 0 20%;
+		margin-top: 80px;
 		border: 1px solid rgb(206, 206, 206);
 		padding: 20px;
 		border-radius: 5px;

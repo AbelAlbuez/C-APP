@@ -54,7 +54,7 @@
 								<?php echo $categoria->id?>" style="display:none" >Prueba</a>
 							
 								<a href="<?php echo base_url('panel/subcategorias/modificar/')?>
-								<?php echo $categoria->id?>">Editar</a> - 
+								<?php echo $categoria->id?>">Editar</a> 
 								
 								</td>
 								</tr>
