@@ -33,34 +33,34 @@ class Banner extends CI_Controller {
 			redirect('panel/banner');	
 		}
 	}
-	function subirImagen(){
+	function subirImagen($id){
 		$config['upload_path'] = './uploads/imagenesBanner';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '2048';
-        $config['max_width'] = '800';
-        $config['max_height'] = '100';
+        $config['max_width'] = '2000';
+        $config['max_height'] = '2000';
 
 		$this->load->library('upload',$config);
 		$this->upload->initialize($config);
 
         if (!$this->upload->do_upload("fileimagen")) {
             $data['error'] = $this->upload->display_errors();
-			$this->load->view('admin/view_banner.php',$data);
+			$data['datos_banner'] =$this->M_banner->get_by_id($id);
+			$this->load->view('admin/view_banner', $data);
         } else {
 
             $file_info = $this->upload->data();
-
          //   $this->crearMiniatura($file_info['file_name']);
-
 			$titulo = $this->input->post('titulo');
 			$descripcion = $this->input->post('descripcion');
-            $imagen = $file_info['file_name'];
-            
-            $subir = $this->M_banner->uploadBanner($titulo,$imagen, $descripcion);      
-            $data['titulo'] = $titulo;
+			$imagen = $file_info['file_name'];
+			$posicion = $this->input->post('posicion');
+            $datos_usuario= array('titulo'=> $titulo, 'descripcion'=> $descripcion, 'url_imagen'=> $imagen, 'posicion'=> $posicion);
+            $subir = $this->M_banner->uploadBanner($id, $datos_usuario);      
+           /* $data['titulo'] = $titulo;
 			$data['url_imagen'] = $imagen;
 			$data['descripcion'] = $descripcion;
-			$data['error']='';
+			$data['error']='';*/
 			redirect('panel/banner');	
             
 		}	
@@ -77,30 +77,19 @@ class Banner extends CI_Controller {
 	}
 
 	public function modificar($id = null){
+	
 		if($id==null or !is_numeric($id)){
 			echo 'Error con el id';
 			return ;
 		}else{
-		if($this->input->post()){
-			$this->mis_reglas();
-			if($this->form_validation->run()==TRUE){
-				$this->M_usuarios->edit($id);
-				redirect('panel/usuarios/');	
-			}else{
-				$this->load->view('admin/view_add_usuarios');
-			}
-			}else{
-				$data['datos_usuarios'] =$this->M_usuarios->get_by_id($id);
-		
-				if(empty($data['datos_usuarios'])){
-					echo "Este personaje no existe";
-				}else{
-					//print_r($data['datos_categorias']);
-					$this->load->view('admin/view_add_usuarios', $data);
-				}
-			}
+			$data['error']='';
+			$data['datos_banner'] =$this->M_banner->get_by_id($id);
+			$this->load->view('admin/view_banner', $data);
+				
+			
 		}
 	}
+
 
 	
 	

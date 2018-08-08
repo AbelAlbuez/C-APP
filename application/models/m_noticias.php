@@ -34,6 +34,9 @@ class M_noticias extends CI_Model{
 		return $this->db->insert('noticias',$data_noticias);
 
 	}
+	function uploadBanner($datos_usuario){
+		return $this->db->insert('noticias', $datos_usuario);
+	}
 	function edit($id){
 		
 		$datos_editar=$this->input->post();
