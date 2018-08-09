@@ -8,7 +8,7 @@
 
 <div class="content-wrapper">
 
-	<form ction="<?php echo base_url('panel/noticias/subirImagen/')?>" method="POST" enctype="multipart/form-data">
+	<form action="<?php echo base_url('panel/noticias/subirImagen/')?>" method="POST" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="exampleInputEmail1">Titulo</label>
 			<input type="text" class="form-control" id="titulo" aria-describedby="emailHelp" placeholder="Ingresa un titulo" name="titulo">
