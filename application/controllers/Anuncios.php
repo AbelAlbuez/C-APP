@@ -129,13 +129,14 @@ class Anuncios extends CI_Controller {
                         # insertando la data en la bd
     
                         # categoria accesorios / falta sacar el idusuario de la sesion
-                       
+                        session_start();
+                        $id_usuario = $_SESSION['usuario']->id;
                         $values = array('celular' => $this->input->post('celular'), 'moneda' => $this->input->post('moneda'), 
                                         'titulo_anuncio' => $this->input->post('titulo_anuncio'), 'descripcion' => $this->input->post('descripcion'),
                                         'destacar' => ($this->input->post('destacar') != null) ? 'si' : 'no', 'precio' => $this->input->post('precio'), 
                                         'telefono' => $this->input->post('telefono'), 'accion' => $this->input->post('accion'), 'provincia' => $this->input->post('provincia'),
                                         'marca' => $this->input->post('marca'), 'modelo' => $this->input->post('modelo'), 'accesorio' => $this->input->post('accesorio'), 'idcategoria' => $this->input->post('id_categoria'),
-                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => 0, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
+                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => $id_usuario, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
     
                         $id_anuncio = $this->m_categoria_accesorios->add($values);
                         

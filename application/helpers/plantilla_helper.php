@@ -88,7 +88,8 @@
 		 <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<i class="fa fa-user-circle-o" aria-hidden="true"></i> <?php if (!empty($_SESSION)){$nombre = $_SESSION['usuario']->apodo; echo $nombre; }  ?>
+					<i class="fa fa-user-circle-o" aria-hidden="true"></i> 
+
             
             <span class="indicator text-primary d-none d-lg-block">
            

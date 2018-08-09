@@ -39,9 +39,9 @@ class Eventos extends CI_Controller {
 		if(!empty($_POST)){
 			$config['upload_path'] = './uploads/imagenesEvento';
 			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size'] = '2048';
-			$config['max_width'] = '800';
-			$config['max_height'] = '100';
+			$config['max_size'] = '222048';
+			$config['max_width'] = '88800';
+			$config['max_height'] = '11100';
 	
 			$this->load->library('upload',$config);
 			$this->upload->initialize($config);
@@ -67,7 +67,7 @@ class Eventos extends CI_Controller {
 				 $evento['hora'] = $this->input->post('hora');
 				 $evento['link'] = $this->input->post('link');
 				 $evento['url_imagen'] = $file_info['file_name'];
-				 $evento['id_usuario'] = $_SESSION['usuario']->id;
+				// $evento['id_usuario'] = $_SESSION['usuario']->id;
 				 $this->M_eventos->add($evento);
 				 redirect('panel/eventos/');
 					

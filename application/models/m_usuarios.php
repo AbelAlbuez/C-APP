@@ -11,23 +11,13 @@ class M_usuarios extends CI_Model{
 
 	function get_todos()
 	{	
-		$query = $this->db->get('subcategoria'); 
+		$query = $this->db->get('usuario'); 
 		return $query->result();
 	}
 
-	function get_by_idcategoria($id)
-	{
-		$query = $this->db->where('idcategoria',$id); 
-		$query = $this->db->get('subcategoria'); 
-		return $query->result(); 
-	}
 
-	function get_by_id($id)
-	{
-		$query = $this->db->where('id',$id); 
-		$query = $this->db->get('subcategoria'); 
-		return $query->result();
-	}
+
+
 
 	function add()
 	{
@@ -36,14 +26,14 @@ class M_usuarios extends CI_Model{
 		$this->db->insert('subcategoria',$datos_insertar);
 		return $this->db->insert_id();
 	}
-
-	{
+	/* function get_todos()
+   {
 		session_start();
 		$id_usuario = $_SESSION['usuario']->id;
 		$query = $this->db->where('id!=',$id_usuario);
 		$query = $this->db->get('usuario'); 
 		return $query->result(); 
-	}
+	}*/
 
 	
 	function get_by_id($id)
@@ -66,7 +56,7 @@ class M_usuarios extends CI_Model{
 		$this->db->delete('subcategoria');
 	}
 
-}
+
 
 /*Fin del archivo m_usuario.php*/ 
 

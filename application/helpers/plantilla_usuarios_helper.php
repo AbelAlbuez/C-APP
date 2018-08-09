@@ -80,7 +80,7 @@
 
 					</ul>
 					<?php
-
+					/*
 					if (!empty($_SESSION)){
 						$nombre = $_SESSION['usuario']->apodo;
 						$linkCerrar = base_url('login/CerrarSesion');
@@ -91,7 +91,7 @@
 					}else{
 						$linkIniciar = base_url('login');
 						echo"<a class='nav-link' href='{$linkIniciar}' style='color:white!important;'>Iniciar Sesion<b></b> </a> ";
-					} ?>
+					} */?>
 
 				</div>
 			</nav>
