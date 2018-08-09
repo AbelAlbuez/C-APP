@@ -1,10 +1,19 @@
 <?php plantilla_usuarios::iniciar($categorias); ?>
 
 
+
 <div class="container">
 
 
-
+        <div id="demo" class="carousel slide" data-ride="carousel">
+                <!-- The slideshow -->
+                <div class="carousel-inner">
+                    <div class="carousel-ite active">
+                        <img class="img-slider" src="https://about.canva.com/es_es/wp-content/uploads/sites/3/2015/02/Etsy-Banners.png" alt="Los Angeles">
+                    </div>
+                </div>
+            </div>
+        <hr>
 
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
@@ -259,5 +268,11 @@
 	.carousel {
 		margin-top: 10px;
 	}
+    .img-slider {
+    width: 100%;
+    height: 100px;
+    
+    /* filter: blur(1px); */
+}
 
 </style>
