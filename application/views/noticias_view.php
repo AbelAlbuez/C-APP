@@ -17,7 +17,7 @@
 			<div class="carousel-item active">
 				<img class="d-block w-100" src="https://cdn.pixabay.com/photo/2017/11/07/00/07/fantasy-2925250__340.jpg" alt="First slide">
 				<div class="carousel-caption d-none d-md-block">
-					<h5>Anuncio 1</h5>
+					<h5>Noticia 1</h5>
 					<p>Este es un anuncio vacano</p>
 				</div>
 			</div>
