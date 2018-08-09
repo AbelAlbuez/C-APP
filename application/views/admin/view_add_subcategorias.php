@@ -19,7 +19,7 @@ $this->load->model('M_categoria');
 
 if(empty($datos_contactos[0]->id)){
 	$input_idcategoria = array(
-		'type'  	 => 	'text',
+		'type'  	 => 	'hidden',
 		'name'  	 => 	'idcategoria',
 		'id'    	 => 	'idcategoria',
 		'maxlength'  => 	'60',
@@ -30,7 +30,7 @@ if(empty($datos_contactos[0]->id)){
 	);
 }else{
 	$input_idcategoria = array(
-		'type'  	 => 	'text',
+		'type'  	 => 	'hidden',
 		'name'  	 => 	'idcategoria',
 		'id'    	 => 	'idcategoria',
 		'maxlength'  => 	'60',
@@ -52,10 +52,11 @@ if(empty($datos_contactos[0]->id)){
 <?php echo form_label('Nombre');?><br>
 <?php echo form_input($input_nombre);?><br>
 <?php echo form_error('nombre') ?><br>
-<?php echo form_label('IdCategoria');?><br>
+<?php// echo form_label('IdCategoria');?><br>
 <?php echo form_input($input_idcategoria);?><br>
 <?php echo form_error('IdCategoria') ?><br>
 <?php echo form_submit($submit);?><br>
+<a href="<?php echo base_url('panel/subcategorias/load/'.$input_idcategoria['value'])?>">Volver</a>
 <?php echo form_close();?>
 </div>
 </div>

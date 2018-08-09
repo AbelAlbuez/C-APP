@@ -25,7 +25,8 @@ $submit = array(
 		<?php echo form_label('Nombre');?><br>
 		<?php echo form_input($input_nombre);?><br>
 		<?php echo form_error('nombre') ?><br>
-		<?php echo form_submit($submit);?><br>
+		<?php echo form_submit($submit);?>
+		<a href="<?php echo base_url('panel/categorias/')?>">Atras</a>
 		<?php echo form_close();?>
 
 </div>
