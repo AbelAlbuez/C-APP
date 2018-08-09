@@ -9,7 +9,10 @@
 
 	 <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Listado de Usuario  - (<?php echo count($listado)?>) Usuarios</div>
+        
+		<h2>Listado de Usuario <span class="badge badge-secondary"><?php echo count($listado)?></span></h2>
+				 
+
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -77,3 +80,8 @@
 
 </div>
 
+<style>	
+h2{
+margin-left: 30px;
+}
+</style>

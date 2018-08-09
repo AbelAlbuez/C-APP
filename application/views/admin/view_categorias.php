@@ -6,9 +6,10 @@
 	<?php }else {?>
 	 <div class="card mb-3">
         <div class="card-header">
-					<i class="fa fa-table"></i> Listado de Categorias - (<?php echo count($listado)?>) Categoria 
-				<br>
-				<a href="<?php echo base_url('panel/categorias/agregar/')?>" >Agregar Categoria</a>
+				<h2 class='float-left' >Listado de Categorias <span class="badge badge-secondary"><?php echo count($listado)?></span></h2>
+					
+			
+				<a class='btn btn-success float-right' href="<?php echo base_url('panel/categorias/agregar/')?>" >Agregar Categoria</a>
 				</div>
         <div class="card-body">
           <div class="table-responsive">

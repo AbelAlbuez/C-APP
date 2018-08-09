@@ -2,6 +2,7 @@
 <div class="content-wrapper">
 <?php if(empty($listado)){?>
 	<h1>Sin Categoria</h1> <br><br>
+	
 	<a href="<?php echo base_url('panel/categorias/agregar/')?>" >Agregar Categoria</a>
 	<?php }else {?>
 

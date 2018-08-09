@@ -7,10 +7,16 @@
 	<?php }else {?>
 	 <div class="card mb-3">
         <div class="card-header">
-					<i class="fa fa-table"></i> Listado de Banner - (<?php echo count($listado)?>) Banner 
-				<br>
+				
+			
 				<!-- <a href="<?php// echo base_url('panel/banner/subirImagen/')?>">Agregar Banner</a> - -->
-				<a href="<?php echo base_url('panel/banner/preview')?>">Previsualizar contenido</a>
+			
+
+			<h2 class='float-left' >Listado de Categorias <span class="badge badge-secondary"><?php echo count($listado)?></span></h2>
+					
+			
+					<a class='btn btn-info float-right' href="<?php echo base_url('panel/banner/preview')?>" >Previsualizar contenido</a>
+
 				</div>
         <div class="card-body">
           <div class="table-responsive">

@@ -1,7 +1,12 @@
 <?php  plantilla::iniciar();?>
   <div class="content-wrapper">
-   <h1>Agregar Eventos</h1>
+  
+  <div class="cont-titulo">
 
+    <h1>Agregar Eventos</h1>
+
+  </div>
+    
    
 	
 
@@ -47,7 +52,7 @@
       </tr>
       <tr>
         <td colspan="2"> 
-          <input type="submit" value="Guardar"><br>
+          <input class="btn btn-dark float-right" type="submit" value="Guardar"><br>
           
         </td>
       
@@ -61,3 +66,18 @@
 
 
 </div>
+
+<style>
+textarea{
+  width: 100%;
+}
+td{
+  font-weight: bold;
+  color: rgb(9, 93, 167);
+}
+.cont-titulo{
+  text-align: center;
+}
+
+
+</style>

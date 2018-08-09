@@ -53,10 +53,10 @@ if(empty($datos_contactos[0]->id)){
 <?php echo form_input($input_nombre);?><br>
 <?php echo form_error('nombre') ?><br>
 <?php// echo form_label('IdCategoria');?><br>
-<?php echo form_input($input_idcategoria);?><br>
-<?php echo form_error('IdCategoria') ?><br>
-<?php echo form_submit($submit);?><br>
-<a href="<?php echo base_url('panel/subcategorias/load/'.$input_idcategoria['value'])?>">Volver</a>
+<?php echo form_input($input_idcategoria);?>
+<?php echo form_error('IdCategoria') ?>
+<?php echo form_submit($submit);?>
+<a class="btn  btn-default" href="<?php echo base_url('panel/subcategorias/load/'.$input_idcategoria['value'])?>">Volver</a>
 <?php echo form_close();?>
 </div>
 </div>
