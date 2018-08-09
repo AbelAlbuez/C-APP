@@ -103,7 +103,7 @@
               <strong>Editar Perfil</strong>
             </a>
 						<div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="<?php echo base_url('login/CerrarSesion'); ?>">
+            <a class="dropdown-item" href="#">
 						<i class="fa fa-fw fa-sign-out"></i>
             <strong>Cerrar Session</strong>
             </a>
