@@ -10,9 +10,15 @@
 
 	 <div class="card mb-3">
         <div class="card-header">
-					<i class="fa fa-table"></i> Listado de Noticias  - (<?php echo count($noticias_listado)?>) Noticias
-			<br><br>
-			<a href="<?php echo base_url('panel/noticias/agregar/')?>" >Agregar Noticias</a>
+				
+
+
+<h2 class='float-left' >Listado de Noticias <span class="badge badge-secondary"><?php echo count($noticias_listado)?></span></h2>
+				 
+
+				 <a class='btn btn-success float-right' href="<?php echo base_url('panel/noticias/agregar/')?>" >Agregar Noticia</a>
+		 
+
 				</div>
         <div class="card-body">
           <div class="table-responsive">

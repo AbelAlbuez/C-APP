@@ -13,12 +13,15 @@
 
 	 <div class="card mb-3">
         <div class="card-header">
-					<i class="fa fa-table"></i> Listado de Subcategorias - (<?php echo count($listado)?>) Subcategorias
-				 <br>
-				 <a href="<?php echo base_url('panel/subcategorias/agregar/')?>
-	<?php echo $listado_contado[0]->id?>" >Agregar Subcategoria</a>
+				
+				 
+					<h2 class='float-left' >Listado de Subcategorias <span class="badge badge-secondary"><?php echo count($listado)?></span></h2>
+				 
+
+		<a class='btn btn-success float-right' href="<?php echo base_url('panel/subcategorias/agregar/')?>" >Agregar Subcategoria</a>
+
 					<div class="card-body">
-		
+		<br> <br>
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>

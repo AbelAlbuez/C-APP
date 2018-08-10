@@ -5,15 +5,7 @@
 <div class="container">
 
 
-        <div id="demo" class="carousel slide" data-ride="carousel">
-                <!-- The slideshow -->
-                <div class="carousel-inner">
-                    <div class="carousel-ite active">
-                        <img class="img-slider" src="https://about.canva.com/es_es/wp-content/uploads/sites/3/2015/02/Etsy-Banners.png" alt="Los Angeles">
-                    </div>
-                </div>
-            </div>
-        <hr>
+       
 
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
@@ -25,7 +17,7 @@
 			<div class="carousel-item active">
 				<img class="d-block w-100" src="https://cdn.pixabay.com/photo/2017/11/07/00/07/fantasy-2925250__340.jpg" alt="First slide">
 				<div class="carousel-caption d-none d-md-block">
-					<h5>Anuncio 1</h5>
+					<h5>Eventos 1</h5>
 					<p>Este es un anuncio vacano</p>
 				</div>
 			</div>
@@ -54,20 +46,14 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
-
-	<div class="container wrapable">
+<hr>
+	<div class="container ">
 
 		<!-- ofertas de trabajos -->
 		<div class="container-trabajos">
 
-			<!-- cuadro de busqueda -->
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Busca palabras claves: .net, javaScript, ionic ..." aria-label="Recipient's username"
-				aria-describedby="basic-addon2">
-				<div class="input-group-append">
-					<button class="btn btn-outline-secondary" type="button">Buscar</button>
-				</div>
-			</div>
+			
+			
 
 			<!-- cada uno de los trabajos -->
 			<div class="trabajo">
@@ -175,24 +161,7 @@
 		</div>
 
 
-        <div class="anuncios-secundarios">
-                <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="https://www.gratistodo.com/wp-content/uploads/2016/11/pikachu-1-800x533.jpg" alt="Card image cap">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <button type="button" class="btn btn-info float-right btn-sm">Info</button>
-                        </div>
-                      </div>
-
-                      <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://pbs.twimg.com/profile_images/522803351570759681/aHKH0XTG_400x400.jpeg" alt="Card image cap">
-                            <div class="card-body">
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <button type="button" class="btn btn-info float-right btn-sm">Info</button>
-                            </div>
-                          </div>
-
-        </div>
+       
 
 
 	</div>
@@ -207,31 +176,17 @@
 
 
 <style>
-	.wrapable {
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
-		justify-content: center;
-		flex-direction: row;
-		flex-wrap: wrap;
-		width: 100%;
-		margin-bottom: 100px;
-	}
-.card
-{
-    margin: 10px;
-}
-.card > img{
-    height: 200px;
-}
+	
+
 	.container-trabajos {
-		width: 600px;
+		width: 100%;
 		margin-right: 30px;
 		
 	}
 
 	.container {
 		margin-top: 40px;
+       margin-bottom: 100px;
 	}
 
 	.trabajo {

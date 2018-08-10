@@ -3,6 +3,12 @@
 <div class="content-wrapper">
 <div class="container">
 
+<div class="cont-titulo">
+
+<h1>Modificando banner</h1>
+
+</div>
+
 <form action="<?php echo base_url('panel/banner/subirImagen/'.$datos_banner[0]->id)?>" method="POST"   enctype="multipart/form-data">
 	<table class="table table-bordered">
 	<tr>
@@ -27,7 +33,7 @@
 	</tr>
 	<tr>
 		<td colspan="2"> 
-			<input type="submit" value="Guardar"><br>
+			<input class="btn btn-dark float-right" type="submit" value="Guardar"><br>
 			<?php echo $error;?>
 		</td>
 	
@@ -40,3 +46,18 @@
 
 
 </div>
+
+
+
+<style>
+
+td{
+  font-weight: bold;
+  color: rgb(9, 93, 167);
+}
+.cont-titulo{
+  text-align: center;
+}
+
+
+</style>
