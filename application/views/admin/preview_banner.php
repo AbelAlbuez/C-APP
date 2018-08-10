@@ -15,11 +15,11 @@
 
 	</div>
 	
-	<a href="<?php echo base_url('panel/categorias/agregar/')?>" >Agregar Categoria</a>
+	<a href="<?php echo base_url('panel/banner')?>" >Volver</a>
 	<?php }else {?>
 
 
-				
+	<a href="<?php echo base_url('panel/banner')?>" >Volver</a>
 	<div class="banel-principal">
 		<img class="img-principal" 
 		src="<?php echo base_url('uploads/imagenesBanner/').$listado[0]->url_imagen;?>" alt="">

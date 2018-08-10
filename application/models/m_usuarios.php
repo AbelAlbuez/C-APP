@@ -46,12 +46,12 @@ class M_usuarios extends CI_Model{
 	}
 
 	
-	// function get_by_id($id)
-	// {
-	// 	$query = $this->db->where('id',$id); 
-	// 	$query = $this->db->get('usuario'); 
-	// 	return $query->result(); 
-	// }
+	function get_by_id($id)
+	{
+		$query = $this->db->where('id',$id); 
+		$query = $this->db->get('usuario'); 
+		return $query->result(); 
+	}
 	// function edit($id)
 	// {
 	// 	$datos_editar=$this->input->post();

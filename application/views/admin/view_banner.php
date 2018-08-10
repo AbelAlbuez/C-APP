@@ -17,11 +17,11 @@
 	</tr>
 	<tr>
 		<td>Descripcion (Solo Lectura)</td>
-		<td><input  id="descripcion" name="descripcion" class="form-control" value="<?php echo $datos_banner[0]->descripcion;?>"></td>
+		<td><input readonly id="descripcion" name="descripcion" class="form-control" value="<?php echo $datos_banner[0]->descripcion;?>"></td>
 	</tr>
 	<tr>
 		<td>Imagen</td>
-		<td><input type="file" name="fileimagen" class="form-control" value="<?php echo $datos_banner[0]->url_imagen;?> "></td>
+		<td><input  type="file" name="fileimagen" class="form-control" value="<?php echo $datos_banner[0]->url_imagen;?> "></td>
 	</tr>
 	<tr>
 		<td>Posicion (Solo Lectura)</td>
