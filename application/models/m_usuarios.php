@@ -38,12 +38,12 @@ class M_usuarios extends CI_Model{
 	// }
 	 function get_todos()
    {
-		session_start();
-		$id_usuario = $_SESSION['usuario']->id;
-		$query = $this->db->where('id!=',$id_usuario);
+	/*	session_start();
+		$id_usuario = $_SESSION['usuario']->id;*/
+		//$query = $this->db->where('id!=',$id_usuario);
 		$query = $this->db->get('usuario'); 
 		return $query->result(); 
-	}*/
+	}
 
 	
 	// function get_by_id($id)
