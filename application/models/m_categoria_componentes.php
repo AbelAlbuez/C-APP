@@ -22,6 +22,29 @@ class M_categoria_componentes extends CI_Model{
 		return $query->result(); 
 	}
 
+	function get_by_subcategoria_filter($id, $data)
+	{
+		$query = $this->db->like('titulo_anuncio', $data);
+		$query = $this->db->where('id_subcategoria', $id); 
+		$query = $this->db->get('categoria_componentes'); 
+		return $query->result(); 
+	}
+
+	function get_by_categoria_filter($id, $data)
+	{
+		$query = $this->db->like('titulo_anuncio', $data);
+		$query = $this->db->where('idcategoria', $id); 
+		$query = $this->db->get('categoria_componentes'); 
+		return $query->result(); 
+	}
+
+	function get_by_filter($data)
+	{
+		$query = $this->db->like('titulo_anuncio', $data);
+		$query = $this->db->get('categoria_componentes'); 
+		return $query->result(); 
+	}
+
 	function add($data)
 	{
 		$this->db->insert('categoria_componentes', $data);
