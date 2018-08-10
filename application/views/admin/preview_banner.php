@@ -1,7 +1,19 @@
 <?php  plantilla::iniciar();?>
 <div class="content-wrapper">
 <?php if(empty($listado)){?>
-	<h1>Sin Categoria</h1> <br><br>
+		<?php 
+		$this->db->query
+		("INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
+		VALUES (NULL, 'Superior.png', 'Banner Superior', 'Este banner estara ubicado en la parte superior', '0');");
+		$this->db->query
+		("INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
+		VALUES (NULL, 'derecha superior.png', 'Banner Derecha Superior', 'Este banner estara ubicado en la parte derecha superior', '1');");
+		$this->db->query
+		("INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
+		VALUES (NULL, 'derecha inferior.png', 'Banner Derecha Inferior', 'Este banner estara ubicado en la parte derecha inferior', '2');");
+		?>
+
+	</div>
 	
 	<a href="<?php echo base_url('panel/categorias/agregar/')?>" >Agregar Categoria</a>
 	<?php }else {?>
