@@ -15,12 +15,8 @@ class M_login extends CI_Model {
     {
 		$sql="
 		SELECT * FROM usuario WHERE (username= ? or correo= ?) and contrasenia = ?";
-		
 		$query= $this->db->query($sql, array($usuario,$usuario, $contrasena));
 		return $query->result();;
-		
-      
-
     }
 
     public function CerrarSesion()
