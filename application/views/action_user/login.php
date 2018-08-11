@@ -213,4 +213,9 @@ $submit = array(
 .img-fluid{
 	height: 500px;
 }
+@media only screen and (max-width: 600px) {
+   .banner-sec  {
+        display: none;
+    }
+}
 </style>
