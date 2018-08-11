@@ -152,75 +152,7 @@
 
 	<br><br><br><hr>
 
-	<!-- LO DE JANCER -->
-	<div class="container wrapable">
-
-		<div class="container-trabajos">
-			<div class="trabajo">
-				<div class="trabajo-header">
-					<a href="#">
-						<h4>Progrador JavaScript Asp</h4>
-					</a>
-				</div>
-				<div class="trabajo-content">
-					<span class="tiempo-publicacion">Hace 2 horas</span>
-					<a href="#"></a>
-					<span class="divisor">|</span>
-					</a>
-					<a href="#">
-						<span class="ubicacion-publicacion">Madrid Espana</span>
-					</a>
-
-					<div class="trabajo-descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos velit laboriosam repudiandae non? At, optio dolorem...
-					</div>
-				</div>
-				<div class="trabajo-footer">
-					<span class="trabajo-contrato">Contrato: Indefinido</span>
-					<span class="trabajo-salario">Salario: $25,000-$35,000</span>
-				</div>
-			</div>
-
-			<!-- LA PAGINACION -->
-			<nav aria-label="Page navigation example  ">
-				<ul class="pagination justify-content-end">
-					<li class="page-item">
-						<a class="page-link" href="#" tabindex="-1">Previous</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">1</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">2</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">3</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">Next</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-
-        <div class="anuncios-secundarios">
-			<div class="card" style="width: 18rem;">
-				<img class="card-img-top" src="https://www.gratistodo.com/wp-content/uploads/2016/11/pikachu-1-800x533.jpg" alt="Card image cap">
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<button type="button" class="btn btn-info float-right btn-sm">Info</button>
-				</div>
-			</div>
-
-			<div class="card" style="width: 18rem;">
-				<img class="card-img-top" src="https://pbs.twimg.com/profile_images/522803351570759681/aHKH0XTG_400x400.jpeg" alt="Card image cap">
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<button type="button" class="btn btn-info float-right btn-sm">Info</button>
-				</div>
-			</div>
-		</div>
-		
-	</div>
+	
 </div>
 
 <style>
