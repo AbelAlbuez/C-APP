@@ -1,7 +1,7 @@
 <!-- <?php  
 plantilla_usuarios::iniciar($categorias); 
 $input_correo = array(
-	'type'  	 => 	'email',
+	'type'  	 => 	'text',
 	'name'  	 => 	'correo',
 	'id'    	 => 	'correo',
 	'maxlength'  => 	'60',
