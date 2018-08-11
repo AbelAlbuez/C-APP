@@ -6,7 +6,7 @@ $input_nombre = array(
 	'id'    	 => 	'nombre',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'class' => 'inputNombre'
+	'class' => 'form-control'
 );
 $input_apellido = array(
 	'type'  	 => 	'text',
@@ -14,15 +14,15 @@ $input_apellido = array(
 	'id'    	 => 	'apellido',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'class' => 'inputNombre'
+	'class' => 'form-control'
 );
 $input_correo = array(
-	'type'  	 => 	'text',
+	'type'  	 => 	'email',
 	'name'  	 => 	'correo',
 	'id'    	 => 	'correo',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'class' => 'inputNombre'
+	'class' => 'form-control'
 );
 $input_contrasenia = array(
 	'type'  	 => 	'password',
@@ -30,7 +30,7 @@ $input_contrasenia = array(
 	'id'    	 => 	'contrasenia',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'class' => 'inputNombre'
+	'class' => 'form-control'
 );
 $input_username = array(
 	'type'  	 => 	'text',
@@ -38,11 +38,11 @@ $input_username = array(
 	'id'    	 => 	'username',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'class' => 'inputNombre'
+	'class' => 'form-control'
 );
 
 $submit = array(
-	'class' => 'btn btn-dark',
+	'class' => 'btn btn-login float-right',
 
 	'id'=>		'Successbtn',
 	'name'=>'btn_guardar',
@@ -52,17 +52,23 @@ $submit = array(
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Register</title>
 
-</head>
-<body>
-<h1>Registrate</h1>
+<!-- Register NUEVO -->
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+
+<section class="login-block">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 login-sec">
+				<h2 class="text-center">Crea tu cuenta</h2>
+
 <?php echo form_open();?><br>
 		<?php echo form_label('Nombre');?><br>
 		<?php echo form_input($input_nombre);?><br>
@@ -89,5 +95,106 @@ $submit = array(
 		
 		<?php echo form_close();?>
 
-</body>
-</html>
+
+				<div class="copy-text">
+					<div class="registrarme">
+						<a class="" href="<?php echo base_url('index.php/login/Registrar')?>">¿Ya tienes una cuenta?</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+</section>
+
+<style>
+	@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+	.login-block {
+		background: #DE6262;
+		/* fallback for old browsers */
+		background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
+		/* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to bottom, #FFB88C, #DE6262);
+		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		float: left;
+		width: 100%;
+		padding: 50px 0;
+	}
+
+	.banner-sec {
+		height: 500px;
+		background-size: cover;
+		min-height: 500px;
+		border-radius: 0 10px 10px 0;
+		padding: 0;
+	}
+
+	.container {
+		background: #fff;
+		border-radius: 10px;
+		box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+	}
+
+
+
+	.login-sec {
+		padding: 50px 30px;
+		position: relative;
+	}
+
+	.login-sec .copy-text {
+		position: absolute;
+		width: 80%;
+		bottom: 20px;
+		font-size: 13px;
+		text-align: center;
+	}
+
+	.login-sec .copy-text i {
+		color: #FEB58A;
+	}
+
+	.login-sec .copy-text a {
+		color: #E36262;
+	}
+
+	.login-sec h2 {
+		margin-bottom: 30px;
+		font-weight: 800;
+		font-size: 30px;
+		color: #DE6262;
+	}
+
+	.login-sec h2:after {
+		content: " ";
+		width: 100px;
+		height: 5px;
+		background: #FEB58A;
+		display: block;
+		margin-top: 20px;
+		border-radius: 3px;
+		margin-left: auto;
+		margin-right: auto
+	}
+
+	.btn-login {
+		background: #DE6262;
+		color: #fff;
+		font-weight: 600;
+	}
+
+
+	section {
+		margin-bottom: 20px;
+	}
+
+	button[type="submit"] {
+		margin-top: 10px;
+	}
+	.registrarme, .forgot{
+		text-align: left;
+	}
+	.registrarme a,.forgot a{
+		font-size: 20px;
+	}
+
+</style>
