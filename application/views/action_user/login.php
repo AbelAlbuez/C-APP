@@ -71,8 +71,7 @@ $submit = array(
 				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 					<ol class="carousel-indicators">
 						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						
 					</ol>
 					<div class="carousel-inner" role="listbox">
 						<div class="carousel-item active">
@@ -84,24 +83,8 @@ $submit = array(
 								</div>
 							</div>
 						</div>
-						<div class="carousel-item">
-							<img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="First slide">
-							<div class="carousel-caption d-none d-md-block">
-								<div class="banner-text">
-									<h2>Sabemos que te gustará</h2>
-									<p>Ponemos a tu disposición una plataforma fácil de usar.</p>
-								</div>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<img class="d-block img-fluid" src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg" alt="First slide">
-							<div class="carousel-caption d-none d-md-block">
-								<div class="banner-text l">
-									<h2>Gracias por elegirnos</h2>
-									<p>Al tenerte con nosotros, pensamos cada día en mejorar nuestra plataforma.</p>
-								</div>
-							</div>
-						</div>
+						
+						
 					</div>
 
 				</div>
