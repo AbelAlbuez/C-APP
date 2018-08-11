@@ -33,6 +33,7 @@ class Login extends CI_Controller {
 				$encriptada =md5($contraseña);
 			
 				$validar =$this->m_login->logueate($correo,$encriptada);
+				session_start();
 			if(empty($validar)){
 			
 				echo "No logueado";

@@ -22,6 +22,11 @@
 			<label for="exampleFormControlTextarea1">Imágen</label>
 			<input type="file" name="fileimagen" class="form-control">
 		</div>
+		<div class="form-group">
+			<label for="exampleFormControlTextarea1">Fecha</label>
+			<input type="text" name="fecha_de_creacion" class="form-control" value="<?php 
+			echo date('Y-m-d');?>">
+		</div>
 		<hr>
 		<div class="form-group">
 			<button type="submit" class="btn btn-dark">Guardar</button>
