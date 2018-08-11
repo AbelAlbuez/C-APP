@@ -60,8 +60,9 @@ $submit = array(
 
 					<div class="copy-text">
           <h5>
-            <a class="d-block small mt-3" href="<?php echo base_url('index.php/login/Registrar')?>">Registrarme</a>
-          </h5>
+           		<a class="d-block small mt-3" href='<?php echo base_url('user/register');?>' >Registrarme<b></b> </a> 
+			
+		  </h5>
           <h5>
             <a class="d-block small " href="forgot-password.html">¿Olvidaste tu clave?</a>
           </h5>
