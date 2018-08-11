@@ -75,7 +75,7 @@ $submit = array(
 					</ol>
 					<div class="carousel-inner" role="listbox">
 						<div class="carousel-item active">
-							<img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
+							<img class="img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
 							<div class="carousel-caption d-none d-md-block">
 								<div class="banner-text">
 									<h2>Bienvenido/a</h2>
@@ -210,5 +210,7 @@ $submit = array(
     color: black;
     font-weight: bold;
   }
-
+.img-fluid{
+	height: 500px;
+}
 </style>
