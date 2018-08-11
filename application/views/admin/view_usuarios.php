@@ -23,7 +23,7 @@
 									<th>Correo</th>
 									<th>Fecha</th>
 									<th>Tipo</th>
-									<th>Permisos</th>
+
 									<th>Acciones</th>
                 </tr>
               </thead>
@@ -33,7 +33,6 @@
 									<th>Correo</th>
 									<th>Fecha</th>
 									<th>Tipo</th>
-									<th>Permisos</th>
 									<th>Acciones</th>
                 </tr>
               </tfoot>
@@ -44,18 +43,18 @@
 							<tr>
 							
 								<td><?php echo $usuario->id?></td>	
-								<td><?php echo $usuario->apodo?></td>	
+								<td><?php echo $usuario->username?></td>	
 								<td><?php echo $usuario->correo?></td>	
 								<td><?php echo $usuario->fecha?></td>	
 								<td><?php echo $usuario->tipo?></td>	
-								<td><?php echo $usuario->permisos?></td>	
+
 								<td>
 									
 				
 								<a href="<?php echo base_url('panel/usuarios/addAdmin/')?>
 								<?php echo $usuario->id?>" >
 								
-								<?php if ($usuario->permisos=="Master"){
+								<?php if ($usuario->tipo==1){
 									echo "Remover Admin";
 								}else {
 									echo "Añadir Admin";
