@@ -12,7 +12,8 @@ $input_nombre = array(
 	'id'    	 => 	'nombre',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'class' => 'form-control'
+	'class' 	 => 	'form-control',
+	'value'		 =>		set_value('nombre')
 );
 $input_apellido = array(
 	'type'  	 => 	'text',
@@ -20,7 +21,8 @@ $input_apellido = array(
 	'id'    	 => 	'apellido',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'class' => 'form-control'
+	'class'		 => 	'form-control',
+	'value'		 =>		set_value('apellido')
 );
 $input_correo = array(
 	'type'  	 => 	'email',
@@ -28,7 +30,8 @@ $input_correo = array(
 	'id'    	 => 	'correo',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'class' => 'form-control'
+	'class' 	 =>     'form-control',
+	'value'		 =>	     set_value('correo')
 );
 $input_contrasenia = array(
 	'type'  	 => 	'password',
@@ -36,7 +39,8 @@ $input_contrasenia = array(
 	'id'    	 => 	'contrasenia',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'class' => 'form-control'
+	'class' 	 =>     'form-control',
+	'value'		 =>	     set_value('contrasenia')
 );
 $input_username = array(
 	'type'  	 => 	'text',
@@ -44,12 +48,12 @@ $input_username = array(
 	'id'    	 => 	'username',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'class' => 'form-control'
+	'class'		 => 	'form-control',
+	'value'		 =>		set_value('username')
 );
 
 $submit = array(
 	'class' => 'btn btn-login float-right',
-
 	'id'=>		'Successbtn',
 	'name'=>'btn_guardar',
 	'value' => 'Guardar'
