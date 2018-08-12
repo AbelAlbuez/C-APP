@@ -99,7 +99,7 @@ class Noticias extends CI_Controller {
 		 $descripcion = $this->input->post('descripcion');
 		 $fecha = $fecha_actual;
 		 $imagen = $file_info['file_name'];
-            $datos_noticias= array(
+        $datos_noticias= array(
 				'titulo'=> $titulo, 'descripcion'=> $descripcion, 'url_imagen'=> $imagen,
 			'fecha_de_creacion'=>$fecha);
             $subir = $this->M_noticias->edit($datos_noticias, $id);      
