@@ -91,8 +91,8 @@
 							<a  href='<?php echo base_url('user/register');?>' style='color:white!important;'>Registrate<b></b> </a> 
 							]</p>
 							<?php }else{ ?>
-								<!-- Default dropleft button -->
-							<div class="btn-group">
+								<?php if($_SESSION['info_user'][0]->tipo==0){ ?>
+									<div class="btn-group">
 							<button type="button" class="btn  bg-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
 							style='color:white!important;'>
 							<?php echo $_SESSION['info_user'][0]->nombre." ".$_SESSION['info_user'][0]->apellido; ?>
@@ -103,6 +103,22 @@
 								<a href="<?php echo base_url('user/login/')?>CerrarSesion" class="dropdown-item" >Cerrar Session</a>
 							</div>
 							</div>
+								<?php }else{ ?>
+									<div class="btn-group">
+							<button type="button" class="btn  bg-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+							style='color:white!important;'>
+							<?php echo $_SESSION['info_user'][0]->nombre." ".$_SESSION['info_user'][0]->apellido; ?>
+							</button>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a href="<?php echo base_url('admin')?>CerrarSesion" class="dropdown-item" >Panel Administracion</a>
+								<a class="dropdown-item" >Mis anuncios</a>
+								<a href="<?php echo base_url('user/profile/')?>" class="dropdown-item" >Editar perfil</a>
+								<a href="<?php echo base_url('user/login/')?>CerrarSesion" class="dropdown-item" >Cerrar Session</a>
+							</div>
+							</div>
+									<?php } ?>
+								<!-- Default dropleft button -->
+							
 
 							<?php } ?>
 						
