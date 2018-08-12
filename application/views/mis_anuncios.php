@@ -1,4 +1,9 @@
-<?php plantilla_usuarios::iniciar($categorias); ?>
+<?php 
+if(empty($_SESSION['info_user']))
+{
+  redirect(base_url());
+}
+plantilla_usuarios::iniciar($categorias); ?>
 
 <style>
     .quitandoElSobrando{
