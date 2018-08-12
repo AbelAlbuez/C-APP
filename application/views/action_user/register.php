@@ -65,35 +65,51 @@ $submit = array(
 
 <section class="login-block">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12 login-sec">
+		<div class="wrapable">
+			<div class="col-md-6 login-sec">
 				<h2 class="text-center">Crea tu cuenta</h2>
 
-<?php echo form_open();?><br>
-		<?php echo form_label('Nombre');?><br>
-		<?php echo form_input($input_nombre);?><br>
-		<?php echo form_error('nombre') ?><br>
+				<?php echo form_open();?>
+				<br>
+				<?php echo form_label('Nombre');?>
+				<br>
+				<?php echo form_input($input_nombre);?>
+				<br>
+				<?php echo form_error('nombre') ?>
+				<br>
 
-		<?php echo form_label('Apellido');?><br>
-		<?php echo form_input($input_apellido);?><br>
-		<?php echo form_error('apellido') ?><br>
+				<?php echo form_label('Apellido');?>
+				<br>
+				<?php echo form_input($input_apellido);?>
+				<br>
+				<?php echo form_error('apellido') ?>
+				<br>
 
-		<?php echo form_label('Correo Electronico');?><br>
-		<?php echo form_input($input_correo);?><br>
-		<?php echo form_error('correo') ?><br>
+				<?php echo form_label('Correo Electronico');?>
+				<br>
+				<?php echo form_input($input_correo);?>
+				<br>
+				<?php echo form_error('correo') ?>
+				<br>
 
-		<?php echo form_label('Contraseña');?><br>
-		<?php echo form_input($input_contrasenia);?><br>
-		<?php echo form_error('contrasenia') ?><br>
+				<?php echo form_label('Contraseña');?>
+				<br>
+				<?php echo form_input($input_contrasenia);?>
+				<br>
+				<?php echo form_error('contrasenia') ?>
+				<br>
 
-		<?php echo form_label('Nombre de usuario');?><br>
-		<?php echo form_input($input_username);?><br>
-		<?php echo form_error('username') ?><br>
+				<?php echo form_label('Nombre de usuario');?>
+				<br>
+				<?php echo form_input($input_username);?>
+				<br>
+				<?php echo form_error('username') ?>
+				<br>
 
-		<?php echo form_submit($submit);?>
-		
-		
-		<?php echo form_close();?>
+				<?php echo form_submit($submit);?>
+
+
+				<?php echo form_close();?>
 
 
 				<div class="copy-text">
@@ -102,6 +118,8 @@ $submit = array(
 					</div>
 				</div>
 			</div>
+
+			
 
 		</div>
 </section>
@@ -190,11 +208,34 @@ $submit = array(
 	button[type="submit"] {
 		margin-top: 10px;
 	}
-	.registrarme, .forgot{
+
+	.registrarme,
+	.forgot {
 		text-align: left;
 	}
-	.registrarme a,.forgot a{
+
+	.registrarme a,
+	.forgot a {
 		font-size: 20px;
 	}
+
+	.wrapable {
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+		margin-bottom: 30px;
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	
+	
+
 
 </style>

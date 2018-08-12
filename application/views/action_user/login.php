@@ -40,8 +40,8 @@ $submit = array(
 
 <section class="login-block">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12 login-sec">
+		<div class="wrapable">
+			<div class="col-md-6 login-sec">
 				<h2 class="text-center">Ingresa a tu cuenta</h2>
 
 				<?php echo form_open();?>
@@ -65,48 +65,22 @@ $submit = array(
 				<?php echo form_submit($submit);?>
 				<?php echo form_close();?>
 
-<<<<<<< HEAD
 				<div class="copy-text">
 					<div class="registrarme">
 						<a class="" href="<?php echo base_url('index.php/login/Registrar')?>">Registrarme</a>
 					</div>
-=======
-					<div class="copy-text">
-          <h5>
-           		<a class="d-block small mt-3" href='<?php echo base_url('user/register');?>' >Registrarme<b></b> </a> 
-			
-		  </h5>
-          <h5>
-            <a class="d-block small " href="forgot-password.html">¿Olvidaste tu clave?</a>
-          </h5>
-				</div>
-			</div>
-			<div class="col-md-8 banner-sec">
-				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-					<ol class="carousel-indicators">
-						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-						
-					</ol>
-					<div class="carousel-inner" role="listbox">
-						<div class="carousel-item active">
-							<img class="img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
-							<div class="carousel-caption d-none d-md-block">
-								<div class="banner-text">
-									<h2>Bienvenido/a</h2>
-									<p>Regístrate y disfruta de nuestros servicios.</p>
-								</div>
-							</div>
-						</div>
-						
->>>>>>> b09659e94c5456ae6bb2d6985bd98f46f487f4a6
-						
+
 					<div class="forgot">
 						<a class=" " href="forgot-password.html">¿Olvidaste tu clave?</a>
 					</div>
-					
-						
-					
+
+
+
 				</div>
+			</div>
+
+			<div class="col-md-6 img-principal">
+				<img src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="Imagen-portada">
 			</div>
 
 		</div>
@@ -196,11 +170,51 @@ $submit = array(
 	button[type="submit"] {
 		margin-top: 10px;
 	}
-	.registrarme, .forgot{
+
+	.registrarme,
+	.forgot {
 		text-align: left;
 	}
-	.registrarme a,.forgot a{
+
+	.registrarme a,
+	.forgot a {
 		font-size: 20px;
+	}
+
+	.wrapable {
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+		margin-bottom: 30px;
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	.img-principal {
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+		height: 500px;
+		padding: 0;
+	}
+
+	.img-principal>img {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+
+	@media only screen and (max-width: 767px) {
+		.img-principal{
+			display: none;
+		}
 	}
 
 </style>
