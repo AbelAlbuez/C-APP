@@ -210,7 +210,10 @@ $submit = array(
 		border-top-right-radius: 10px;
 		border-bottom-right-radius: 10px;
 	}
-
+	p{
+		color: red;
+		font-size: 15px;
+	}
 	@media only screen and (max-width: 767px) {
 		.img-principal{
 			display: none;

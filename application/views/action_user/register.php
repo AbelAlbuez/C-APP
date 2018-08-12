@@ -114,7 +114,7 @@ $submit = array(
 
 				<div class="copy-text">
 					<div class="registrarme">
-						<a class="" href="<?php echo base_url('index.php/login/Registrar')?>">¿Ya tienes una cuenta?</a>
+						<a class="" href="<?php echo base_url('user/login/')?>">¿Ya tienes una cuenta?</a>
 					</div>
 				</div>
 			</div>
@@ -213,7 +213,10 @@ $submit = array(
 	.forgot {
 		text-align: left;
 	}
-
+	p{
+		color: red;
+		font-size: 15px;
+	}
 	.registrarme a,
 	.forgot a {
 		font-size: 20px;

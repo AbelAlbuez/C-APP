@@ -70,8 +70,9 @@ class Login extends CI_Controller {
 	
     public function CerrarSesion ()
     {
-		$_SESSION['info_user'] = array();
-		session_destroy() ;
+		session_start();
+		session_destroy();
+		session_unset();
 		
 		redirect('Home','refresh');
 		
