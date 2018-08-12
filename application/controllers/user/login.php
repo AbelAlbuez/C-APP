@@ -33,13 +33,18 @@ class Login extends CI_Controller {
 				$encriptada =md5($contraseña);
 			
 				$validar =$this->m_login->logueate($correo,$encriptada);
-				session_start();
+				
 			if(empty($validar)){
 			
 				echo "No logueado";
 			}else{
-				echo "Logueado";
+				session_start();
+
+				$_SESSION['info_user']=$validar;
 		
+				
+				redirect('Home','refresh');
+				
 			}
 			}else{
 				
@@ -65,7 +70,11 @@ class Login extends CI_Controller {
 	
     public function CerrarSesion ()
     {
-
+		$_SESSION['info_user'] = array();
+		session_destroy() ;
+		
+		redirect('Home','refresh');
+		
     }
 
 }

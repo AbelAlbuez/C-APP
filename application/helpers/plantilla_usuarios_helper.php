@@ -81,25 +81,32 @@
 						</li>
 
 					</ul>
-					<?php
-					/*
-					if (!empty($_SESSION)){
-						$nombre = $_SESSION['usuario']->apodo;
-						$linkCerrar = base_url('login/CerrarSesion');
-
-						echo "<a class='nav-link' href='#' style='color:white!important;'> Bienvenido, <b>{$nombre}</b> </a> ";
-						echo"<a class='nav-link' href='{$linkCerrar}'  style='color:white!important;' >Salir</a>";
-						echo "<button class='btn btn-secondary my-2 my-sm-0' type='submit'> PUBLICAR ANUNCIO </button>";
-					}else{
-						$linkIniciar = base_url('login');
-						echo"<a class='nav-link' href='{$linkIniciar}' style='color:white!important;'>Iniciar Sesion<b></b> </a> ";
-					} */?>
-						<p class='nav-link' style='color:white!important;'>Bienvenido visitante! 
-						[ 
+					
+						
+							<?php
+							if(empty($_SESSION['info_user'])){?>
+							<p class='nav-link' style='color:white!important;'>Bienvenido visitante! 
+							[ 
 							<a  href='<?php echo base_url('user/login');?>' style='color:white!important;'>Logueate<b></b> </a> |
 							<a  href='<?php echo base_url('user/register');?>' style='color:white!important;'>Registrate<b></b> </a> 
-			
-						]</p>
+							]</p>
+							<?php }else{ ?>
+								<!-- Default dropleft button -->
+							<div class="btn-group">
+							<button type="button" class="btn  bg-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+							style='color:white!important;'>
+							<?php echo $_SESSION['info_user'][0]->nombre." ".$_SESSION['info_user'][0]->apellido; ?>
+							</button>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item" >Mis anuncios</a>
+								<a class="dropdown-item" >Editar perfil</a>
+								<a href="<?php echo base_url('user/login/')?>CerrarSesion" class="dropdown-item" >Cerrar Session</a>
+							</div>
+							</div>
+
+							<?php } ?>
+						
+						
 				</div>
 			</nav>
 
