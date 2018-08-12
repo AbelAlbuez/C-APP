@@ -6,16 +6,16 @@
 	<?php 
 		$this->db->query
 		("INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
-		VALUES (NULL, 'Superior.png', 'Banner Superior', 'Este banner estara ubicado en la parte superior', '0');
-
-		INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
-		VALUES (NULL, 'derecha superior.png', 'Banner Derecha Superior', 'Este banner estara ubicado en la parte derecha superior', '1');
-
-		INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
+		VALUES (NULL, 'Superior.png', 'Banner Superior', 'Este banner estara ubicado en la parte superior', '0');");
+		$this->db->query
+		("	INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
+		VALUES (NULL, 'derecha superior.png', 'Banner Derecha Superior', 'Este banner estara ubicado en la parte derecha superior', '1');");
+		$this->db->query
+		("INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
 		VALUES (NULL, 'derecha inferior.png', 'Banner Derecha Inferior', 'Este banner estara ubicado en la parte derecha inferior', '2');
-		
 		");
-		
+
+redirect('banner','refresh');
 		?>
 	
 	<?php }else {?>
@@ -26,7 +26,7 @@
 				<!-- <a href="<?php// echo base_url('panel/banner/subirImagen/')?>">Agregar Banner</a> - -->
 			
 
-			<h2 class='float-left' >Listado de Categorias <span class="badge badge-secondary"><?php echo count($listado)?></span></h2>
+			<h2 class='float-left' >Listado de Banner <span class="badge badge-secondary"><?php echo count($listado)?></span></h2>
 					
 			
 					<a class='btn btn-info float-right' href="<?php echo base_url('panel/banner/preview')?>" >Previsualizar contenido</a>
