@@ -110,7 +110,7 @@
 							<?php echo $_SESSION['info_user'][0]->nombre." ".$_SESSION['info_user'][0]->apellido; ?>
 							</button>
 							<div class="dropdown-menu dropdown-menu-right">
-								<a href="<?php echo base_url('admin')?>CerrarSesion" class="dropdown-item" >Panel Administracion</a>
+								<a href="<?php echo base_url('admin')?>" class="dropdown-item" >Panel Administracion</a>
 								<a class="dropdown-item" >Mis anuncios</a>
 								<a href="<?php echo base_url('user/profile/')?>" class="dropdown-item" >Editar perfil</a>
 								<a href="<?php echo base_url('user/login/')?>CerrarSesion" class="dropdown-item" >Cerrar Session</a>

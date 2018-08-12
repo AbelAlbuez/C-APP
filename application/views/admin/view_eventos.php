@@ -1,4 +1,11 @@
-<?php  plantilla::iniciar();?>
+<?php 
+session_start();
+if($_SESSION['info_user'][0]->tipo!=1)
+{
+
+   redirect('Home','refresh');
+}
+plantilla::iniciar();?>
 <div class="content-wrapper">
 <?php if(empty($eventos_listado)){?>
 	<h1>Sin Eventos</h1> - 

@@ -1,4 +1,10 @@
-<?php  plantilla::iniciar();
+<?php  
+session_start();
+if($_SESSION['info_user'][0]->tipo!=1)
+{
+   redirect('Home','refresh');
+}
+plantilla::iniciar();
 $input_apodo = array(
 	'type'  	 => 	'hidden',
 	'name'  	 => 	'apodo',
