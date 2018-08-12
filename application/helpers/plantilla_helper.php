@@ -82,7 +82,12 @@
           </a>
         </li>
    
-        
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="<?php echo base_url('Home');?>">
+					<i class="fa fa-sign-out" aria-hidden="true"></i>
+            <span class="nav-link-text">Volver</span>
+          </a>
+        </li>
       </ul>
      <!--Otro menu-->
 		 <ul class="navbar-nav ml-auto">
