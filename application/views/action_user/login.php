@@ -69,11 +69,7 @@ $submit = array(
 					<div class="registrarme">
 						<a class="" href="<?php echo base_url('user/register')?>">Registrarme</a>
 					</div>
-<<<<<<< HEAD
 						
-=======
-
->>>>>>> b885c7becadaaa8a8a37c1b01398d71954952f4a
 					<div class="forgot">
 						<a class=" " href="forgot-password.html">¿Olvidaste tu clave?</a>
 					</div>
