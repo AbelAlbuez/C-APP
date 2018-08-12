@@ -7,7 +7,7 @@ class Register extends CI_Controller {
 	{
 		parent::__construct();
 
-		$this->load->model(array('M_register', 'M_categoria'));
+		$this->load->model(array('M_register', 'M_categoria', 'm_login'));
 		$this->load->library('recaptcha');
 		$this->load->helper(array('form','url'));
 		$this->load->library('form_validation');
@@ -46,8 +46,18 @@ class Register extends CI_Controller {
 				'username'=>$username,
 				'fecha'=>$fecha, 
 				'tipo'=>$tipo);
+				
 				$this->M_register->Registrar($usuario);
-				redirect('user/login');	
+				$validar =$this->m_login->logueate($correo,$encriptada);
+				if(empty($validar)){
+			
+					echo "No logueado";
+					
+				}else{
+					session_start();
+					$_SESSION['info_user'] = $validar;
+					redirect(base_url());	
+				}
 			}else{
 	
 				$data['categorias'] = $this->M_categoria->get_todos(); 
