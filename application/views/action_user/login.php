@@ -40,8 +40,8 @@ $submit = array(
 
 <section class="login-block">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12 login-sec">
+		<div class="wrapable">
+			<div class="col-md-6 login-sec">
 				<h2 class="text-center">Ingresa a tu cuenta</h2>
 
 				<?php echo form_open();?>
@@ -69,14 +69,22 @@ $submit = array(
 					<div class="registrarme">
 						<a class="" href="<?php echo base_url('user/register')?>">Registrarme</a>
 					</div>
+<<<<<<< HEAD
 						
+=======
+
+>>>>>>> b885c7becadaaa8a8a37c1b01398d71954952f4a
 					<div class="forgot">
 						<a class=" " href="forgot-password.html">¿Olvidaste tu clave?</a>
 					</div>
-					
-						
-					
+
+
+
 				</div>
+			</div>
+
+			<div class="col-md-6 img-principal">
+				<img src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="Imagen-portada">
 			</div>
 
 		</div>
@@ -166,11 +174,51 @@ $submit = array(
 	button[type="submit"] {
 		margin-top: 10px;
 	}
-	.registrarme, .forgot{
+
+	.registrarme,
+	.forgot {
 		text-align: left;
 	}
-	.registrarme a,.forgot a{
+
+	.registrarme a,
+	.forgot a {
 		font-size: 20px;
+	}
+
+	.wrapable {
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+		margin-bottom: 30px;
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	.img-principal {
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+		height: 500px;
+		padding: 0;
+	}
+
+	.img-principal>img {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+
+	@media only screen and (max-width: 767px) {
+		.img-principal{
+			display: none;
+		}
 	}
 
 </style>
