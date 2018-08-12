@@ -1,4 +1,10 @@
 <?php  
+session_start();
+if(!empty($_SESSION['info_user']))
+{
+   // echo $_SESSION['info_user'];
+   redirect('Home','refresh');
+}
 plantilla_usuarios::iniciar($categorias); 
 $input_nombre = array(
 	'type'  	 => 	'text',

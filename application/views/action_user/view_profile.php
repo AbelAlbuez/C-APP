@@ -1,19 +1,33 @@
-<!-- <?php  
-session_start();
-if(!empty($_SESSION['info_user']))
-{
-   // echo $_SESSION['info_user'];
-   redirect('Home','refresh');
-}
+ <?php  
+ 	session_start();
+	 if(empty($_SESSION['info_user']))
+	 {
+		// echo $_SESSION['info_user'];
+		redirect('Home','refresh');
+	 }
 plantilla_usuarios::iniciar($categorias); 
-
-$input_correo = array(
+$input_nombre = array(
 	'type'  	 => 	'text',
+	'name'  	 => 	'nombre',
+	'id'    	 => 	'nombre',
+	'maxlength'  => 	'60',
+	'size'  	 => 	'100',
+	'class' => 'form-control'
+);
+$input_apellido = array(
+	'type'  	 => 	'text',
+	'name'  	 => 	'apellido',
+	'id'    	 => 	'apellido',
+	'maxlength'  => 	'60',
+	'size'  	 => 	'100',
+	'class' => 'form-control'
+);
+$input_correo = array(
+	'type'  	 => 	'email',
 	'name'  	 => 	'correo',
 	'id'    	 => 	'correo',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'value'		 =>		set_value('correo',@$datos_categorias[0]->correo),
 	'class' => 'form-control'
 );
 $input_contrasenia = array(
@@ -22,18 +36,30 @@ $input_contrasenia = array(
 	'id'    	 => 	'contrasenia',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'value'		 =>		set_value('contrasenia',@$datos_categorias[0]->contrasenia),
+	'class' => 'form-control'
+);
+$input_username = array(
+	'type'  	 => 	'text',
+	'name'  	 => 	'username',
+	'id'    	 => 	'username',
+	'maxlength'  => 	'60',
+	'size'  	 => 	'100',
 	'class' => 'form-control'
 );
 
 $submit = array(
-	'class' =>'btn btn-login float-right',
-	'value' => 'Inciar'
+	'class' => 'btn btn-login float-right',
+
+	'id'=>		'Successbtn',
+	'name'=>'btn_guardar',
+	'value' => 'Guardar'
 );
+
 
 ?>
 
-<!-- LOGIN NUEVO -->
+
+<!-- Register NUEVO -->
 
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -41,21 +67,31 @@ $submit = array(
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
-<?php  
-  plantilla_usuarios::iniciar($categorias); 
-?>
+
 
 <section class="login-block">
 	<div class="container">
 		<div class="wrapable">
 			<div class="col-md-6 login-sec">
-				<h2 class="text-center">Ingresa a tu cuenta</h2>
+				<h2 class="text-center">Edita tus datos</h2>
 
 				<?php echo form_open();?>
 				<br>
+				<?php echo form_label('Nombre');?>
+				<br>
+				<?php echo form_input($input_nombre);?>
+				<br>
+				<?php echo form_error('nombre') ?>
+				<br>
 
+				<?php echo form_label('Apellido');?>
+				<br>
+				<?php echo form_input($input_apellido);?>
+				<br>
+				<?php echo form_error('apellido') ?>
+				<br>
 
-				<?php echo form_label('Correo Electronico o Username');?>
+				<?php echo form_label('Correo Electronico');?>
 				<br>
 				<?php echo form_input($input_correo);?>
 				<br>
@@ -69,26 +105,23 @@ $submit = array(
 				<?php echo form_error('contrasenia') ?>
 				<br>
 
+				<?php echo form_label('Nombre de usuario');?>
+				<br>
+				<?php echo form_input($input_username);?>
+				<br>
+				<?php echo form_error('username') ?>
+				<br>
+
 				<?php echo form_submit($submit);?>
+
+
 				<?php echo form_close();?>
 
-				<div class="copy-text">
-					<div class="registrarme">
-						<a class="" href="<?php echo base_url('user/register')?>">Registrarme</a>
-					</div>
-						
-					<div class="forgot">
-						<a class=" " href="forgot-password.html">¿Olvidaste tu clave?</a>
-					</div>
 
-
-
-				</div>
+			
 			</div>
 
-			<div class="col-md-6 img-principal">
-				<img src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="Imagen-portada">
-			</div>
+			
 
 		</div>
 </section>
@@ -182,7 +215,10 @@ $submit = array(
 	.forgot {
 		text-align: left;
 	}
-
+	p{
+		color: red;
+		font-size: 15px;
+	}
 	.registrarme a,
 	.forgot a {
 		font-size: 20px;
@@ -203,28 +239,9 @@ $submit = array(
 		padding: 0;
 	}
 
-	.img-principal {
-		border-top-right-radius: 10px;
-		border-bottom-right-radius: 10px;
-		height: 500px;
-		padding: 0;
-	}
+	
+	
 
-	.img-principal>img {
-		width: 100%;
-		height: 100%;
-		margin: 0;
-		border-top-right-radius: 10px;
-		border-bottom-right-radius: 10px;
-	}
-	p{
-		color: red;
-		font-size: 15px;
-	}
-	@media only screen and (max-width: 767px) {
-		.img-principal{
-			display: none;
-		}
-	}
 
 </style>
+

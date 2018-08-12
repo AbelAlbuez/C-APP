@@ -99,7 +99,7 @@
 							</button>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item" >Mis anuncios</a>
-								<a class="dropdown-item" >Editar perfil</a>
+								<a href="<?php echo base_url('user/profile/')?>" class="dropdown-item" >Editar perfil</a>
 								<a href="<?php echo base_url('user/login/')?>CerrarSesion" class="dropdown-item" >Cerrar Session</a>
 							</div>
 							</div>
