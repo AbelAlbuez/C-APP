@@ -73,7 +73,7 @@ plantilla::iniciar();?>
           <input class="btn btn-dark float-right" type="submit" value="Guardar"  ><br>
           
         </td>
-      
+      	<a class='btn btn-success float-right' href="<?php echo base_url('panel/subcategorias/load/'.$listado_contado[0]->id)?>" >Volver</a>
       </tr>
     </table>
     </form>

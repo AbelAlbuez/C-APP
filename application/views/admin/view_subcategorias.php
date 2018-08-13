@@ -21,10 +21,11 @@ plantilla::iniciar();?>
         <div class="card-header">
 				
 				 
-					<h2 class='float-left' >Listado de Subcategorias <span class="badge badge-secondary"><?php echo count($listado)?></span></h2>
+					<h2 class='float-left' >Listado de Subcategorias de <?php echo $listado_contado[0]->nombre?> <span class="badge badge-secondary"><?php echo count($listado)?></span> </h2>
 				 
 
 		<a class='btn btn-success float-right' href="<?php echo base_url('panel/subcategorias/agregar/'.$listado_contado[0]->id)?>" >Agregar Subcategoria</a>
+	
 
 					<div class="card-body">
 		<br> <br>
