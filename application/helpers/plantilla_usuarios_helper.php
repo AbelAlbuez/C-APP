@@ -101,7 +101,7 @@
 									<a href="<?php echo base_url('user/profile/')?>" class="dropdown-item" >Editar perfil</a>
 									<a href="<?php echo base_url('user/login/')?>CerrarSesion" class="dropdown-item" >Cerrar Session</a>
 								</div>
-								<a class="btn btn-outline-light" href='<?php echo base_url('Anuncios');?>'> Redactar <i class="fas fa-pen-alt"></i> </a> |
+								<a class="btn btn-outline-light" href='<?php echo base_url('Anuncios');?>'> Redactar Anuncio <i class="fas fa-pen-alt"></i> </a> |
 								<?php
 									if($_SESSION['info_user'][0]->tipo == '1')
 									{

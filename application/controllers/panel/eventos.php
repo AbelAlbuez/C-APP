@@ -21,9 +21,9 @@ class Eventos extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('form');
+
 		//Añadiremos las validaciones de ls libreria
-		$this->load->helper('url'); //para redireccionar paginas
+		$this->load->helper(array('url', 'form')); //para redireccionar paginas
 		$this->load->library('form_validation');
 		$this->load->model('M_eventos');
 		session_start();
@@ -36,7 +36,7 @@ class Eventos extends CI_Controller {
 		$this->load->view('admin/view_eventos.php', $data);
 	}
 	public function agregar(){
-		if(!empty($_POST)){
+		if($this->input->post()){
 			$config['upload_path'] = './uploads/imagenesEvento';
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size'] = '222048';

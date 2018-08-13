@@ -22,37 +22,36 @@ plantilla::iniciar();?>
       <table class="table table-bordered">
       <tr>
         <td>Titulo</td>
-        <td><input type="text" name="titulo" class="form-control"
-				value="<?php echo $datos_eventos[0]->titulo;?>"></td>
+        <td><input type="text" name="titulo" class="form-control"></td>
       </tr>
       <tr>
         <td>Lugar</td>
         <td><input type="text" name="lugar" class="form-control"
-				value="<?php echo $datos_eventos[0]->lugar;?>"></td>
+				></td>
       </tr>
       <tr>
         <td>Descripcion</td>
-        <td> <textarea name="descripcion"><?php echo $datos_eventos[0]->descripcion;?></textarea> </td>
+        <td> <textarea name="descripcion"></textarea> </td>
       </tr>
       <tr>
         <td>Longitud</td>
         <td><input type="text" name="longitud" class="form-control"
-				value="<?php echo $datos_eventos[0]->longitud;?>"></td>
+				></td>
       </tr>
       <tr>
         <td>Latituden</td>
         <td><input type="text" name="latitud" class="form-control"
-				value="<?php echo $datos_eventos[0]->latitud;?>"></td>
+			></td>
       </tr>
       <tr>
         <td>fecha</td>
         <td><input required type="date" name="fecha" class="form-control"
-				value="<?php echo $datos_eventos[0]->fecha;?>"></td>
+				></td>
       </tr>
       <tr>
         <td>hora</td>
         <td><input required type="time" name="hora" class="form-control"
-				value="<?php echo $datos_eventos[0]->hora;?>"></td>
+		></td>
       </tr>
       <tr>
       <tr>
@@ -63,7 +62,7 @@ plantilla::iniciar();?>
       <tr>
         <td>link</td>
         <td><input type="text" name="link" class="form-control"
-				value="<?php echo $datos_eventos[0]->link;?>"></td>
+	></td>
       </tr>
 			<tr>
         <td>idUser</td>
