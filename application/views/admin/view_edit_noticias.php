@@ -26,14 +26,10 @@ plantilla::iniciar();
 		<td><textarea  id="summernote" name="descripcion" class="form-control" ><?php echo $datos_noticias[0]->descripcion;?></textarea ></td>
 	</tr>
 	<tr>
-		<td>Fecha</td>
-		<td><input  name="fecha" class="form-control"
-		 value="<?php echo $datos_noticias[0]->fecha_de_creacion;?>"></td>
-	</tr>
-	<tr>
 		<td>Imagen</td>
-		<td><input type="file" name="fileimagen" class="form-control" value="<?php echo $datos_noticias[0]->url_imagen;?>"></td>
-	</tr>
+		<td><input type="file" name="fileimagen" class="form-control" id="cargar">
+		</td>
+		</tr>
 
 	<tr>
 	

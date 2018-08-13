@@ -114,5 +114,9 @@ function eliminarBanner(id){
 	  });
 }
 
+function init() {
+ 
+}
+
 
 

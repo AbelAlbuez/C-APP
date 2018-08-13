@@ -28,6 +28,7 @@ plantilla::iniciar();
 		<div class="form-group">
 			<label for="exampleFormControlTextarea1">Imágen</label>
 			<input type="file" name="fileimagen" class="form-control">
+		
 		</div>
 	
 		<hr>

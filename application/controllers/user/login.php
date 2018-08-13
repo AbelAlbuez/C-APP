@@ -36,7 +36,11 @@ class Login extends CI_Controller {
 				
 			if(empty($validar)){
 				$data['categorias'] = $this->M_categoria->get_todos(); 
-				$data['error']= 'Error: revise la contraseña o usuario'; 
+				$data['error']= '
+				<div class="alert alert-danger" role="alert">
+				Error: revise la contraseña o usuario
+				</div>
+				'; 
            		 $this->load->view('action_user/login', $data);
 			}else{
 				session_start();

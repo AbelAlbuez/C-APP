@@ -40,11 +40,13 @@ plantilla::iniciar();
 	</tr>
 	<tr>
 		<td colspan="2"> 
-			<input class="btn btn-dark float-right" type="submit" value="Guardar"><br>
+			<input class="btn btn-dark float-right" type="submit" value="Guardar">
 			<?php echo $error;?>
+			<a class="btn btn-dark float-left" href="<?php echo base_url('panel/banner')?>" value="Volver"> Volver</a>
 		</td>
 	
 	</tr>
+	
 </table>
 </form>
 
