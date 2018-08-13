@@ -30,6 +30,7 @@
 	<link href="<?php echo base_url('/extra/panel/');?>css/style.css" rel="stylesheet">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="<?php echo base_url('/extra/panel/');?>js/index.js"></script>
 
 </head>
 
@@ -110,26 +111,19 @@
 		?>
 
 	<!-- Bootstrap core JavaScript-->
-	<script>
-      $('#summernote').summernote({
-        placeholder: 'Hello stand alone ui',
-        tabsize: 2,
-        height: 100
-      });
-    </script>
+
 
     	<script src="<?php echo base_url('/extra/panel/');?>vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url('/extra/panel/');?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<!-- Core plugin JavaScript-->
 
-		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="<?php echo base_url('/extra/panel/');?>vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="<?php echo base_url('/extra/panel/');?>vendor/chart.js/Chart.min.js"></script>
     <script src="<?php echo base_url('/extra/panel/');?>vendor/datatables/jquery.dataTables.js"></script>
     <script src="<?php echo base_url('/extra/panel/');?>vendor/datatables/dataTables.bootstrap4.js"></script>
 		<!-- Custom scripts for all pages-->
-		<script src="<?php echo base_url('/extra/panel/');?>js/index.js"></script>
+
     <script src="<?php echo base_url('/extra/panel/');?>js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="<?php echo base_url('/extra/panel/');?>js/sb-admin-datatables.min.js"></script>

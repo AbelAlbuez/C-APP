@@ -7,9 +7,14 @@ class M_usuarios extends CI_Model{
 	{
 		parent::__construct();
 		$this->load->database();
+		
 	}
 	 function get_todos()
    {
+		
+		/*$sql="
+		SELECT * FROM usuario WHERE id <> ?";
+		$query= $this->db->query($sql, array($id));*/
 		$query = $this->db->get('usuario'); 
 		return $query->result(); 
 	}

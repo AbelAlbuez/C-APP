@@ -13,6 +13,7 @@ class Eventos extends CI_Controller {
 
 	public function index()
 	{
+		
 		$data['categorias'] = $this->m_categoria->get_todos(); 
 		$this->load->view('eventos_view', $data);
 	}

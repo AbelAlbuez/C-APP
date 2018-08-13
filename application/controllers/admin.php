@@ -9,28 +9,19 @@ class Admin extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->helper('url'); //para redireccionar paginas
 		$this->load->library('form_validation');
-		$this->load->model('M_categoria');
+		$this->load->model(array('M_categoria_accesorios',
+		'M_categoria_componentes','M_categoria_servicios','M_categoria_servicios','M_categoria',
+		 'M_usuarios','M_noticias','M_eventos'));
 		$this->load->helper('plantilla_usuarios');
 		//session_start();
 	}
 
 	public function index()
 	{   
-		$this->load->view('view_panel_admin.php');
-	/*	if(!empty($_SESSION)){
-			if($_SESSION['usuario']->permisos == 'Master')
-			{
-			   
-				}else{
-					$data['categorias'] = $this->M_categoria->get_todos(); 
-					$this->load->view('home_view', $data);
-			   }
-
-		}else{
-			$data['categorias'] = $this->M_categoria->get_todos(); 
-			$this->load->view('home_view', $data);
 		
-		}*/
+
+		$this->load->view('view_panel_admin.php');
+
 		 
 	}
 }

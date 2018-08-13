@@ -35,10 +35,10 @@ class M_eventos extends CI_Model{
 		return $this->db->insert_id();
 
 	}
-	function edit($id){
+	function edit($id, $datos_editar){
 		
-		$datos_editar=$this->input->post();
-		unset($datos_editar['btn_enviar']);
+		//$datos_editar=$this->input->post();
+		//unset($datos_editar['btn_enviar']);
 		$query = $this->db->where('id',$id); 
 		$this->db->update('eventos',$datos_editar);
 	}

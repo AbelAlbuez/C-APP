@@ -5,7 +5,11 @@ if($_SESSION['info_user'][0]->tipo!=1)
 
   redirect(base_url());
 }
-plantilla::iniciar();?>
+plantilla::iniciar();
+$idUser=$_SESSION['info_user'][0]->id;
+//Codigo para eliminar la session actual del listado
+
+?>
 <div class="content-wrapper">
 <?php if(empty($listado)){?>
 	<h1>Sin Usuarios</h1>

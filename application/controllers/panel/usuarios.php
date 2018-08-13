@@ -23,11 +23,8 @@ class Usuarios extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['listado'] = $this->M_usuarios->get_todos();
-		$this->load->view('admin/view_usuarios.php', $data);
-		
-
-	
+			$data['listado'] = $this->M_usuarios->get_todos();
+			$this->load->view('admin/view_usuarios.php', $data);
 	}
 
 	function get_by_id($id){

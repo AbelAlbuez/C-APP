@@ -10,7 +10,7 @@ plantilla::iniciar();?>
   
   <div class="cont-titulo">
 
-    <h1>Agregar Eventos</h1>
+    <h1>Editar Eventos</h1>
 
   </div>
     
@@ -18,7 +18,7 @@ plantilla::iniciar();?>
 	
 
     <div class="container">
-    <form action="<?php echo base_url('panel/eventos/agregar/')?>" method="POST"   enctype="multipart/form-data">
+    <form action="<?php echo base_url('panel/eventos/modificar/'.$datos_eventos[0]->id)?>" method="POST"   enctype="multipart/form-data">
       <table class="table table-bordered">
       <tr>
         <td>Titulo</td>
@@ -57,7 +57,7 @@ plantilla::iniciar();?>
       <tr>
       <tr>
         <td>Imagen</td>
-        <td><input  required type="file" name="fileimagen" class="form-control"
+        <td><input   type="file" name="fileimagen" class="form-control"
 				></td>
       </tr>
       <tr>
@@ -71,7 +71,7 @@ plantilla::iniciar();?>
       </tr>
       <tr>
         <td colspan="2"> 
-          <input class="btn btn-dark float-right" type="submit" value="Guardar"  ><br>
+          <input class="btn btn-dark float-right" type="submit" value="Guardar" name="btn_enviar" ><br>
           
         </td>
       

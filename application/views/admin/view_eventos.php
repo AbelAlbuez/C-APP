@@ -10,10 +10,6 @@ plantilla::iniciar();?>
 	<h1>Sin Eventos</h1> - 
 	<a href="<?php echo base_url('panel/eventos/agregar/')?>" >Agregar Eventos</a>
 	<?php }else {?>
-
-
-
-
 	 <div class="card mb-3">
         <div class="card-header">
 					<i class="fa fa-table"></i> Listado de Eventos  - (<?php echo count($eventos_listado)?>) Eventos
@@ -25,7 +21,7 @@ plantilla::iniciar();?>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-								<th>ID</th>
+									<th>ID</th>
 									<th>Titulo</th>
 									<th>Lugar</th>
 									<th>Fecha</th>
@@ -61,19 +57,17 @@ plantilla::iniciar();?>
 								<td><?php echo $eventos->url_imagen?></td>	
 
 								<td>
-								<!-- onclick="eliminarEventos(<?php echo $eventos->id?>)" -->
-								<a href="<?php echo base_url('panel/eventos/eliminar/'.$eventos->id)?>" >
-								
+							
+								<a href="#" onclick="eliminarEventos(<?php echo $eventos->id?>)" >
 								Eliminar
 								</a>
 
 								
 								- 
-								<a id="eliminarEventos<?php echo $eventos->id?>" href="<?php echo base_url('panel/eventos/eliminar/')?>
-								<?php echo $eventos->id?>" style="display:none" >Prueba</a>
+								<a id="eliminarEventos<?php echo $eventos->id?>" href="<?php echo base_url('panel/eventos/eliminar/'.$eventos->id)?>" 
+								 style="display:none" >Prueba</a>
 								
-								<a href="<?php echo base_url('panel/eventos/modificar/') ;?> 
-								<?php echo $eventos->id;   ?>" >Editar</a>
+								<a href="<?php echo base_url('panel/eventos/modificar/'.$eventos->id) ;?>" >Editar</a>
 							
 						
 				

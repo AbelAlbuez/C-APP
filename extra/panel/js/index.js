@@ -46,28 +46,7 @@ function eliminarSubCategoria(id){
 		}
 	  });
 }
-function eliminarEventos(){
-	swal({
-		title: "Estas seguro de eliminar esta eventos?",
-		text: "Una vez eliminado, no podrá recuperar este evento!",
-		icon: "warning",
-		buttons: true,
-		dangerMode: true,
-	  })
-	  .then((willDelete) => {
-		if (willDelete) {
-				swal("El evento fue eliminado correctamente!", {
-				icon: "success",
-			  }).then((eliminado) =>{
-				document.getElementById("eliminarEventos"+id).click();
-			  });  
-			  
-		} else {
-			console.log("Cancelado");
-		  	swal("Ha sido cancelado!");
-		}
-	  });
-}
+
 function eliminarNoticias(id){
 	swal({
 		title: "Estas seguro de eliminar esta noticia?",
@@ -114,8 +93,29 @@ function eliminarBanner(id){
 	  });
 }
 
-function init() {
- 
+function eliminarEventos(id){
+	swal({
+		title: "Estas seguro de eliminar este Evento?",
+		text: "Una vez eliminado, no podrá recuperar este evento!",
+		icon: "warning",
+		buttons: true,
+		dangerMode: true,
+	  })
+	  .then((willDelete) => {
+		if (willDelete) {
+				swal("El evento fue eliminado correctamente!", {
+				icon: "success",
+			  }).then((eliminado) =>{
+					console.log("id");
+					console.log(id);
+					document.getElementById("eliminarEventos"+id).click();
+			  });  
+			  
+		} else {
+			console.log("Cancelado");
+		  	swal("Ha sido cancelado!");
+		}
+	  });
 }
 
 
