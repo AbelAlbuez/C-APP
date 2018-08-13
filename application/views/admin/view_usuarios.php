@@ -6,7 +6,13 @@ if($_SESSION['info_user'][0]->tipo!=1)
   redirect(base_url());
 }
 plantilla::iniciar();
+//Eliminar posicion del arreglo
 $idUser=$_SESSION['info_user'][0]->id;
+for ($i=0; $i < count($listado); $i++) { 
+		if ($listado[$i]->id==$idUser) {
+				unset($listado[$i]);
+		}
+}
 //Codigo para eliminar la session actual del listado
 
 ?>
