@@ -35,20 +35,20 @@ class Login extends CI_Controller {
 				$validar =$this->m_login->logueate($correo,$encriptada);
 				
 			if(empty($validar)){
-			
-				echo "No logueado";
-				
+				$data['categorias'] = $this->M_categoria->get_todos(); 
+				$data['error']= 'Error: revise la contraseña o usuario'; 
+           		 $this->load->view('action_user/login', $data);
 			}else{
 				session_start();
 
 				$_SESSION['info_user'] = $validar;
 		
 				
-				redirect('Home','refresh');
+				redirect(base_url());
 				
 			}
 			}else{
-				
+				$data['error']='';
 			$data['categorias'] = $this->M_categoria->get_todos(); 
             $this->load->view('action_user/login', $data);
 			}
@@ -56,7 +56,7 @@ class Login extends CI_Controller {
 		else
 		{
 			
-
+			$data['error']='';
 			$data['categorias'] = $this->M_categoria->get_todos(); 
             $this->load->view('action_user/login', $data);
 		}

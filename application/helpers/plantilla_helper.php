@@ -84,7 +84,7 @@
   				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="<?php echo base_url('Home');?>">
 					<i class="fa fa-file-code-o" aria-hidden="true"></i>
-					<span class="nav-link-text">Pagina principal</span>
+					<span class="nav-link-text">Vista de Usuario</span>
           </a>
         </li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">

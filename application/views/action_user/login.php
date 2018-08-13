@@ -12,7 +12,7 @@ $input_correo = array(
 	'id'    	 => 	'correo',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'value'		 =>		set_value('correo',@$datos_categorias[0]->correo),
+	'value'		 =>		set_value('correo'),
 	'class' => 'form-control'
 );
 $input_contrasenia = array(
@@ -21,7 +21,7 @@ $input_contrasenia = array(
 	'id'    	 => 	'contrasenia',
 	'maxlength'  => 	'60',
 	'size'  	 => 	'100',
-	'value'		 =>		set_value('contrasenia',@$datos_categorias[0]->contrasenia),
+	'value'		 =>		set_value('contrasenia'),
 	'class' => 'form-control'
 );
 
@@ -67,7 +67,7 @@ $submit = array(
 				<br>
 				<?php echo form_error('contrasenia') ?>
 				<br>
-
+				<p><?php echo $error; ?></p>	
 				<?php echo form_submit($submit);?>
 				<?php echo form_close();?>
 
