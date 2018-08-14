@@ -1,4 +1,5 @@
-<?php plantilla_usuarios::iniciar($categorias); ?>
+<?php 
+plantilla_usuarios::iniciar($categorias); ?>
 
 <style>
 	.titulos_anuncios{
@@ -147,18 +148,18 @@
 
 		<!-- ANUNCIOS  -->
         <div class="col-sm-8">
-		<h2 class="mt-4">Noticias</h2>
+		<h2 class="mt-4">  Noticias</h2>
 						
 	<!-- Presentar Noticias -->
 	<?php if(empty($noticias_listado)){?>
 <h1>Vaciooo</h1>
 <?php }else{ ?> 
-<div class="container">
-  <div class="row">
+
+<div class="row">
   <?php foreach ($noticias_listado as $noticias ) {?>
     <div class="col-12">
 		<!-- Contenido de las noticias -->
-		<br><br>
+	
 		<div class="card" style="width: 40rem;">
 		<div class="card-header">
 		<?php echo $noticias->titulo?>
@@ -166,17 +167,14 @@
 		<img class="card-img-top" src="<?php echo base_url(); ?>uploads/thumb/<?php echo $noticias->url_imagen; ?>" alt="Card image cap">
 				
   		<div class="card-body">
-    	
-    
-    	<a href="<?php echo base_url('panel/noticias/View_Notice_Detail/'.$noticias->id)?>" class="card-link">Ver Noticia</a>
-    
+		<?php echo $noticias->descripcion?>
   		</div>
 	</div>
 		<!-- Cierre de las noticias -->
     </div>
 	<?php } ?>
-  </div>
 </div>
+
 <?php } ?>
 
 		</div>
