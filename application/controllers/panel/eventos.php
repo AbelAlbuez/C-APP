@@ -60,7 +60,7 @@ class Eventos extends CI_Controller {
 				$file_info = $this->upload->data();
 				
 	
-			 //   $this->crearMiniatura($file_info['file_name']);
+				$this->crearMiniatura($file_info['file_name']);//creando miniatura
 				 $evento = array();
 				 $evento['titulo'] = $this->input->post('titulo');
 				 $evento['lugar'] = $this->input->post('lugar');
@@ -163,7 +163,7 @@ class Eventos extends CI_Controller {
 		
 					{
 						$file_info = $this->upload->data();
-					 //   $this->crearMiniatura($file_info['file_name']);
+					    $this->crearMiniatura($file_info['file_name']);
 						 $evento = array();
 						 $evento['titulo'] = $this->input->post('titulo');
 						 $evento['lugar'] = $this->input->post('lugar');
@@ -204,8 +204,10 @@ class Eventos extends CI_Controller {
 		
 		
 	
-	public function eliminar($id = null){
-		if($id==null or !is_numeric($id)){
+	public function eliminar($id = null)
+	{
+		if($id==null or !is_numeric($id))
+		{
 			echo 'Error con el id';
 			return ;
 		}else{
@@ -214,4 +216,17 @@ class Eventos extends CI_Controller {
 		}
 			}
 
+	function crearMiniatura($filename)
+	{
+        $config['image_library'] = 'gd2';
+        $config['source_image'] = 'uploads/imagenesEvento/'.$filename;
+        // $config['create_thumb'] = TRUE;
+        $config['maintain_ratio'] = TRUE;
+        $config['new_image']='uploads/thumb/';
+        $config['thumb_marker']='';//captura_thumb.png
+        $config['width'] = 900;
+        $config['height'] = 270;
+        $this->load->library('image_lib', $config); 
+        $this->image_lib->resize();
+    }		
 }
