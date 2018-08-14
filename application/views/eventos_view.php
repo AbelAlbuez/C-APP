@@ -1,4 +1,37 @@
-<?php plantilla_usuarios::iniciar($categorias); ?>
+<?php plantilla_usuarios::iniciar($categorias);
+
+ function imprimir_Eventos($listado_eventos){
+	 
+	 foreach ($listado_eventos as $evento)
+	 {
+		$url = base_url('eventos/singleEvento/?id='.$evento->id);
+		 echo "
+		 <div class='trabajo'>
+			<div class='trabajo-header'>
+				<a href='{$url}'>
+					<h4>{$evento->titulo}</h4>
+				</a>
+			</div>
+			<div class='trabajo-content'>
+				<span class='tiempo-publicacion'>{$evento->fecha}</span>
+				<a href='#'></a>
+				<span class='divisor'>|</span>
+				</a>
+				<a href='#'>
+					<span class='ubicacion-publicacion'>{$evento->lugar}</span>
+				</a>
+
+				<div class='trabajo-descripcion'>{$evento->descripcion}.
+				</div>
+			</div>
+			
+		</div>
+		 ";
+	 }
+
+ }
+	
+ ?>
 
 
 
@@ -56,104 +89,13 @@
 			
 
 			<!-- cada uno de los trabajos -->
-			<div class="trabajo">
-				<div class="trabajo-header">
-					<a href="#">
-						<h4>Progrador JavaScript Asp</h4>
-					</a>
-				</div>
-				<div class="trabajo-content">
-					<span class="tiempo-publicacion">Hace 2 horas</span>
-					<a href="#"></a>
-					<span class="divisor">|</span>
-					</a>
-					<a href="#">
-						<span class="ubicacion-publicacion">Madrid Espana</span>
-					</a>
+		<?php imprimir_Eventos($eventos_listado); ?>
 
-					<div class="trabajo-descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos velit laboriosam repudiandae non? At, optio dolorem...
-					</div>
-				</div>
-				<div class="trabajo-footer">
-					<span class="trabajo-contrato">Contrato: Indefinido</span>
-					<span class="trabajo-salario">Salario: $25,000-$35,000</span>
-				</div>
-			</div>
-
-
-			<!-- cada uno de los trabajos -->
-			<div class="trabajo">
-				<div class="trabajo-header">
-					<a href="#">
-						<h4>Progrador JavaScript Asp</h4>
-					</a>
-				</div>
-				<div class="trabajo-content">
-					<span class="tiempo-publicacion">Hace 2 horas</span>
-					<a href="#"></a>
-					<span class="divisor">|</span>
-					</a>
-					<a href="#">
-						<span class="ubicacion-publicacion">Madrid Espana</span>
-					</a>
-
-					<div class="trabajo-descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos velit laboriosam repudiandae non? At, optio dolorem...
-					</div>
-				</div>
-				<div class="trabajo-footer">
-					<span class="trabajo-contrato">Contrato: Indefinido</span>
-					<span class="trabajo-salario">Salario: $25,000-$35,000</span>
-				</div>
-			</div>
-
-			<!-- cada uno de los trabajos -->
-			<div class="trabajo">
-				<div class="trabajo-header">
-					<a href="#">
-						<h4>Progrador JavaScript Asp</h4>
-					</a>
-				</div>
-				<div class="trabajo-content">
-					<span class="tiempo-publicacion">Hace 2 horas</span>
-					<a href="#"></a>
-					<span class="divisor">|</span>
-					</a>
-					<a href="#">
-						<span class="ubicacion-publicacion">Madrid Espana</span>
-					</a>
-
-					<div class="trabajo-descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos velit laboriosam repudiandae non? At, optio dolorem...
-					</div>
-				</div>
-				<div class="trabajo-footer">
-					<span class="trabajo-contrato">Contrato: Indefinido</span>
-					<span class="trabajo-salario">Salario: $25,000-$35,000</span>
-				</div>
-			</div>
 
 			<!-- LA PAGINACION -->
 
 <hr>
 
-			<nav aria-label="Page navigation example  ">
-				<ul class="pagination justify-content-end">
-					<li class="page-item">
-						<a class="page-link" href="#" tabindex="-1">Previous</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">1</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">2</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">3</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">Next</a>
-					</li>
-				</ul>
-			</nav>
 
 
 
