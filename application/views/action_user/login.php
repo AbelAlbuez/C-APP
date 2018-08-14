@@ -4,7 +4,7 @@ if(!empty($_SESSION['info_user']))
 {
   redirect(base_url());
 }
-
+plantilla_usuarios::iniciar($categorias); 
 $input_correo = array(
 	'type'  	 => 	'text',
 	'name'  	 => 	'correo',
