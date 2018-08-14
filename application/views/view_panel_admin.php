@@ -1,5 +1,5 @@
 <?php 
-session_start();
+if(!isset($_SESSION)) { session_start(); }
 if($_SESSION['info_user'][0]->tipo!=1)
 {
 
@@ -21,7 +21,9 @@ plantilla::iniciar();?>
                     <div class="float-right">
                       <p class="mb-0 text-right">Cantidad de usuarios</p>
                       <div class="fluid-container">
-                        <h3 class="font-weight-medium text-right mb-0">5</h3>
+                        <h3 class="font-weight-medium text-right mb-0">
+												<?php echo count($usuarios) ?>
+												</h3>
                       </div>
                     </div>
                     <img src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Account-512.png" alt="" width="80px" height="70px">
