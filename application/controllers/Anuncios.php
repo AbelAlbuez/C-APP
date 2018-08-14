@@ -609,7 +609,6 @@ class Anuncios extends CI_Controller {
                                 $data['categoria_a_mostrar'] = $this->m_categoria->get_by_id($anuncio[0]->idcategoria);
                                 $data['subcategoria_a_mostrar'] = $this->m_subcategorias->get_by_id($anuncio[0]->id_subcategoria);
                                 $this->load->view('crear_anuncios_view', $data);                                
-
                             }
                         }
                     }

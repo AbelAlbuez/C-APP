@@ -166,6 +166,7 @@
 	<?php
 	}
 	?>
+
 	<div class="row">
 
 		<!-- ANUNCIOS  -->
@@ -252,7 +253,7 @@
 										<i class="far fa-calendar-alt"></i> <?php echo $anuncios[$i]->fecha_de_inicio; ?> <br/> 
 										<i class="fas fa-dollar-sign"></i> <?php echo $anuncios[$i]->precio; ?> <br/>
 										<span style="text-align:justify">
-											<?php echo $anuncios[$i]->descripcion; ?>
+											<?php echo substr($anuncios[$i]->descripcion, 0, 50) ?> ...
 										</span>								
 									</p>
 								</div>

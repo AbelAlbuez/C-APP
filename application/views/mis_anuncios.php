@@ -157,5 +157,180 @@
 		</div>
 	</form>
 
+    <div class="row">
+
+<!-- ANUNCIOS  -->
+<div class="col-sm-8">
+    
+    <h2 class="mt-4">Mis anuncios</h2>
+                
+    <?php
+    if(isset($anuncios))
+    {			
+        for ($i = 0 ; $i < count($anuncios) ; $i++) 
+        { 
+    ?>
+            <div class="card bg-light mb-3 sombra">
+                <div class="card-body">
+                    <div class="row">
+
+                        <?php
+                        $imagen_en_curso = "";
+
+                        foreach ($imagenes as $imagen) 
+                        {
+                            if($imagen->id_anuncio == $anuncios[$i]->id)
+                            {
+                                foreach ($categorias as $categoria)
+                                {
+                                    if($anuncios[$i]->idcategoria == $categoria->id)
+                                    {
+                                        if($categoria->nombre == $imagen->tipo_anuncio)
+                                        {
+                                            $imagen_en_curso = $imagen->imagen;
+                                         }
+                                    }
+                                }
+                            }
+                        }
+                        ?>
+
+                        <?php
+                        if($imagen_en_curso != "")
+                        {
+                        ?>
+                            <img src="<?php echo base_url(); ?>/images/<?php echo $imagen_en_curso; ?>"  style="height:200px!important;"  alt="..." class="img-thumbnail col-sm-4">
+                        <?php
+                        }
+                        else
+                        {
+                        ?>
+                            <img src="<?php echo base_url(); ?>/images/noimg.png"  style="height:200px!important;"  alt="..." class="img-thumbnail col-sm-4">
+                        <?php									
+                        }
+                        ?>
+
+                        <div class="col-sm-8">
+                            <h4 class=""><?php echo $anuncios[$i]->titulo_anuncio; ?></h4>
+                            <p>
+                                <?php
+                                $categoria_para_el_editar_x = "";
+                                foreach ($categorias as $categoria)
+                                {
+                                    if($anuncios[$i]->idcategoria == $categoria->id)
+                                    {
+                                        $categoria_para_el_editar_x = $categoria->nombre;
+                                ?>
+                                        <i class="fas fa-tags"></i> <?php echo $categoria->nombre; ?> <br/> 
+                                <?php
+                                    }
+                                }
+                                ?>
+                                
+                                <?php
+                                if(isset($usuarios))
+                                {
+                                    foreach ($usuarios as $usuario)
+                                    {
+                                        if($anuncios[$i]->idusuario == $usuario->id)
+                                        {
+                                ?>
+                                            <i class="fas fa-user"></i> <?php echo $usuario->nombre . " " . $usuario->apellido; ?> <br/> 
+                                <?php
+                                        }
+                                    }
+                                }
+                                ?>
+                                
+                                <i class="far fa-calendar-alt"></i> <?php echo $anuncios[$i]->fecha_de_inicio; ?> | 
+                                <i class="fas fa-dollar-sign"></i> <?php echo $anuncios[$i]->precio; ?> <br/>
+                                <span style="text-align:justify">
+                                    <?php echo substr($anuncios[$i]->descripcion, 0, 40) ?> ...
+                                </span>								
+                            </p>
+                            
+                            <a href="<?php echo base_url() ?>Anuncios/detalles/<?php echo  $anuncios[$i]->id + 0; ?>/<?php echo $categoria_para_el_editar_x; ?>" style="float:right; margin-left:5px!important;" class="btn btn-outline-danger"> <i class="fas fa-trash-alt"></i> </a>                             
+                            <a href="<?php echo base_url() ?>Anuncios/detalles/<?php echo  $anuncios[$i]->id + 0; ?>/<?php echo $categoria_para_el_editar_x; ?>" style="float:right;"  class="btn btn-outline-primary"> <i class="fas fa-edit"></i> </a>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php
+            }
+        }
+        ?>
+    </div>
+
+    <!-- PUBLICIDAD -->
+    <div class="col-sm-4">
+        <h2 class="mt-4">Interés</h2>
+
+        <!-- ANUNCIO DERECHA SUPERIOR -->
+        <div class="card sombra" style="width: 18rem;">
+            <?php
+                if(isset($banners))
+                {
+                    foreach ($banners as $banner) 
+                    {
+                        if($banner->posicion == '1')
+                        {
+            ?>
+                            <img class="img-thumbnail" src="<?php echo base_url(); ?>uploads/imagenesBanner/<?php echo $banner->url_imagen; ?>" alt="Card image cap">			
+            <?php
+                        }
+                    }
+                }
+            ?>
+        </div>
+        
+        <!-- ANUNCIO DERECHA INFERIOR -->
+        <div class="card sombra" style="width: 18rem;">
+            <?php
+                if(isset($banners))
+                {
+                    foreach ($banners as $banner) 
+                    {
+                        if($banner->posicion == '2')
+                        {
+            ?>
+                            <img class="img-thumbnail" src="<?php echo base_url(); ?>uploads/imagenesBanner/<?php echo $banner->url_imagen; ?>" alt="Card image cap">			
+            <?php
+                        }
+                    }
+                }
+            ?>
+        </div>
+
+        <div class="card sombra" style="width: 18rem;">
+            <p class="text-center" style="font-weight:bold; padding:2.5px; padding-bottom:0!important; margin-bottom:0!important;">Anuncios destacados</p>
+            
+            <?php
+            if(isset($anuncios))
+            {			
+                for ($i = 0 ; $i < count($anuncios) ; $i++) 
+                {
+                    if($anuncios[$i]->destacar == "si")
+                    {
+            ?>
+                        <span class="text-center"><?php echo substr($anuncios[$i]->titulo_anuncio, 0, 10)  ?>... <br/></span>
+            <?php
+                    }
+                }
+            }
+            ?>
+        
+        </div>
+
+        <div class="card sombra" style="width: 18rem;">
+        <p></p>
+        </div>
+
+    </div>
+
+    </div>
+
+    <div class="margin-bot"> </div>
+    </div>
+
 </div>
 

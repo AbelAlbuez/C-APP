@@ -22,6 +22,13 @@ class M_categoria_servicios extends CI_Model{
 		return $query->result(); 
 	}
 
+	function get_by_user_id($id)
+	{
+		$query = $this->db->where('idusuario', $id); 
+		$query = $this->db->get('categoria_servicios'); 
+		return $query->result(); 
+	}
+
 	function get_by_subcategoria_filter($id, $data)
 	{
 		$query = $this->db->like('titulo_anuncio', $data);

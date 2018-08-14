@@ -21,6 +21,13 @@ class M_categoria_accesorios extends CI_Model{
 		$query = $this->db->get('categoria_accesorios'); 
 		return $query->result(); 
 	}
+
+	function get_by_user_id($id)
+	{
+		$query = $this->db->where('idusuario', $id); 
+		$query = $this->db->get('categoria_accesorios'); 
+		return $query->result(); 
+	}
 	
 	function get_by_subcategoria_filter($id, $data)
 	{
