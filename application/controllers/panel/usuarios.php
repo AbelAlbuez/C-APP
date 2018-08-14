@@ -72,7 +72,7 @@ class Usuarios extends CI_Controller {
 			return ;
 		}else{
 				$data['datos_usuarios'] =$this->M_usuarios->get_by_id($id);
-				if ($data['datos_usuarios'][0]->permisos=="Master"){
+				if ($data['datos_usuarios'][0]->tipo==1){
 					$this->M_usuarios->removeAdmin($id);
 					redirect('panel/usuarios/');
 				}else{

@@ -86,7 +86,7 @@ class M_usuarios extends CI_Model{
 	
 	function setAdmin($id)
 	{
-		if ($this->db->query('UPDATE `usuario` SET `permisos`= "Master" WHERE id = '.$id))
+		if ($this->db->query('UPDATE `usuario` SET `tipo`= "1" WHERE id = '.$id))
 		{
 			return true;
 		}else
@@ -97,7 +97,7 @@ class M_usuarios extends CI_Model{
 	}
 	function removeAdmin($id)
 	{
-		if ($this->db->query('UPDATE `usuario` SET `permisos`= "Usuario" WHERE id = '.$id))
+		if ($this->db->query('UPDATE `usuario` SET `tipo`= "0" WHERE id = '.$id))
 		{
 			return true;
 		}else
