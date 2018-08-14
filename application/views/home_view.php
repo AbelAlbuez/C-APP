@@ -202,100 +202,103 @@
 				{
 					for ($i = 0 ; $i < count($anuncios) ; $i++) 
 					{ 
+						if(date('Y-m-d') < $anuncios[$i]->fecha_de_fin)
+						{
 			?>
-					<div class="card bg-light mb-3 sombra">
-						<div class="card-body">
-							<div class="row">
-	
-								<?php
-								$imagen_en_curso = "";
+							<div class="card bg-light mb-3 sombra">
+								<div class="card-body">
+									<div class="row">
+			
+										<?php
+										$imagen_en_curso = "";
 
-								foreach ($imagenes as $imagen) 
-								{
-									if($imagen->id_anuncio == $anuncios[$i]->id)
-									{
-										foreach ($categorias as $categoria)
+										foreach ($imagenes as $imagen) 
 										{
-											if($anuncios[$i]->idcategoria == $categoria->id)
+											if($imagen->id_anuncio == $anuncios[$i]->id)
 											{
-												if($categoria->nombre == $imagen->tipo_anuncio)
+												foreach ($categorias as $categoria)
 												{
-													$imagen_en_curso = $imagen->imagen;
- 												}
-											}
-										}
-									}
-								}
-								?>
-
-								<?php
-								if($imagen_en_curso != "")
-								{
-								?>
-									<img src="<?php echo base_url(); ?>/images/<?php echo $imagen_en_curso; ?>"  style="height:200px!important;"  alt="..." class="img-thumbnail col-sm-4">
-								<?php
-								}
-								else
-								{
-								?>
-									<img src="<?php echo base_url(); ?>/images/noimg.png"  style="height:200px!important;"  alt="..." class="img-thumbnail col-sm-4">
-								<?php									
-								}
-								?>
-
-								<div class="col-sm-8">
-									
-									<?php
-									$categoria_para_el_editar_x = '';
-									foreach ($categorias as $categoria)
-									{
-										if($anuncios[$i]->idcategoria == $categoria->id)
-										{
-											$categoria_para_el_editar_x = $categoria->nombre;
-										}
-									}
-									?>
-
-									<h4 class="titulos_anuncios"> <a class="titulos_anuncios" href="<?php echo base_url() ?>Anuncio_Particular/index/<?php echo  $anuncios[$i]->id + 0; ?>/<?php echo $categoria_para_el_editar_x; ?>"> <?php echo substr($anuncios[$i]->titulo_anuncio, 0, 15) ?></a></h4>
-									<p>
-										<?php
-										foreach ($categorias as $categoria)
-										{
-											if($anuncios[$i]->idcategoria == $categoria->id)
-											{
-										?>
-												<i class="fas fa-tags"></i> <?php echo $categoria->nombre; ?> <br/> 
-										<?php
-											}
-										}
-										?>
-										
-										<?php
-										if(isset($usuarios))
-										{
-											foreach ($usuarios as $usuario)
-											{
-												if($anuncios[$i]->idusuario == $usuario->id)
-												{
-										?>
-													<i class="fas fa-user"></i> <?php echo $usuario->nombre . " " . $usuario->apellido; ?> <br/> 
-										<?php
+													if($anuncios[$i]->idcategoria == $categoria->id)
+													{
+														if($categoria->nombre == $imagen->tipo_anuncio)
+														{
+															$imagen_en_curso = $imagen->imagen;
+														}
+													}
 												}
 											}
 										}
 										?>
-										
-										<i class="far fa-calendar-alt"></i> <?php echo $anuncios[$i]->fecha_de_inicio; ?> <br/> 
-										<i class="fas fa-dollar-sign"></i> <?php echo $anuncios[$i]->precio; ?> <br/>
-										<span style="text-align:justify">
-											<?php echo substr($anuncios[$i]->descripcion, 0, 50) ?> ...
-										</span>								
-									</p>
+
+										<?php
+										if($imagen_en_curso != "")
+										{
+										?>
+											<img src="<?php echo base_url(); ?>/images/<?php echo $imagen_en_curso; ?>"  style="height:200px!important;"  alt="..." class="img-thumbnail col-sm-4">
+										<?php
+										}
+										else
+										{
+										?>
+											<img src="<?php echo base_url(); ?>/images/noimg.png"  style="height:200px!important;"  alt="..." class="img-thumbnail col-sm-4">
+										<?php									
+										}
+										?>
+
+										<div class="col-sm-8">
+											
+											<?php
+											$categoria_para_el_editar_x = '';
+											foreach ($categorias as $categoria)
+											{
+												if($anuncios[$i]->idcategoria == $categoria->id)
+												{
+													$categoria_para_el_editar_x = $categoria->nombre;
+												}
+											}
+											?>
+
+											<h4 class="titulos_anuncios"> <a class="titulos_anuncios" href="<?php echo base_url() ?>Anuncio_Particular/index/<?php echo  $anuncios[$i]->id + 0; ?>/<?php echo $categoria_para_el_editar_x; ?>"> <?php echo substr($anuncios[$i]->titulo_anuncio, 0, 15) ?></a></h4>
+											<p>
+												<?php
+												foreach ($categorias as $categoria)
+												{
+													if($anuncios[$i]->idcategoria == $categoria->id)
+													{
+												?>
+														<i class="fas fa-tags"></i> <?php echo $categoria->nombre; ?> <br/> 
+												<?php
+													}
+												}
+												?>
+												
+												<?php
+												if(isset($usuarios))
+												{
+													foreach ($usuarios as $usuario)
+													{
+														if($anuncios[$i]->idusuario == $usuario->id)
+														{
+												?>
+															<i class="fas fa-user"></i> <?php echo $usuario->nombre . " " . $usuario->apellido; ?> <br/> 
+												<?php
+														}
+													}
+												}
+												?>
+												
+												<i class="far fa-calendar-alt"></i> <?php echo $anuncios[$i]->fecha_de_inicio; ?> <br/> 
+												<i class="fas fa-dollar-sign"></i> <?php echo $anuncios[$i]->precio; ?> <br/>
+												<span style="text-align:justify">
+													<?php echo substr($anuncios[$i]->descripcion, 0, 50) ?> ...
+												</span>								
+											</p>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div>
 			<?php	
+						}
 					}
 				}
 				else
