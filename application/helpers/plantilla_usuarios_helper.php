@@ -84,23 +84,27 @@
 					
 						
 					<?php
-						if(empty($_SESSION['info_user'])){
+						if(empty($_SESSION['info_user']))
+						{
 					?>
 						<a class="btn btn-outline-light" href='<?php echo base_url('user/login');?>' ><i class="fas fa-sign-in-alt"></i> </a> |
 						<a class="btn btn-outline-light"  href='<?php echo base_url('user/register');?>' ><i class="fas fa-plus-square"></i> </a> 
-					<?php }else{ ?>
-						<!-- Default dropleft button -->
-					<div class="btn-group">
-					<button type="button" class="btn  bg-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
-					style='color:white!important;'>
-					<?php echo $_SESSION['info_user'][0]->nombre." ".$_SESSION['info_user'][0]->apellido; ?>
-					</button>
-					<div class="dropdown-menu dropdown-menu-right">
-						<a class="dropdown-item" >Mis anuncios</a>
-						<a href="<?php echo base_url('user/profile/')?>" class="dropdown-item" >Editar perfil</a>
-						<a href="<?php echo base_url('user/login/')?>CerrarSesion" class="dropdown-item" >Cerrar Session</a>
-					</div>
-					</div>
+					<?php 
+						}
+						else
+						{ 
+					?>
+							<!-- Default dropleft button -->
+							<div class="btn-group">
+								<button type="button" class="btn  bg-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color:white!important;'>
+								<?php echo $_SESSION['info_user'][0]->nombre." ".$_SESSION['info_user'][0]->apellido; ?>
+								</button>
+								<div class="dropdown-menu dropdown-menu-right">
+									<a class="dropdown-item" >Mis anuncios</a>
+									<a href="<?php echo base_url('user/profile/')?>" class="dropdown-item" >Editar perfil</a>
+									<a href="<?php echo base_url('user/login/')?>CerrarSesion" class="dropdown-item" >Cerrar Session</a>
+								</div>
+							</div>
 
 					<?php } ?>
 						

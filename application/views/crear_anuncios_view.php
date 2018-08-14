@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     if(empty($_SESSION['info_user']))
     {
         redirect('Home');
