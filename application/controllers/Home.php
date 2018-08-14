@@ -154,6 +154,7 @@ class Home extends CI_Controller {
 					}
 				}
 		
+				$data['mostrar_destacados'] = $this->input->post('buscador');
 				$data['anuncios'] = $anuncios;
 				$data['categorias'] = $categorias; 
 				$data['subcategorias'] = $this->m_subcategorias->get_todos(); 

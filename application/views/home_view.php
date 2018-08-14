@@ -81,86 +81,91 @@
 					?>
 				</select>
 				<div class="input-group-append">
-					<button type="submit" class="btn btn-dark" type="button"><i class="fas fa-search"></i></button>
+					<button type="submit" value="buscar" name="buscador" class="btn btn-dark" type="button"><i class="fas fa-search"></i></button>
 				</div>
 			</div>
 		</div>
 	</form>
 
 	<!-- ANUNCIOS DESTACADOS -->
-	
-	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-		
-		<div class="carousel-inner">
-			<?php
-				if(isset($anuncios))
-				{			
-					for ($i = 0 ; $i < count($anuncios) ; $i++) 
-					{
-						if($anuncios[$i]->destacar == "si")
+	<?php 
+	if(!isset($mostrar_destacados))
+	{
+	?>
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			
+			<div class="carousel-inner">
+				<?php
+					if(isset($anuncios))
+					{			
+						for ($i = 0 ; $i < count($anuncios) ; $i++) 
 						{
-			?>
-		
-							<div class="carousel-item <?php if($anuncios[$i]->id == $id_ultimo_anuncio_destacado){echo "active"; } ?>">
+							if($anuncios[$i]->destacar == "si")
+							{
+				?>
+			
+								<div class="carousel-item <?php if($anuncios[$i]->id == $id_ultimo_anuncio_destacado){echo "active"; } ?>">
 
-							<?php
-								$imagen_en_curso = "";
+								<?php
+									$imagen_en_curso = "";
 
-								foreach ($imagenes as $imagen) 
-								{
-									if($imagen->id_anuncio == $anuncios[$i]->id)
+									foreach ($imagenes as $imagen) 
 									{
-										foreach ($categorias as $categoria)
+										if($imagen->id_anuncio == $anuncios[$i]->id)
 										{
-											if($anuncios[$i]->idcategoria == $categoria->id)
+											foreach ($categorias as $categoria)
 											{
-												if($categoria->nombre == $imagen->tipo_anuncio)
+												if($anuncios[$i]->idcategoria == $categoria->id)
 												{
-													$imagen_en_curso = $imagen->imagen;
+													if($categoria->nombre == $imagen->tipo_anuncio)
+													{
+														$imagen_en_curso = $imagen->imagen;
+													}
 												}
 											}
 										}
 									}
-								}
-							?>
-							
-							<?php
-								if($imagen_en_curso != "")
-								{
-							?>
-									<img class="d-block w-100" src="<?php echo base_url(); ?>/images/<?php echo $imagen_en_curso; ?>" alt="First slide">							
-							<?php
-								}
-								else
-								{
-							?>
-									<img class="d-block w-100" src="<?php echo base_url(); ?>/images/noimg.png" alt="First slide">							
-							<?php									
-								}
-							?>
+								?>
+								
+								<?php
+									if($imagen_en_curso != "")
+									{
+								?>
+										<img class="d-block w-100" src="<?php echo base_url(); ?>/images/<?php echo $imagen_en_curso; ?>" alt="First slide">							
+								<?php
+									}
+									else
+									{
+								?>
+										<img class="d-block w-100" src="<?php echo base_url(); ?>/images/noimg.png" alt="First slide">							
+								<?php									
+									}
+								?>
 
-							<div class="carousel-caption d-none d-md-block">
-								<h5><?php echo $anuncios[$i]->titulo_anuncio; ?></h5>
-								<p><?php echo substr($anuncios[$i]->descripcion, 0, 25)?> ...</p>
-							</div>
-				</div>
-			<?php
+								<div class="carousel-caption d-none d-md-block">
+									<h5><?php echo $anuncios[$i]->titulo_anuncio; ?></h5>
+									<p><?php echo substr($anuncios[$i]->descripcion, 0, 25)?> ...</p>
+								</div>
+					</div>
+				<?php
+							}
 						}
 					}
-				}
-			?>
+				?>
+			</div>
+			
+			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
 		</div>
-		
-		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
-
+	<?php
+	}
+	?>
 	<div class="row">
 
 		<!-- ANUNCIOS  -->

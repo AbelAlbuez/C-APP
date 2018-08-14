@@ -36,7 +36,7 @@
           
         <div class="text-center">
           <a class="d-block small mt-3" href="<?php echo base_url('index.php/login/Registrar')?>">Registrarme</a>
-          <a class="d-block small" href="forgot-password.html">Olvidaste tu clve??</a>
+          <a class="d-block small" href="forgot-password.html">Olvidaste tu clave?</a>
         </div>
         </form>
       </div>

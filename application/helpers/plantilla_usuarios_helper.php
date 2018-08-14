@@ -97,11 +97,11 @@
 							<!-- Default dropleft button -->
 							<div class="btn-group">
 								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" >Mis anuncios</a>
+									<a href="<?php echo base_url('usuario/')?>" class="dropdown-item" >Mis anuncios</a>
 									<a href="<?php echo base_url('user/profile/')?>" class="dropdown-item" >Editar perfil</a>
 									<a href="<?php echo base_url('user/login/')?>CerrarSesion" class="dropdown-item" >Cerrar Session</a>
 								</div>
-								<a class="btn btn-outline-light" href='<?php echo base_url('Anuncios');?>'> Redactar un anuncio <i class="fas fa-pen-alt"></i> </a> |
+								<a class="btn btn-outline-light" href='<?php echo base_url('Anuncios');?>'> Redactar <i class="fas fa-pen-alt"></i> </a> |
 								<?php
 									if($_SESSION['info_user'][0]->tipo == '1')
 									{
