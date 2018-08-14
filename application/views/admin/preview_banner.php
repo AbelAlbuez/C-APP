@@ -11,25 +11,26 @@ plantilla::iniciar();?>
 		<?php 
 		$this->db->query
 		("INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
-		VALUES (NULL, 'Superior.png', 'Banner Superior', 'Este banner estara ubicado en la parte superior', '0');
-
-		INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
-		VALUES (NULL, 'derecha superior.png', 'Banner Derecha Superior', 'Este banner estara ubicado en la parte derecha superior', '1');
-
-		INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
+		VALUES (NULL, 'Superior.png', 'Banner Superior', 'Este banner estara ubicado en la parte superior', '0');");
+		$this->db->query
+		("	INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
+		VALUES (NULL, 'derecha superior.png', 'Banner Derecha Superior', 'Este banner estara ubicado en la parte derecha superior', '1');");
+		$this->db->query
+		("INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) 
 		VALUES (NULL, 'derecha inferior.png', 'Banner Derecha Inferior', 'Este banner estara ubicado en la parte derecha inferior', '2');
-		
 		");
+		
+		redirect('banner','refresh');
 		
 		?>
 
 	</div>
 	
-	<a href="<?php echo base_url('panel/banner')?>" >Volver</a>
+	<a class='btn btn-info ' href="<?php echo base_url('panel/banner')?>" >Volver</a>
 	<?php }else {?>
 
 
-	<a href="<?php echo base_url('panel/banner')?>" >Volver</a>
+	<a  class='btn btn-info ' href="<?php echo base_url('panel/banner')?>" >Volver</a>
 	<div class="banel-principal">
 		<img class="img-principal" 
 		src="<?php echo base_url('uploads/imagenesBanner/').$listado[0]->url_imagen;?>" alt="">
