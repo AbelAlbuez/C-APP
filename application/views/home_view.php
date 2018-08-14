@@ -1,7 +1,4 @@
-<?php 
-	plantilla_usuarios::iniciar($categorias); 
-	$limite = (isset($limite)) ? $limite : 5 ;
-?>
+<?php plantilla_usuarios::iniciar($categorias); ?>
 
 <style>
 	.quitandoElSobrando{
@@ -34,13 +31,26 @@
 	<div id="demo" class="carousel slide quitandoElSobrando" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-ite active">
-				<img class="img-slider" src="https://about.canva.com/es_es/wp-content/uploads/sites/3/2015/02/Etsy-Banners.png" alt="Los Angeles">
+				<?php
+					if(isset($banners))
+					{
+						foreach ($banners as $banner) 
+						{
+							if($banner->posicion == '0')
+							{
+				?>
+					<img class="img-slider" src="<?php echo base_url(); ?>uploads/imagenesBanner/<?php echo $banner->url_imagen; ?>" alt="Los Angeles">
+				<?php
+							}
+						}
+					}
+				?>
 			</div>
 		</div>
 	</div>
 
 	<!-- cuadro de busqueda -->
-	<form action="<?php base_url() ?>filtrar/" method="post">
+	<form action="<?php echo base_url(); ?>Home/filtrar" method="post">
 		<div class="alert alert-dark search" role="alert">
 			<div class="input-group">
 				<input type="text" name="info_a_buscar" class="form-control col-8" placeholder="¿Qué estás buscando?" aria-label="Text input with dropdown button" required="true">
@@ -78,36 +88,69 @@
 	</form>
 
 	<!-- ANUNCIOS DESTACADOS -->
+	
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-		</ol>
+		
 		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img class="d-block w-100" src="https://cdn.pixabay.com/photo/2017/11/07/00/07/fantasy-2925250__340.jpg" alt="First slide">
-				<div class="carousel-caption d-none d-md-block">
-					<h5>Anuncio 1</h5>
-					<p>Este es un anuncio vacano</p>
+			<?php
+				if(isset($anuncios))
+				{			
+					for ($i = 0 ; $i < count($anuncios) ; $i++) 
+					{
+						if($anuncios[$i]->destacar == "si")
+						{
+			?>
+		
+							<div class="carousel-item <?php if($anuncios[$i]->id == $id_ultimo_anuncio_destacado){echo "active"; } ?>">
+
+							<?php
+								$imagen_en_curso = "";
+
+								foreach ($imagenes as $imagen) 
+								{
+									if($imagen->id_anuncio == $anuncios[$i]->id)
+									{
+										foreach ($categorias as $categoria)
+										{
+											if($anuncios[$i]->idcategoria == $categoria->id)
+											{
+												if($categoria->nombre == $imagen->tipo_anuncio)
+												{
+													$imagen_en_curso = $imagen->imagen;
+												}
+											}
+										}
+									}
+								}
+							?>
+							
+							<?php
+								if($imagen_en_curso != "")
+								{
+							?>
+									<img class="d-block w-100" src="<?php echo base_url(); ?>/images/<?php echo $imagen_en_curso; ?>" alt="First slide">							
+							<?php
+								}
+								else
+								{
+							?>
+									<img class="d-block w-100" src="<?php echo base_url(); ?>/images/noimg.png" alt="First slide">							
+							<?php									
+								}
+							?>
+
+							<div class="carousel-caption d-none d-md-block">
+								<h5><?php echo $anuncios[$i]->titulo_anuncio; ?></h5>
+								<p><?php echo substr($anuncios[$i]->descripcion, 0, 25)?> ...</p>
+							</div>
 				</div>
-			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100" src="http://www.shuuf.com/shof/uploads/2018/02/28/jpg/shof_da7cc67c1b8e1bd.jpg" alt="Second slide">
-				<div class="carousel-caption d-none d-md-block">
-					<h5>Anuncio 2</h5>
-					<p>Este es un anuncio vacano</p>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100" src="http://www.shuuf.com/shof/uploads/2018/02/28/jpg/shof_da7cc67c1b8e1bd.jpg"
-				alt="Third slide">
-				<div class="carousel-caption d-none d-md-block">
-					<h5>Anuncio 3</h5>
-					<p>Este es un anuncio vacano</p>
-				</div>
-			</div>
+			<?php
+						}
+					}
+				}
+			?>
 		</div>
+		
 		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 			<span class="sr-only">Previous</span>
@@ -128,7 +171,7 @@
 			<?php
 			if(isset($anuncios))
 			{			
-				for ($i = 0 ; $i < $limite ; $i++) 
+				for ($i = 0 ; $i < count($anuncios) ; $i++) 
 				{ 
 			?>
 					<div class="card bg-light mb-3 sombra">
@@ -136,6 +179,8 @@
 							<div class="row">
 	
 								<?php
+								$imagen_en_curso = "";
+
 								foreach ($imagenes as $imagen) 
 								{
 									if($imagen->id_anuncio == $anuncios[$i]->id)
@@ -146,17 +191,29 @@
 											{
 												if($categoria->nombre == $imagen->tipo_anuncio)
 												{
-								?>
-													<img src="<?php echo base_url(); ?>/images/<?php echo $imagen->imagen; ?>"  style="height:200px!important;"  alt="..." class="img-thumbnail col-sm-4">
-								<?php
-												}
-
+													$imagen_en_curso = $imagen->imagen;
+ 												}
 											}
 										}
 									}
 								}
 								?>
-								
+
+								<?php
+								if($imagen_en_curso != "")
+								{
+								?>
+									<img src="<?php echo base_url(); ?>/images/<?php echo $imagen_en_curso; ?>"  style="height:200px!important;"  alt="..." class="img-thumbnail col-sm-4">
+								<?php
+								}
+								else
+								{
+								?>
+									<img src="<?php echo base_url(); ?>/images/noimg.png"  style="height:200px!important;"  alt="..." class="img-thumbnail col-sm-4">
+								<?php									
+								}
+								?>
+
 								<div class="col-sm-8">
 									<h4 class=""><?php echo $anuncios[$i]->titulo_anuncio; ?></h4>
 									<p>
@@ -205,23 +262,68 @@
 
 		<!-- PUBLICIDAD -->
         <div class="col-sm-4">
-			<h2 class="mt-4">Interes</h2>
+			<h2 class="mt-4">Interés</h2>
+
+			<!-- ANUNCIO DERECHA SUPERIOR -->
+			<div class="card sombra" style="width: 18rem;">
+				<?php
+					if(isset($banners))
+					{
+						foreach ($banners as $banner) 
+						{
+							if($banner->posicion == '1')
+							{
+				?>
+								<img class="img-thumbnail" src="<?php echo base_url(); ?>uploads/imagenesBanner/<?php echo $banner->url_imagen; ?>" alt="Card image cap">			
+				<?php
+							}
+						}
+					}
+				?>
+			</div>
 			
-			<div class="card" style="width: 18rem;">
-				<img class="img-thumbnail" src="https://www.gratistodo.com/wp-content/uploads/2016/11/pikachu-1-800x533.jpg" alt="Card image cap">
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<button type="button" class="btn btn-info float-right btn-sm">Info</button>
-				</div>
+			<!-- ANUNCIO DERECHA INFERIOR -->
+			<div class="card sombra" style="width: 18rem;">
+				<?php
+					if(isset($banners))
+					{
+						foreach ($banners as $banner) 
+						{
+							if($banner->posicion == '2')
+							{
+				?>
+								<img class="img-thumbnail" src="<?php echo base_url(); ?>uploads/imagenesBanner/<?php echo $banner->url_imagen; ?>" alt="Card image cap">			
+				<?php
+							}
+						}
+					}
+				?>
 			</div>
 
-			<div class="card" style="width: 18rem;">
-				<img class="img-thumbnail" src="https://www.gratistodo.com/wp-content/uploads/2016/11/pikachu-1-800x533.jpg" alt="Card image cap">
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<button type="button" class="btn btn-info float-right btn-sm">Info</button>
-				</div>
+			<div class="card sombra" style="width: 18rem;">
+				<p class="text-center" style="font-weight:bold; padding:2.5px; padding-bottom:0!important; margin-bottom:0!important;">Anuncios destacados</p>
+				
+				<?php
+				if(isset($anuncios))
+				{			
+					for ($i = 0 ; $i < count($anuncios) ; $i++) 
+					{
+						if($anuncios[$i]->destacar == "si")
+						{
+				?>
+							<span class="text-center"><?php echo substr($anuncios[$i]->titulo_anuncio, 0, 10)  ?>... <br/></span>
+				<?php
+						}
+					}
+				}
+				?>
+			
 			</div>
+
+			<div class="card sombra" style="width: 18rem;">
+			<p></p>
+			</div>
+
 		</div>
 		
 	</div>

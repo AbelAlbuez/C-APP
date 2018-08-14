@@ -2,7 +2,7 @@
     if(!isset($_SESSION)) { session_start(); }
     if(empty($_SESSION['info_user']))
     {
-        redirect('Home');
+        redirect(base_url());
     }
 
     plantilla_usuarios::iniciar($categorias); 
