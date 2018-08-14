@@ -56,7 +56,7 @@ class Noticias extends CI_Controller {
         } else {
 
             $file_info = $this->upload->data();
-		 //   $this->crearMiniatura($file_info['file_name']);
+		   $this->crearMiniatura($file_info['file_name']);
 		 $fecha_actual = date('Y-m-d');
 		 $titulo = $this->input->post('titulo');
 		 $descripcion = $this->input->post('descripcion');
@@ -74,6 +74,19 @@ class Noticias extends CI_Controller {
             
 		}	
 	}
+
+	function crearMiniatura($filename){
+        $config['image_library'] = 'gd2';
+        $config['source_image'] = './uploads/noticias/'.$filename;
+        $config['create_thumb'] = TRUE;
+        $config['maintain_ratio'] = TRUE;
+        $config['new_image']='./uploads/thumb/';
+        $config['thumb_marker']='';//captura_thumb.png
+        $config['width'] = 150;
+        $config['height'] = 150;
+        $this->load->library('image_lib', $config); 
+        $this->image_lib->resize();
+    }
 
 	function editarNoticias($id){
 		$config['upload_path'] = './uploads/noticias';
@@ -100,7 +113,7 @@ class Noticias extends CI_Controller {
 			redirect('panel/noticias');	
        		 } else {
             $file_info = $this->upload->data();
-		 //   $this->crearMiniatura($file_info['file_name']);
+		    $this->crearMiniatura($file_info['file_name']);
 		 	$fecha_actual = date('Y-m-d');
 			 $titulo = $this->input->post('titulo');
 		 	$descripcion = $this->input->post('descripcion');

@@ -163,9 +163,11 @@
 		<div class="card-header">
 		<?php echo $noticias->titulo?>
 		</div>
+		<img class="card-img-top" src="<?php echo base_url(); ?>uploads/thumb/<?php echo $noticias->url_imagen; ?>" alt="Card image cap">
+				
   		<div class="card-body">
     	
-    	<p class="card-text"><?php echo $noticias->descripcion?></p>
+    
     	<a href="<?php echo base_url('panel/noticias/View_Notice_Detail/'.$noticias->id)?>" class="card-link">Ver Noticia</a>
     
   		</div>
