@@ -96,19 +96,28 @@
 					?>
 							<!-- Default dropleft button -->
 							<div class="btn-group">
-								<button type="button" class="btn  bg-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color:white!important;'>
-								<?php echo $_SESSION['info_user'][0]->nombre." ".$_SESSION['info_user'][0]->apellido; ?>
-								</button>
 								<div class="dropdown-menu dropdown-menu-right">
 									<a class="dropdown-item" >Mis anuncios</a>
 									<a href="<?php echo base_url('user/profile/')?>" class="dropdown-item" >Editar perfil</a>
 									<a href="<?php echo base_url('user/login/')?>CerrarSesion" class="dropdown-item" >Cerrar Session</a>
 								</div>
+								<a class="btn btn-outline-light" href='<?php echo base_url('Anuncios');?>'> Redactar un anuncio <i class="fas fa-pen-alt"></i> </a> |
+								<?php
+									if($_SESSION['info_user'][0]->tipo == '1')
+									{
+								?>
+										<a class="btn btn-outline-light" href='<?php echo base_url('admin')?>' ><i class="fas fa-cog"></i> </a> | 
+								<?php
+									}
+								?>
+								<button type="button" class="btn  bg-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='color:white!important;'>
+								<?php echo $_SESSION['info_user'][0]->nombre." ".$_SESSION['info_user'][0]->apellido; ?>
+								</button>
+								
 							</div>
-
-					<?php } ?>
-						
-						
+					<?php 
+						} 
+					?>
 				</div>
 			</nav>
 
