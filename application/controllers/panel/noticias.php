@@ -23,7 +23,7 @@ class Noticias extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url','form')); //para redireccionar paginas
 		$this->load->library(array('form_validation', 'upload'));
-		$this->load->model('M_noticias');
+		$this->load->model(array('M_noticias','M_categorias'));
 
 	
 	}
@@ -167,5 +167,12 @@ class Noticias extends CI_Controller {
 			redirect('panel/noticias');	
 		}
 			}
+
+	public function View_User(){
+		$data['noticias_listado'] = $this->M_noticias->get_todos();
+		$data['categorias'] = $this->M_categoria->get_todos(); 
+		//$this->load->view('admin/view_categorias.php', $data);
+		$this->load->view('admin/view_noticias_user.php', $data);
+	}
 
 }
