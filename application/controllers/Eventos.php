@@ -9,6 +9,7 @@ class Eventos extends CI_Controller {
 		$this->load->model('m_categoria');
 		$this->load->helper('plantilla_usuarios');
 		$this->load->model('M_eventos');
+		$this->load->model('m_banner');
 		session_start();
 	}
 
@@ -16,6 +17,7 @@ class Eventos extends CI_Controller {
 	{
 		
 		$data['eventos_listado'] = $this->M_eventos->get_todos();
+		$data['banners'] = $this->m_banner->get_todos();
 		$data['categorias'] = $this->m_categoria->get_todos(); 
 		$this->load->view('eventos_view', $data);
 	}
@@ -34,6 +36,7 @@ class Eventos extends CI_Controller {
 			$id= $_GET['id'];
 			$evento = $this->get_by_id($id);
 			$data['evento']=$evento;
+			$data['banners'] = $this->m_banner->get_todos();
 			$data['categorias'] = $this->m_categoria->get_todos();
 			$this->load->view('singleEvento',$data);
 
