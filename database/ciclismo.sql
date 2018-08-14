@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-08-2018 a las 07:30:20
+-- Tiempo de generación: 14-08-2018 a las 07:26:59
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -35,6 +35,15 @@ CREATE TABLE `banner` (
   `descripcion` varchar(100) NOT NULL,
   `posicion` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `banner`
+--
+
+INSERT INTO `banner` (`id`, `url_imagen`, `titulo`, `descripcion`, `posicion`) VALUES
+(1, 'Superior1.PNG', 'Banner Superior', 'Este banner estara ubicado en la parte superior', '0'),
+(2, 'derecha superior.png', 'Banner Derecha Superior', 'Este banner estara ubicado en la parte derecha superior', '1'),
+(3, 'derecha inferior.png', 'Banner Derecha Inferior', 'Este banner estara ubicado en la parte derecha inferior', '2');
 
 -- --------------------------------------------------------
 
@@ -95,7 +104,8 @@ INSERT INTO `categoria_accesorios` (`id`, `celular`, `moneda`, `titulo_anuncio`,
 (31, 'sdaskdmsasadsa', 'RD$', 'sdsdmsa', 'ksdmklsamdklsmdklsamdksamlkads', 'no', '23123', 'ksdmklsamdaskl', 'Vender', 'María Trinidad Sánchez', 'sdklsamdklsamdaskdmas', 'ksldmlksmdsam', 'ksldmsakldmaslk', 1, 1, 1, '2018-08-07', '2018-09-21'),
 (32, '3212321321321232', 'RD$', 'ksdmklasmfkdmfdkmfs', 'kmdkldmfkldsmfkdsmfkdsmfkdlsmfsklmfsd', 'no', '23124312', 'd,sal;d,sal;,dls,dal;d,dsal,', 'Vender', 'Azua', 'jdjknfjdsknfjsdnfjskdn', 'jdnfjkfndjkfnsjdn', 'sdlijsadsakdmasdjan', 1, 1, 1, '2018-08-07', '2018-09-21'),
 (33, '23623627361763', 'RD$', 'skldmskadmsakdmsadkas', 'klsdklasmdksalmdaskldaskdmasl', 'no', '231232312', 'ksa2193239203219', 'Vender', 'Azua', 'sjdnsajkdnsajkdnasjdna', 'kjsndkjasndkjsandaksjndsaj', 'skdskjadnsjakdnsakjdnsjkan', 1, 1, 1, '2018-08-10', '2018-09-24'),
-(34, '8295621023', 'RD$', 'Saludos', 'ejwkdwefvksaadlsc', 'no', '30000', '8295621023', 'Vender', 'La Romana', 'Hoalla', 'djksafl', 'Weaaa', 1, 2, 1, '2018-08-11', '2018-09-25');
+(34, '8295621023', 'RD$', 'Saludos', 'ejwkdwefvksaadlsc', 'no', '30000', '8295621023', 'Vender', 'La Romana', 'Hoalla', 'djksafl', 'Weaaa', 1, 2, 1, '2018-08-11', '2018-09-25'),
+(35, '8297215951', 'RD$', 'Casco', 'Una vaina bien!', 'no', '500', '8093885699', 'Vender', 'Santo Domingo', 'Casco', 'Casco', 'Casco', 1, 2, 13, '2018-08-13', '2018-09-27');
 
 -- --------------------------------------------------------
 
@@ -229,6 +239,13 @@ CREATE TABLE `eventos` (
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `eventos`
+--
+
+INSERT INTO `eventos` (`id`, `titulo`, `lugar`, `latitud`, `longitud`, `fecha`, `hora`, `url_imagen`, `descripcion`, `tipo`, `link`, `id_usuario`) VALUES
+(9, 'Abelito', 'ajrkadsfre', '19.460108', '-70.691502', '2011-10-10', '10:10:00', 'derecha_inferior6.PNG', 'ewq', '', 'ESRDGFERM, DFC', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -281,7 +298,10 @@ INSERT INTO `imagenes` (`id`, `imagen`, `id_anuncio`, `tipo_anuncio`) VALUES
 (114, 'Superior.PNG', 34, 'Accesorios'),
 (115, 'derecha inferior.PNG', 15, 'Bicicletas'),
 (116, 'derecha superior.PNG', 15, 'Bicicletas'),
-(117, 'Superior.PNG', 15, 'Bicicletas');
+(117, 'Superior.PNG', 15, 'Bicicletas'),
+(118, 'derecha inferior.PNG', 35, 'Accesorios'),
+(119, 'derecha superior.PNG', 35, 'Accesorios'),
+(120, 'Superior.PNG', 35, 'Accesorios');
 
 -- --------------------------------------------------------
 
@@ -302,7 +322,7 @@ CREATE TABLE `noticias` (
 --
 
 INSERT INTO `noticias` (`id`, `titulo`, `descripcion`, `url_imagen`, `fecha_de_creacion`) VALUES
-(2, 'sarah', '<p>jhjkjkjk</p>', 'derecha_inferior2.PNG', '0000-00-00');
+(8, 'AEMD,ACA', '<p>SEAJDKFVMF,DSDFASVD AD</p>', 'derecha_inferior7.PNG', '2018-08-14');
 
 -- --------------------------------------------------------
 
@@ -354,7 +374,9 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `username`, `correo`, `contrasenia`, `fecha`, `tipo`) VALUES
 (1, 'Abel', 'Albuez', 'Admin', 'aalbuezs@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2018-07-27', '1'),
-(9, 'Jean Carlos', 'Arnaud', 'JeanDark', 'Jean@hotmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '2018-08-11', '0');
+(9, 'Jean Carlos', 'Arnaud', 'JeanDark', 'Jean@hotmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '2018-08-11', '0'),
+(12, 'Randy', 'Dominguez', 'RandyDmz', 'Abel@gmail.com', '2d3d0973c16e5f287fa56669fa77b821', '2018-08-13', '0'),
+(13, 'Jean Carlos', 'Arnaud', 'xXJeanDarkXx', 'jeancarlos2704@hotmail.com', '404a26d9799254c0212bccc059638a68', '2018-08-13', '1');
 
 --
 -- Índices para tablas volcadas
@@ -452,19 +474,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria_accesorios`
 --
 ALTER TABLE `categoria_accesorios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria_bicicletas`
@@ -488,19 +510,19 @@ ALTER TABLE `categoria_servicios`
 -- AUTO_INCREMENT de la tabla `eventos`
 --
 ALTER TABLE `eventos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `subcategoria`
@@ -512,7 +534,7 @@ ALTER TABLE `subcategoria`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
