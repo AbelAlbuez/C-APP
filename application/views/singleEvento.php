@@ -156,7 +156,7 @@
 
 		<!-- ANUNCIOS  -->
         <div class="col-sm-8">
-		<h2 class="mt-4">  Noticias</h2>
+		
 		<?php 
 		foreach($evento as $even)
 		{
