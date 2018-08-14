@@ -189,17 +189,4 @@ class Noticias extends CI_Controller {
 		//$this->load->view('admin/view_categorias.php', $data);
 		$this->load->view('view_noticias_user.php', $data);
 	}
-	public function View_Notice_Detail($id=null){
-		if($id==null or !is_numeric($id)){
-			echo 'Error con el id';
-			return ;
-		}else{
-		$data['banners'] = $this->m_banner->get_todos();
-		
-		$data['noticia'] = $this->M_noticias->get_by_id($id);
-		$data['categorias'] = $this->M_categoria->get_todos(); 
-		//$this->load->view('admin/view_categorias.php', $data);
-		$this->load->view('view_noticias_detail.php', $data);
-	}}
-
 }

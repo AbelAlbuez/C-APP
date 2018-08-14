@@ -1,5 +1,8 @@
 <?php 
-plantilla_usuarios::iniciar($categorias); ?>
+session_start();
+ plantilla_usuarios::iniciar($categorias); 
+
+?>
 
 <style>
 	.titulos_anuncios{
