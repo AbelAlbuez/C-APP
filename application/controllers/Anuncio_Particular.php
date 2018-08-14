@@ -14,26 +14,34 @@ class Anuncio_Particular extends CI_Controller {
 	{
         if($id != null && is_numeric($id) && $categoria_p != null)
         {
+            $data['banners'] = $this->m_banner->get_todos();
             $data['categorias'] = $this->m_categoria->get_todos(); 
-            $this->load->view('anuncio_particular_view', $data);
-    
-            /*
-            switch ($this->input->post('categoria')) 
+
+            switch ($categoria_p) 
 			{
 				case 'Accesorios':
-					$r = $this->m_categoria_accesorios->delete($this->input->post('id'));
-					break;
+                    $data['anuncio'] = $this->m_categoria_accesorios->get_by_id($id);
+                    $data['detalle_a_mostrar'] = 'Accesorios';
+                    break;
 				case 'Bicicletas':
-					$r = $this->m_categoria_bicicletas->delete($this->input->post('id'));
-					break;
+                    $data['anuncio'] = $this->m_categoria_bicicletas->get_by_id($id);
+                    $data['detalle_a_mostrar'] = 'Bicicletas';
+
+                    break;
 				case 'Componentes':
-					$r = $this->m_categoria_componentes->delete($this->input->post('id'));
-					break;
+                    $data['anuncio'] = $this->m_categoria_componentes->get_by_id($id);
+                    $data['detalle_a_mostrar'] = 'Componentes';
+
+                    break;
 				case 'Servicios':
-					$r = $this->m_categoria_servicios->delete($this->input->post('id'));
-					break;
+                    $data['anuncio'] = $this->m_categoria_servicios->get_by_id($id);
+                    $data['detalle_a_mostrar'] = 'Servicios';
+                    break;
             }
-            */
+
+            $data['imagenes_guardadas'] = $this->m_imagenes->get_by_id($id, $categoria_p);
+            $data['vendedor'] = $this->m_usuarios->get_by_id($data['anuncio'][0]->idusuario);
+            $this->load->view('anuncio_particular_view', $data);
         }
         else
         {

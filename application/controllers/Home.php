@@ -97,77 +97,138 @@ class Home extends CI_Controller {
 		$this->load->view('home_view', $data);
 	}
 
-	public function filtrar()
+	public function filtrar($categoria = null)
 	{
-		if($this->input->post())
+		if($categoria != null)
 		{
-			if($this->input->post('info_a_buscar') != "" && $this->input->post('filtro') != "")
-			{
-				$anuncios = array();
-				$imagenes = array();
-				$imagenes_limpias = array();
-				$categorias = $this->m_categoria->get_todos();
-				$id = substr($this->input->post('filtro'), 1);
-				$data_x = $this->input->post('info_a_buscar');
-				$resultados = array();
+			$anuncios = array();
+			$imagenes = array();
+			$imagenes_limpias = array();
+			$categorias = $this->m_categoria->get_todos();
 
-				if($this->input->post('filtro')[0] === 's')
-				{					
-					$anuncios[] = $this->m_categoria_accesorios->get_by_subcategoria_filter($id, $data_x);
-					$anuncios[] = $this->m_categoria_bicicletas->get_by_subcategoria_filter($id, $data_x);
-					$anuncios[] = $this->m_categoria_componentes->get_by_subcategoria_filter($id, $data_x);
-					$anuncios[] = $this->m_categoria_servicios->get_by_subcategoria_filter($id, $data_x);						
-				}
-				else if($this->input->post('filtro')[0] === 'c')
+			switch ($categoria) 
+			{
+				case 'Accesorios':
+					$anuncios[] = $this->m_categoria_accesorios->get_todos();
+					break;
+				case 'Bicicletas':
+					$anuncios[] = $this->m_categoria_bicicletas->get_todos();
+					break;
+				case 'Componentes':
+					$anuncios[] = $this->m_categoria_componentes->get_todos();
+					break;
+				case 'Servicios':
+					$anuncios[] = $this->m_categoria_servicios->get_todos();
+					break;
+				default:
+					redirect(base_url());
+					break;
+			}
+
+			$anuncios = $this->organizar_por_fecha($anuncios);
+			
+			foreach ($anuncios as $anuncio) 
+			{
+				foreach ($categorias as $categoria) 
 				{
-					$anuncios[] = $this->m_categoria_accesorios->get_by_categoria_filter($id, $data_x);
-					$anuncios[] = $this->m_categoria_bicicletas->get_by_categoria_filter($id, $data_x);
-					$anuncios[] = $this->m_categoria_componentes->get_by_categoria_filter($id, $data_x);
-					$anuncios[] = $this->m_categoria_servicios->get_by_categoria_filter($id, $data_x);
+					if($anuncio->idcategoria == $categoria->id)
+					{
+						$imagenes[] = $this->m_imagenes->get_by_id_limited($anuncio->id, $categoria->nombre); 
+					}
+				}
+			}
+	
+			foreach ($imagenes as $imagen) 
+			{
+				foreach ($imagen as $imagen_contenido) 
+				{
+					$imagenes_limpias[] = $imagen_contenido; 
+				}
+			}
+	
+			$data['mostrar_destacados'] = 'hay algo';
+			$data['anuncios'] = $anuncios;
+			$data['categorias'] = $categorias; 
+			$data['subcategorias'] = $this->m_subcategorias->get_todos(); 
+			$data['imagenes'] = $imagenes_limpias;
+			$data['usuarios'] =  $this->m_usuarios->get_todos();
+			$data['banners'] = $this->m_banner->get_todos();
+
+			$this->load->view('home_view', $data);
+		}
+		else
+		{
+			if($this->input->post())
+			{
+				if($this->input->post('info_a_buscar') != "" && $this->input->post('filtro') != "")
+				{
+					$anuncios = array();
+					$imagenes = array();
+					$imagenes_limpias = array();
+					$categorias = $this->m_categoria->get_todos();
+					$id = substr($this->input->post('filtro'), 1);
+					$data_x = $this->input->post('info_a_buscar');
+					$resultados = array();
+	
+					if($this->input->post('filtro')[0] === 's')
+					{					
+						$anuncios[] = $this->m_categoria_accesorios->get_by_subcategoria_filter($id, $data_x);
+						$anuncios[] = $this->m_categoria_bicicletas->get_by_subcategoria_filter($id, $data_x);
+						$anuncios[] = $this->m_categoria_componentes->get_by_subcategoria_filter($id, $data_x);
+						$anuncios[] = $this->m_categoria_servicios->get_by_subcategoria_filter($id, $data_x);						
+					}
+					else if($this->input->post('filtro')[0] === 'c')
+					{
+						$anuncios[] = $this->m_categoria_accesorios->get_by_categoria_filter($id, $data_x);
+						$anuncios[] = $this->m_categoria_bicicletas->get_by_categoria_filter($id, $data_x);
+						$anuncios[] = $this->m_categoria_componentes->get_by_categoria_filter($id, $data_x);
+						$anuncios[] = $this->m_categoria_servicios->get_by_categoria_filter($id, $data_x);
+					}
+					else
+					{
+						$anuncios[] = $this->m_categoria_accesorios->get_by_filter($data_x);
+						$anuncios[] = $this->m_categoria_bicicletas->get_by_filter($data_x);
+						$anuncios[] = $this->m_categoria_componentes->get_by_filter($data_x);
+						$anuncios[] = $this->m_categoria_servicios->get_by_filter($data_x);
+					}
+					
+					$anuncios = $this->organizar_por_fecha($anuncios);
+					
+					foreach ($anuncios as $anuncio) 
+					{
+						foreach ($categorias as $categoria) 
+						{
+							if($anuncio->idcategoria == $categoria->id)
+							{
+								$imagenes[] = $this->m_imagenes->get_by_id_limited($anuncio->id, $categoria->nombre); 
+							}
+						}
+					}
+			
+					foreach ($imagenes as $imagen) 
+					{
+						foreach ($imagen as $imagen_contenido) 
+						{
+							$imagenes_limpias[] = $imagen_contenido; 
+						}
+					}
+			
+					$data['mostrar_destacados'] = $this->input->post('buscador');
+					$data['anuncios'] = $anuncios;
+					$data['categorias'] = $categorias; 
+					$data['subcategorias'] = $this->m_subcategorias->get_todos(); 
+					$data['imagenes'] = $imagenes_limpias;
+					$data['usuarios'] =  $this->m_usuarios->get_todos();
+					$data['banners'] = $this->m_banner->get_todos();
+	
+					$this->load->view('home_view', $data);
 				}
 				else
 				{
-					$anuncios[] = $this->m_categoria_accesorios->get_by_filter($data_x);
-					$anuncios[] = $this->m_categoria_bicicletas->get_by_filter($data_x);
-					$anuncios[] = $this->m_categoria_componentes->get_by_filter($data_x);
-					$anuncios[] = $this->m_categoria_servicios->get_by_filter($data_x);
+					redirect(base_url());
 				}
-				
-				$anuncios = $this->organizar_por_fecha($anuncios);
-		
-				foreach ($anuncios as $anuncio) 
-				{
-					foreach ($categorias as $categoria) 
-					{
-						if($anuncio->idcategoria == $categoria->id)
-						{
-							$imagenes[] = $this->m_imagenes->get_by_id_limited($anuncio->id, $categoria->nombre); 
-						}
-					}
-				}
-		
-				foreach ($imagenes as $imagen) 
-				{
-					foreach ($imagen as $imagen_contenido) 
-					{
-						$imagenes_limpias[] = $imagen_contenido; 
-					}
-				}
-		
-				$data['mostrar_destacados'] = $this->input->post('buscador');
-				$data['anuncios'] = $anuncios;
-				$data['categorias'] = $categorias; 
-				$data['subcategorias'] = $this->m_subcategorias->get_todos(); 
-				$data['imagenes'] = $imagenes_limpias;
-				$data['usuarios'] =  $this->m_usuarios->get_todos();
-				$data['banners'] = $this->m_banner->get_todos();
-
-				$this->load->view('home_view', $data);
-			}
-			else
-			{
-				redirect(base_url());
 			}
 		}
+	
 	}
 }

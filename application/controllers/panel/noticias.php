@@ -23,7 +23,7 @@ class Noticias extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url','form')); //para redireccionar paginas
 		$this->load->library(array('form_validation', 'upload'));
-		$this->load->model(array('M_noticias','M_categoria'));
+		$this->load->model(array('M_noticias','M_categoria', 'm_banner'));
 
 	
 	}
@@ -56,7 +56,7 @@ class Noticias extends CI_Controller {
         } else {
 
             $file_info = $this->upload->data();
-		 //   $this->crearMiniatura($file_info['file_name']);
+		   $this->crearMiniatura($file_info['file_name']);
 		 $fecha_actual = date('Y-m-d');
 		 $titulo = $this->input->post('titulo');
 		 $descripcion = $this->input->post('descripcion');
@@ -74,6 +74,19 @@ class Noticias extends CI_Controller {
             
 		}	
 	}
+
+	function crearMiniatura($filename){
+        $config['image_library'] = 'gd2';
+        $config['source_image'] = './uploads/noticias/'.$filename;
+        $config['create_thumb'] = TRUE;
+        $config['maintain_ratio'] = TRUE;
+        $config['new_image']='./uploads/thumb/';
+        $config['thumb_marker']='';//captura_thumb.png
+        $config['width'] = 150;
+        $config['height'] = 150;
+        $this->load->library('image_lib', $config); 
+        $this->image_lib->resize();
+    }
 
 	function editarNoticias($id){
 		$config['upload_path'] = './uploads/noticias';
@@ -100,7 +113,7 @@ class Noticias extends CI_Controller {
 			redirect('panel/noticias');	
        		 } else {
             $file_info = $this->upload->data();
-		 //   $this->crearMiniatura($file_info['file_name']);
+		    $this->crearMiniatura($file_info['file_name']);
 		 	$fecha_actual = date('Y-m-d');
 			 $titulo = $this->input->post('titulo');
 		 	$descripcion = $this->input->post('descripcion');
@@ -131,7 +144,7 @@ class Noticias extends CI_Controller {
 		if($id==null or !is_numeric($id)){
 			echo 'Error con el id';
 			return ;
-		}
+		}else{
 		if($this->input->post()){
 			$this->mis_reglas();
 			if($this->form_validation->run()==TRUE){
@@ -154,7 +167,7 @@ class Noticias extends CI_Controller {
 					$this->load->view('admin/view_edit_noticias.php', $data);
 				}
 			}
-		
+		}
 		
 		
 	}
@@ -169,16 +182,11 @@ class Noticias extends CI_Controller {
 			}
 
 	public function View_User(){
+		$data['banners'] = $this->m_banner->get_todos();
+	
 		$data['noticias_listado'] = $this->M_noticias->get_todos();
 		$data['categorias'] = $this->M_categoria->get_todos(); 
 		//$this->load->view('admin/view_categorias.php', $data);
 		$this->load->view('view_noticias_user.php', $data);
 	}
-	public function View_Notice_Detail(){
-		$data['noticias_listado'] = $this->M_noticias->get_todos();
-		$data['categorias'] = $this->M_categoria->get_todos(); 
-		//$this->load->view('admin/view_categorias.php', $data);
-		$this->load->view('view_noticias_detail.php', $data);
-	}
-
 }
