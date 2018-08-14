@@ -147,7 +147,7 @@
 
 		<!-- ANUNCIOS  -->
         <div class="col-sm-8">
-	
+		<h2 class="mt-4">Noticias</h2>
 						
 	<!-- Presentar Noticias -->
 	<?php if(empty($noticias_listado)){?>
