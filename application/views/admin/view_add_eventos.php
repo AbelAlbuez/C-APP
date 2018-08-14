@@ -39,7 +39,7 @@ plantilla::iniciar();?>
 				></td>
       </tr>
       <tr>
-        <td>Latituden</td>
+        <td>Latitud</td>
         <td><input type="text" name="latitud" class="form-control"
 			></td>
       </tr>
