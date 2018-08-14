@@ -34,6 +34,7 @@ plantilla::iniciar();
 		<hr>
 		<div class="form-group">
 			<button type="submit" class="btn btn-dark">Guardar</button>
+			<a class="btn btn-dark float-left" href="<?php echo base_url('panel/noticias')?>">Volver</a>
 			<br>
 			<?php echo $error;?>
 		</div>

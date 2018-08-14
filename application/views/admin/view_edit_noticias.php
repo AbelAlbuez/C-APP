@@ -34,7 +34,8 @@ plantilla::iniciar();
 	<tr>
 	
 		<td colspan="2"> 
-			<input type="submit" value="Guardar"><br>
+			<input class="btn btn-dark float-right" type="submit" value="Guardar">
+			<a class="btn btn-dark float-left" href="<?php echo base_url('panel/noticias')?>">Volver</a>
 			<?php echo $error;?>
 		</td>
 	
