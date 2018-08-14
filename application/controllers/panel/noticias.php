@@ -23,7 +23,7 @@ class Noticias extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url','form')); //para redireccionar paginas
 		$this->load->library(array('form_validation', 'upload'));
-		$this->load->model(array('M_noticias','M_categorias'));
+		$this->load->model(array('M_noticias','M_categoria', 'm_banner'));
 
 	
 	}
@@ -131,7 +131,7 @@ class Noticias extends CI_Controller {
 		if($id==null or !is_numeric($id)){
 			echo 'Error con el id';
 			return ;
-		}
+		}else{
 		if($this->input->post()){
 			$this->mis_reglas();
 			if($this->form_validation->run()==TRUE){
@@ -154,7 +154,7 @@ class Noticias extends CI_Controller {
 					$this->load->view('admin/view_edit_noticias.php', $data);
 				}
 			}
-		
+		}
 		
 		
 	}
@@ -169,10 +169,24 @@ class Noticias extends CI_Controller {
 			}
 
 	public function View_User(){
+		$data['banners'] = $this->m_banner->get_todos();
+	
 		$data['noticias_listado'] = $this->M_noticias->get_todos();
 		$data['categorias'] = $this->M_categoria->get_todos(); 
 		//$this->load->view('admin/view_categorias.php', $data);
-		$this->load->view('admin/view_noticias_user.php', $data);
+		$this->load->view('view_noticias_user.php', $data);
 	}
+	public function View_Notice_Detail($id=null){
+		if($id==null or !is_numeric($id)){
+			echo 'Error con el id';
+			return ;
+		}else{
+		$data['banners'] = $this->m_banner->get_todos();
+		
+		$data['noticia'] = $this->M_noticias->get_by_id($id);
+		$data['categorias'] = $this->M_categoria->get_todos(); 
+		//$this->load->view('admin/view_categorias.php', $data);
+		$this->load->view('view_noticias_detail.php', $data);
+	}}
 
 }
