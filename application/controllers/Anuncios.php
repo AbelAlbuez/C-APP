@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Anuncios extends CI_Controller {
-
+    
 	function __construct()
 	{
         parent::__construct();
@@ -148,6 +148,8 @@ class Anuncios extends CI_Controller {
         }
         else # AGREGAR | FORMULARIO NORMAL
         {
+            if(!isset($_SESSION)) { session_start(); }
+
             if($this->input->post())
             {
                 
@@ -180,7 +182,7 @@ class Anuncios extends CI_Controller {
                             $reporte = "";
                             $values = array();
                             $id_anuncio = 0;
-                            
+                                                        
                             switch ($this->input->post('nombre_categoria'))
                             {
                                 case 'Accesorios':         
@@ -190,7 +192,7 @@ class Anuncios extends CI_Controller {
                                         'destacar' => ($this->input->post('destacar') != null) ? 'si' : 'no', 'precio' => $this->input->post('precio'), 
                                         'telefono' => $this->input->post('telefono'), 'accion' => $this->input->post('accion'), 'provincia' => $this->input->post('provincia'),
                                         'marca' => $this->input->post('marca'), 'modelo' => $this->input->post('modelo'), 'accesorio' => $this->input->post('accesorio'), 'idcategoria' => $this->input->post('id_categoria'),
-                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => 1, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
+                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => $_SESSION['info_user'][0]->id, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
                 
                                     $id_anuncio_editado = $this->input->post('id_anuncio_hidden') + 0;
                                     $this->m_categoria_accesorios->update($id_anuncio_editado, $values);
@@ -203,7 +205,7 @@ class Anuncios extends CI_Controller {
                                         'destacar' => ($this->input->post('destacar') != null) ? 'si' : 'no', 'precio' => $this->input->post('precio'), 
                                         'telefono' => $this->input->post('telefono'), 'accion' => $this->input->post('accion'), 'provincia' => $this->input->post('provincia'),
                                         'modelo' => $this->input->post('modelo'), 'marca' => $this->input->post('marca'),  'size_cuadro' => $this->input->post('size_cuadro'), 'size_aro' => $this->input->post('size_aro'), 'idcategoria' => $this->input->post('id_categoria'),
-                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => 1, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
+                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => $_SESSION['info_user'][0]->id, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
 
                                     $id_anuncio_editado = $this->input->post('id_anuncio_hidden') + 0;
                                     $this->m_categoria_bicicletas->update($id_anuncio_editado, $values);
@@ -216,7 +218,7 @@ class Anuncios extends CI_Controller {
                                         'destacar' => ($this->input->post('destacar') != null) ? 'si' : 'no', 'precio' => $this->input->post('precio'), 
                                         'telefono' => $this->input->post('telefono'), 'accion' => $this->input->post('accion'), 'provincia' => $this->input->post('provincia'),
                                         'tipo' => $this->input->post('tipo'), 'modelo' => $this->input->post('modelo'), 'marca' => $this->input->post('marca'), 'idcategoria' => $this->input->post('id_categoria'),
-                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => 1, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
+                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => $_SESSION['info_user'][0]->id, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
 
                                     $id_anuncio_editado = $this->input->post('id_anuncio_hidden') + 0;
                                     $this->m_categoria_componentes->update($id_anuncio_editado, $values);
@@ -228,7 +230,7 @@ class Anuncios extends CI_Controller {
                                         'titulo_anuncio' => $this->input->post('titulo_anuncio'), 'descripcion' => $this->input->post('descripcion'),
                                         'destacar' => ($this->input->post('destacar') != null) ? 'si' : 'no', 'precio' => $this->input->post('precio'), 
                                         'telefono' => $this->input->post('telefono'), 'accion' => $this->input->post('accion'), 'provincia' => $this->input->post('provincia'),
-                                        'idcategoria' => $this->input->post('id_categoria'), 'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => 1, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
+                                        'idcategoria' => $this->input->post('id_categoria'), 'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => $_SESSION['info_user'][0]->id, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
 
                                     $id_anuncio_editado = $this->input->post('id_anuncio_hidden') + 0;
                                     $this->m_categoria_servicios->update($id_anuncio_editado, $values);
@@ -435,7 +437,7 @@ class Anuncios extends CI_Controller {
                                         'destacar' => ($this->input->post('destacar') != null) ? 'si' : 'no', 'precio' => $this->input->post('precio'), 
                                         'telefono' => $this->input->post('telefono'), 'accion' => $this->input->post('accion'), 'provincia' => $this->input->post('provincia'),
                                         'marca' => $this->input->post('marca'), 'modelo' => $this->input->post('modelo'), 'accesorio' => $this->input->post('accesorio'), 'idcategoria' => $this->input->post('id_categoria'),
-                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => 1, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
+                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => $_SESSION['info_user'][0]->id, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
                 
                                     $id_anuncio = $this->m_categoria_accesorios->add($values);
                                   
@@ -447,7 +449,7 @@ class Anuncios extends CI_Controller {
                                         'destacar' => ($this->input->post('destacar') != null) ? 'si' : 'no', 'precio' => $this->input->post('precio'), 
                                         'telefono' => $this->input->post('telefono'), 'accion' => $this->input->post('accion'), 'provincia' => $this->input->post('provincia'),
                                         'modelo' => $this->input->post('modelo'), 'marca' => $this->input->post('marca'),  'size_cuadro' => $this->input->post('size_cuadro'), 'size_aro' => $this->input->post('size_aro'), 'idcategoria' => $this->input->post('id_categoria'),
-                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => 1, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
+                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => $_SESSION['info_user'][0]->id, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
 
                                     $id_anuncio = $this->m_categoria_bicicletas->add($values);
 
@@ -459,7 +461,7 @@ class Anuncios extends CI_Controller {
                                         'destacar' => ($this->input->post('destacar') != null) ? 'si' : 'no', 'precio' => $this->input->post('precio'), 
                                         'telefono' => $this->input->post('telefono'), 'accion' => $this->input->post('accion'), 'provincia' => $this->input->post('provincia'),
                                         'tipo' => $this->input->post('tipo'), 'modelo' => $this->input->post('modelo'), 'marca' => $this->input->post('marca'), 'idcategoria' => $this->input->post('id_categoria'),
-                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => 1, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
+                                        'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => $_SESSION['info_user'][0]->id, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
 
                                     $id_anuncio = $this->m_categoria_componentes->add($values);
                        
@@ -470,7 +472,7 @@ class Anuncios extends CI_Controller {
                                         'titulo_anuncio' => $this->input->post('titulo_anuncio'), 'descripcion' => $this->input->post('descripcion'),
                                         'destacar' => ($this->input->post('destacar') != null) ? 'si' : 'no', 'precio' => $this->input->post('precio'), 
                                         'telefono' => $this->input->post('telefono'), 'accion' => $this->input->post('accion'), 'provincia' => $this->input->post('provincia'),
-                                        'idcategoria' => $this->input->post('id_categoria'), 'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => 1, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
+                                        'idcategoria' => $this->input->post('id_categoria'), 'id_subcategoria' => $this->input->post('id_subcategoria'), 'idusuario' => $_SESSION['info_user'][0]->id, 'fecha_de_inicio' => date("Y-m-d"), 'fecha_de_fin' => date("Y-m-d", strtotime("+45 day"))); 
 
                                     $id_anuncio = $this->m_categoria_servicios->add($values);
                                     

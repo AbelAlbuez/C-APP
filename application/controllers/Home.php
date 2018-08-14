@@ -6,7 +6,7 @@ class Home extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-    	$this->load->model(array('m_categoria','m_subcategorias', 'm_categoria_accesorios', 'm_imagenes', 'm_categoria_bicicletas', 'm_categoria_componentes', 'm_categoria_servicios'));
+    	$this->load->model(array('m_usuarios','m_categoria','m_subcategorias', 'm_categoria_accesorios', 'm_imagenes', 'm_categoria_bicicletas', 'm_categoria_componentes', 'm_categoria_servicios'));
 		$this->load->helper('plantilla_usuarios');
 		session_start();
 	}
@@ -47,8 +47,8 @@ class Home extends CI_Controller {
 	{
 		$anuncios = array();
 		$imagenes = array();
-		$categorias = $this->m_categoria->get_todos();
 		$imagenes_limpias = array();
+		$categorias = $this->m_categoria->get_todos();
 
 		$anuncios[] = $this->m_categoria_bicicletas->get_todos();
 		$anuncios[] = $this->m_categoria_accesorios->get_todos();
@@ -80,7 +80,9 @@ class Home extends CI_Controller {
 		$data['categorias'] = $categorias; 
 		$data['subcategorias'] = $this->m_subcategorias->get_todos(); 
 		$data['imagenes'] = $imagenes_limpias;
-		
+		$data['usuarios'] =  $this->m_usuarios->get_todos();
+
+
 		$this->load->view('home_view', $data);
 	}
 
@@ -90,35 +92,66 @@ class Home extends CI_Controller {
 		{
 			if($this->input->post('info_a_buscar') != "" && $this->input->post('filtro') != "")
 			{
-				
+				$anuncios = array();
+				$imagenes = array();
+				$imagenes_limpias = array();
+				$categorias = $this->m_categoria->get_todos();
 				$id = substr($this->input->post('filtro'), 1);
 				$data = $this->input->post('info_a_buscar');
 				$resultados = array();
 
 				if($this->input->post('filtro')[0] === 's')
 				{					
-					$resultados[] = $this->m_categoria_accesorios->get_by_subcategoria_filter($id, $data);
-					$resultados[] = $this->m_categoria_bicicletas->get_by_subcategoria_filter($id, $data);
-					$resultados[] = $this->m_categoria_componentes->get_by_subcategoria_filter($id, $data);
-					$resultados[] = $this->m_categoria_servicios->get_by_subcategoria_filter($id, $data);						
+					$anuncios[] = $this->m_categoria_accesorios->get_by_subcategoria_filter($id, $data);
+					$anuncios[] = $this->m_categoria_bicicletas->get_by_subcategoria_filter($id, $data);
+					$anuncios[] = $this->m_categoria_componentes->get_by_subcategoria_filter($id, $data);
+					$anuncios[] = $this->m_categoria_servicios->get_by_subcategoria_filter($id, $data);						
 				}
 				else if($this->input->post('filtro')[0] === 'c')
 				{
-					$resultados[] = $this->m_categoria_accesorios->get_by_categoria_filter($id, $data);
-					$resultados[] = $this->m_categoria_bicicletas->get_by_categoria_filter($id, $data);
-					$resultados[] = $this->m_categoria_componentes->get_by_categoria_filter($id, $data);
-					$resultados[] = $this->m_categoria_servicios->get_by_categoria_filter($id, $data);
+					$anuncios[] = $this->m_categoria_accesorios->get_by_categoria_filter($id, $data);
+					$anuncios[] = $this->m_categoria_bicicletas->get_by_categoria_filter($id, $data);
+					$anuncios[] = $this->m_categoria_componentes->get_by_categoria_filter($id, $data);
+					$anuncios[] = $this->m_categoria_servicios->get_by_categoria_filter($id, $data);
 				}
 				else
 				{
-					$resultados[] = $this->m_categoria_accesorios->get_by_filter($data);
-					$resultados[] = $this->m_categoria_bicicletas->get_by_filter($data);
-					$resultados[] = $this->m_categoria_componentes->get_by_filter($data);
-					$resultados[] = $this->m_categoria_servicios->get_by_filter($data);
+					$anuncios[] = $this->m_categoria_accesorios->get_by_filter($data);
+					$anuncios[] = $this->m_categoria_bicicletas->get_by_filter($data);
+					$anuncios[] = $this->m_categoria_componentes->get_by_filter($data);
+					$anuncios[] = $this->m_categoria_servicios->get_by_filter($data);
 				}
-
-				print_r($resultados); # ya traemo to, hay que brega el front ahora
+				
+				$anuncios = $this->organizar_por_fecha($anuncios);
+		
+				foreach ($anuncios as $anuncio) 
+				{
+					foreach ($categorias as $categoria) 
+					{
+						if($anuncio->idcategoria == $categoria->id)
+						{
+							$imagenes[] = $this->m_imagenes->get_by_id_limited($anuncio->id, $categoria->nombre); 
+						}
+					}
+				}
+		
+				foreach ($imagenes as $imagen) 
+				{
+					foreach ($imagen as $imagen_contenido) 
+					{
+						$imagenes_limpias[] = $imagen_contenido; 
+					}
+				}
+		
+				var_dump($anuncios);
 				die();
+				$data['anuncios'] = $anuncios;
+				$data['categorias'] = $categorias; 
+				$data['subcategorias'] = $this->m_subcategorias->get_todos(); 
+				$data['imagenes'] = $imagenes_limpias;
+				$data['usuarios'] =  $this->m_usuarios->get_todos();
+		
+				$this->load->view('home_view', $data);
 			}
 			else
 			{

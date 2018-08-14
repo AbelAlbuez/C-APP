@@ -8,39 +8,8 @@ class M_usuarios extends CI_Model{
 		parent::__construct();
 		$this->load->database();
 	}
-
-	// function get_todos()
-	// {	
-	// 	$query = $this->db->get('subcategoria'); 
-	// 	return $query->result();
-	// }
-
-	// function get_by_idcategoria($id)
-	// {
-	// 	$query = $this->db->where('idcategoria',$id); 
-	// 	$query = $this->db->get('subcategoria'); 
-	// 	return $query->result(); 
-	// }
-
-	// function get_by_id($id)
-	// {
-	// 	$query = $this->db->where('id',$id); 
-	// 	$query = $this->db->get('subcategoria'); 
-	// 	return $query->result();
-	// }
-
-	// function add()
-	// {
-	// 	$datos_insertar=$this->input->post();
-	// 	unset($datos_insertar['btn_enviar']);
-	// 	$this->db->insert('subcategoria',$datos_insertar);
-	// 	return $this->db->insert_id();
-	// }
 	 function get_todos()
    {
-	/*	session_start();
-		$id_usuario = $_SESSION['usuario']->id;*/
-		//$query = $this->db->where('id!=',$id_usuario);
 		$query = $this->db->get('usuario'); 
 		return $query->result(); 
 	}
@@ -52,23 +21,19 @@ class M_usuarios extends CI_Model{
 		$query = $this->db->get('usuario'); 
 		return $query->result(); 
 	}
-	// function edit($id)
-	// {
-	// 	$datos_editar=$this->input->post();
-	// 	unset($datos_editar['btn_enviar']);
-	// 	$query = $this->db->where('id',$id); 
-	// 	$this->db->update('usuario',$datos_editar);
-	// }
+	function edit($id)
+	{
+		$datos_editar=$this->input->post();
+		unset($datos_editar['btn_enviar']);
+		$query = $this->db->where('id',$id); 
+		$this->db->update('usuario',$datos_editar);
+	}
 	
-	// function delete($id)
-	// {
-	// 	$query = $this->db->where('id',$id); 
-	// 	$this->db->delete('subcategoria');
-	// }
-
-
-
-/*Fin del archivo m_usuario.php*/ 
+	function delete($id)
+	{
+		$query = $this->db->where('id',$id); 
+		$this->db->delete('subcategoria');
+	}
 
 	//Apareceran todos los usuarios menos el actual
 	function getUser($id){

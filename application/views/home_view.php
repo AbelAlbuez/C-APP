@@ -40,7 +40,7 @@
 	</div>
 
 	<!-- cuadro de busqueda -->
-	<form action="<?php base_url() ?>Home/filtrar/" method="post">
+	<form action="<?php base_url() ?>filtrar/" method="post">
 		<div class="alert alert-dark search" role="alert">
 			<div class="input-group">
 				<input type="text" name="info_a_buscar" class="form-control col-8" placeholder="¿Qué estás buscando?" aria-label="Text input with dropdown button" required="true">
@@ -119,6 +119,7 @@
 	</div>
 
 	<div class="row">
+
 		<!-- ANUNCIOS  -->
         <div class="col-sm-8">
 			
@@ -165,12 +166,27 @@
 											if($anuncios[$i]->idcategoria == $categoria->id)
 											{
 										?>
-											<i class="fas fa-tags"></i> <?php echo $categoria->nombre; ?> <br/> 
+												<i class="fas fa-tags"></i> <?php echo $categoria->nombre; ?> <br/> 
 										<?php
 											}
 										}
 										?>
-										<i class="fas fa-user"></i> Angel Reyes Espinal <br/> 
+										
+										<?php
+										if(isset($usuarios))
+										{
+											foreach ($usuarios as $usuario)
+											{
+												if($anuncios[$i]->idusuario == $usuario->id)
+												{
+										?>
+													<i class="fas fa-user"></i> <?php echo $usuario->nombre . " " . $usuario->apellido; ?> <br/> 
+										<?php
+												}
+											}
+										}
+										?>
+										
 										<i class="far fa-calendar-alt"></i> <?php echo $anuncios[$i]->fecha_de_inicio; ?> <br/> 
 										<i class="fas fa-dollar-sign"></i> <?php echo $anuncios[$i]->precio; ?> <br/>
 										<span style="text-align:justify">

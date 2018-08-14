@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    if(!isset($_SESSION)) { session_start(); }
     if(empty($_SESSION['info_user']))
     {
         redirect('Home');
@@ -23,6 +23,11 @@
         font-weight:bold;
     }
 
+    .sombra{
+		-webkit-box-shadow: 10px 9px 5px -7px rgba(0,0,0,0.49);
+		-moz-box-shadow: 10px 9px 5px -7px rgba(0,0,0,0.49);
+		box-shadow: 10px 9px 5px -7px rgba(0,0,0,0.49);
+	}
 </style>
 
 <div class="container">
@@ -1830,7 +1835,7 @@
         if($paso === 4)
         {
     ?>
-        <div class="jumbotron">
+        <div class="jumbotron sombra">
             <h1 class="display-4 text-center"> <b>¡Muy bien!</b> </h1>
             <hr class="my-4">
             <p class="lead" style='float:right;'>
