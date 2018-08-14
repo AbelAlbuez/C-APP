@@ -23,8 +23,8 @@ class Profile extends CI_Controller {
 
 	public function index()
 	{  			
-			$data['categorias'] = $this->M_categoria->get_todos(); 
-            $this->load->view('action_user/view_profile', $data);		
+		$data['categorias'] = $this->M_categoria->get_todos(); 
+		$this->load->view('action_user/view_profile', $data);		
 	}
     
     public function Editar ()

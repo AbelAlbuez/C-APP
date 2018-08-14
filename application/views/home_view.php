@@ -1,4 +1,7 @@
-<?php plantilla_usuarios::iniciar($categorias); ?>
+<?php 
+	plantilla_usuarios::iniciar($categorias); 
+	$limite = (isset($limite)) ? $limite : 5 ;
+?>
 
 <style>
 	.quitandoElSobrando{
@@ -12,6 +15,16 @@
 
 	.btn-buscar{
 		margin-left:5px;
+	}
+
+	.margin-bot{
+		margin-bottom:100px!important;
+	}
+
+	.sombra{
+		-webkit-box-shadow: 10px 9px 5px -7px rgba(0,0,0,0.49);
+		-moz-box-shadow: 10px 9px 5px -7px rgba(0,0,0,0.49);
+		box-shadow: 10px 9px 5px -7px rgba(0,0,0,0.49);
 	}
 </style>
 
@@ -110,49 +123,94 @@
         <div class="col-sm-8">
 			
 			<h2 class="mt-4">Nuevos anuncios</h2>
-
-			<div class="card bg-light mb-3">
-				<div class="card-body">
-					<div class="row">
-
-						<img src="https://www.gratistodo.com/wp-content/uploads/2016/11/pikachu-1-800x533.jpg" style="height:200px!important;" alt="..." class="rounded img-thumbnail col-sm-4">
 						
-						<div class="col-sm-8">
-							<h4 class="">Vendo pikachu 2018</h4>
-							<p>
-								<i class="fas fa-user"></i> Angel Reyes Espinal <br/> 
-								<i class="far fa-calendar-alt"></i> Lunes 23 de julio del 2018 <br/> 
-								<i class="fas fa-dollar-sign"></i> 500,000 <br/>
-								<span style="text-align:justify">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima libero illum velit ratione eius a aliquid, aliquam cul
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit  ...
-								</span>								
-							</p>
+			<?php
+			if(isset($anuncios))
+			{			
+				for ($i = 0 ; $i < $limite ; $i++) 
+				{ 
+			?>
+					<div class="card bg-light mb-3 sombra">
+						<div class="card-body">
+							<div class="row">
+	
+								<?php
+								foreach ($imagenes as $imagen) 
+								{
+									if($imagen->id_anuncio == $anuncios[$i]->id)
+									{
+										foreach ($categorias as $categoria)
+										{
+											if($anuncios[$i]->idcategoria == $categoria->id)
+											{
+												if($categoria->nombre == $imagen->tipo_anuncio)
+												{
+								?>
+													<img src="<?php echo base_url(); ?>/images/<?php echo $imagen->imagen; ?>"  style="height:200px!important;"  alt="..." class="img-thumbnail col-sm-4">
+								<?php
+												}
+
+											}
+										}
+									}
+								}
+								?>
+								
+								<div class="col-sm-8">
+									<h4 class=""><?php echo $anuncios[$i]->titulo_anuncio; ?></h4>
+									<p>
+										<?php
+										foreach ($categorias as $categoria)
+										{
+											if($anuncios[$i]->idcategoria == $categoria->id)
+											{
+										?>
+											<i class="fas fa-tags"></i> <?php echo $categoria->nombre; ?> <br/> 
+										<?php
+											}
+										}
+										?>
+										<i class="fas fa-user"></i> Angel Reyes Espinal <br/> 
+										<i class="far fa-calendar-alt"></i> <?php echo $anuncios[$i]->fecha_de_inicio; ?> <br/> 
+										<i class="fas fa-dollar-sign"></i> <?php echo $anuncios[$i]->precio; ?> <br/>
+										<span style="text-align:justify">
+											<?php echo $anuncios[$i]->descripcion; ?>
+										</span>								
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-
+			<?php
+				}
+			}
+			?>
 		</div>
 
 		<!-- PUBLICIDAD -->
         <div class="col-sm-4">
 			<h2 class="mt-4">Interes</h2>
+			
 			<div class="card" style="width: 18rem;">
-				<img class="card-img-top" src="https://www.gratistodo.com/wp-content/uploads/2016/11/pikachu-1-800x533.jpg" alt="Card image cap">
+				<img class="img-thumbnail" src="https://www.gratistodo.com/wp-content/uploads/2016/11/pikachu-1-800x533.jpg" alt="Card image cap">
 				<div class="card-body">
 					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					<button type="button" class="btn btn-info float-right btn-sm">Info</button>
 				</div>
 			</div>
 
+			<div class="card" style="width: 18rem;">
+				<img class="img-thumbnail" src="https://www.gratistodo.com/wp-content/uploads/2016/11/pikachu-1-800x533.jpg" alt="Card image cap">
+				<div class="card-body">
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<button type="button" class="btn btn-info float-right btn-sm">Info</button>
+				</div>
+			</div>
 		</div>
 		
-      </div>
+	</div>
 
-	<br><br><br><hr>
-
-	
+	<div class="margin-bot"> </div>
 </div>
 
 <style>

@@ -15,9 +15,19 @@ class M_imagenes extends CI_Model{
 		return $query->result(); 
 	}
 	
-	function get_by_id($id)
+	function get_by_id_limited($id, $tipo_anuncio)
 	{
-		$query = $this->db->where('id_anuncio',$id); 
+		$query = $this->db->limit(1);
+		$query = $this->db->where('tipo_anuncio', $tipo_anuncio); 
+		$query = $this->db->where('id_anuncio', $id); 
+		$query = $this->db->get('imagenes'); 
+		return $query->result(); 
+	}
+
+	function get_by_id($id, $tipo_anuncio)
+	{
+		$query = $this->db->where('tipo_anuncio', $tipo_anuncio); 
+		$query = $this->db->where('id_anuncio', $id); 
 		$query = $this->db->get('imagenes'); 
 		return $query->result(); 
 	}

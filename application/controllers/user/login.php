@@ -37,10 +37,11 @@ class Login extends CI_Controller {
 			if(empty($validar)){
 			
 				echo "No logueado";
+				
 			}else{
 				session_start();
 
-				$_SESSION['info_user']=$validar;
+				$_SESSION['info_user'] = $validar;
 		
 				
 				redirect('Home','refresh');

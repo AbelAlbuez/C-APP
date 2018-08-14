@@ -99,7 +99,9 @@ class Anuncios extends CI_Controller {
     {
         if($id_anuncio != null && is_numeric($id_anuncio)) # RELLENAR LOS CAMPOS A EDITAR
         {
+            $categorias = $this->m_categoria->get_todos();
             $id_anuncio = $id_anuncio + 0;
+            $categoria_del_anuncio = "";
             $anuncio = array();
 
             switch ($_caso)
@@ -126,14 +128,22 @@ class Anuncios extends CI_Controller {
                     break;
             }
 
+            foreach ($categorias as $categoria) 
+            {
+                if($categoria->id == $anuncio[0]->idcategoria)
+                {
+                    $categoria_del_anuncio = $categoria->nombre;
+                }
+            }
+
             $data['sub_categorias_t'] = $this->m_subcategorias->get_by_idcategoria($anuncio[0]->idcategoria);
-            $data['categorias'] = $this->m_categoria->get_todos(); 
+            $data['categorias'] = $categorias; 
             $data['progreso'] = 50;
             $data['paso'] = 2;
             $data['subCategoria_data'] = $this->m_subcategorias->get_by_id($anuncio[0]->id_subcategoria);
             $data['categoria_data'] = $this->m_categoria->get_by_id($anuncio[0]->idcategoria);
             $data['anuncio'] = $anuncio; 
-            $data['imagenes_guardadas'] = $this->m_imagenes->get_by_id($id_anuncio);
+            $data['imagenes_guardadas'] = $this->m_imagenes->get_by_id($id_anuncio, $categoria_del_anuncio);
             $this->load->view('crear_anuncios_view', $data);
         }
         else # AGREGAR | FORMULARIO NORMAL

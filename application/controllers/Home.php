@@ -13,6 +13,7 @@ class Home extends CI_Controller {
 
 	function organizar_por_fecha($array)
 	{
+		$array_limpio = array();
 		$array_size = count($array);
 		
 		for ($i = 0; $i < $array_size ; $i++) 
@@ -20,43 +21,66 @@ class Home extends CI_Controller {
 			$array_size_i = count($array[$i]); 
 			for ($j = 0 ; $j < $array_size_i ; $j++) 
 			{ 
-				echo $array[$i][$j]->fecha_de_inicio . "<br>"; # aqui se junta to, ya pense la logica pa acabalo no tocar :V
+				$array_limpio[] = $array[$i][$j];
 			}
 		}
 		
-		die(); 
-		
-		for ( $i = 0; $i < $array_size; $i++ )
-		{
-			for ($k = 0; $k < $array_size; $k++ )
+		$array_limpio_size = count($array_limpio);
+
+		for ($i = 0 ; $i < $array_limpio_size ; $i++) 
+		{ 
+			for ($j = 0; $j < $array_limpio_size; $j++ )
 			{
-				if ($array[$i]->fecha_de_inicio > $array[$j]->fecha_de_inicio)
+				if ($array_limpio[$i]->fecha_de_inicio > $array_limpio[$j]->fecha_de_inicio)
 				{
-					$temp = $array[$i];
-					$array[$i] = $array[$j];
-					$array[$j] = $temp;
+					$temp = $array_limpio[$i];
+					$array_limpio[$i] = $array_limpio[$j];
+					$array_limpio[$j] = $temp;
 				}
 			}
 		}
+
+		return $array_limpio;
 	}
 
 	public function index()
 	{
-		$data['categorias'] = $this->m_categoria->get_todos(); 
-		$data['subcategorias'] = $this->m_subcategorias->get_todos(); 
-
-		//  LOGICA PARA MOSTRAR LOS ANUNCIOS POR FECHA
-
-		/*
 		$anuncios = array();
-		
-		$anuncios[] = $this->m_categoria_accesorios->get_todos();
+		$imagenes = array();
+		$categorias = $this->m_categoria->get_todos();
+		$imagenes_limpias = array();
+
 		$anuncios[] = $this->m_categoria_bicicletas->get_todos();
+		$anuncios[] = $this->m_categoria_accesorios->get_todos();
 		$anuncios[] = $this->m_categoria_componentes->get_todos();
 		$anuncios[] = $this->m_categoria_servicios->get_todos();						
+
+		$anuncios = $this->organizar_por_fecha($anuncios);
 		
-		$this->organizar_por_fecha($anuncios);
-		*/
+		foreach ($anuncios as $anuncio) 
+		{
+			foreach ($categorias as $categoria) 
+			{
+				if($anuncio->idcategoria == $categoria->id)
+				{
+					$imagenes[] = $this->m_imagenes->get_by_id_limited($anuncio->id, $categoria->nombre); 
+				}
+			}
+		}
+
+		foreach ($imagenes as $imagen) 
+		{
+			foreach ($imagen as $imagen_contenido) 
+			{
+				$imagenes_limpias[] = $imagen_contenido; 
+			}
+		}
+
+		$data['anuncios'] = $anuncios;
+		$data['categorias'] = $categorias; 
+		$data['subcategorias'] = $this->m_subcategorias->get_todos(); 
+		$data['imagenes'] = $imagenes_limpias;
+		
 		$this->load->view('home_view', $data);
 	}
 
@@ -66,6 +90,7 @@ class Home extends CI_Controller {
 		{
 			if($this->input->post('info_a_buscar') != "" && $this->input->post('filtro') != "")
 			{
+				
 				$id = substr($this->input->post('filtro'), 1);
 				$data = $this->input->post('info_a_buscar');
 				$resultados = array();

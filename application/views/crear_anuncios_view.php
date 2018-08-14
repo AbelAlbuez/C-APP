@@ -1,4 +1,9 @@
 <?php 
+    if(empty($_SESSION['info_user']))
+    {
+        redirect('Home');
+    }
+
     plantilla_usuarios::iniciar($categorias); 
     $paso = (isset($paso)) ? $paso : 0 ;
     $progreso = (isset($progreso)) ? $progreso : 15 ;
