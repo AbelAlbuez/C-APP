@@ -40,9 +40,7 @@ $submit = array(
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
-<?php  
-  plantilla_usuarios::iniciar($categorias); 
-?>
+
 
 <section class="login-block">
 	<div class="container">
