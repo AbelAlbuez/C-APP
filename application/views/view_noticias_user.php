@@ -160,12 +160,15 @@
 		<!-- Contenido de las noticias -->
 		<br><br>
 		<div class="card" style="width: 40rem;">
+		<div class="card-header">
+		<?php echo $noticias->titulo?>
+		</div>
   		<div class="card-body">
-    	<h5 class="card-title"><?php echo $noticias->titulo?></h5>
+    	
     	<p class="card-text"><?php echo $noticias->descripcion?></p>
     	<a href="<?php echo base_url('panel/noticias/View_Notice_Detail/'.$noticias->id)?>" class="card-link">Ver Noticia</a>
     
-  		</div><br> <br>
+  		</div>
 	</div>
 		<!-- Cierre de las noticias -->
     </div>
