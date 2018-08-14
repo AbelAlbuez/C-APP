@@ -22,10 +22,10 @@ class Admin extends CI_Controller {
 		$data['ategoria_bicicletas'] = $this->M_categoria_bicicletas->get_todos();
 		$data['categoria_componentes'] = $this->M_categoria_componentes->get_todos();
 		$data['categoria'] = $this->M_categoria->get_todos();
-		$data['subcategorias'] = $this->m_subcategorias->get_todos(); 
+		$data['eventos'] = $this->M_eventos->get_todos(); 
 
 		$data['usuarios'] =  $this->M_usuarios->get_todos();
-		$data['banners'] = $this->m_banner->get_todos();
+		$data['noticias'] = $this->M_noticias->get_todos();
 
 		$this->load->view('view_panel_admin.php', $data);
 
