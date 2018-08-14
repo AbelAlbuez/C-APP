@@ -10,17 +10,24 @@ class Admin extends CI_Controller {
 		$this->load->helper('url'); //para redireccionar paginas
 		$this->load->library('form_validation');
 		$this->load->model(array('M_categoria_accesorios',
-		'M_categoria_componentes','M_categoria_servicios','M_categoria_servicios','M_categoria',
-		 'M_usuarios','M_noticias','M_eventos'));
+		'M_categoria_componentes','M_categoria_servicios','M_categoria_bicicletas','M_categoria',
+		 'M_usuarios','M_noticias','M_eventos','m_subcategorias','m_banner'));
 		$this->load->helper('plantilla_usuarios');
 		//session_start();
 	}
 
 	public function index()
 	{   
-		
+		$data['categorias_servicios'] = $this->M_categoria_servicios->get_todos();
+		$data['ategoria_bicicletas'] = $this->M_categoria_bicicletas->get_todos();
+		$data['categoria_componentes'] = $this->M_categoria_componentes->get_todos();
+		$data['categoria'] = $this->M_categoria->get_todos();
+		$data['subcategorias'] = $this->m_subcategorias->get_todos(); 
 
-		$this->load->view('view_panel_admin.php');
+		$data['usuarios'] =  $this->M_usuarios->get_todos();
+		$data['banners'] = $this->m_banner->get_todos();
+
+		$this->load->view('view_panel_admin.php', $data);
 
 		 
 	}
