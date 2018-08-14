@@ -193,7 +193,7 @@ class Home extends CI_Controller {
 					}
 					
 					$anuncios = $this->organizar_por_fecha($anuncios);
-			
+					
 					foreach ($anuncios as $anuncio) 
 					{
 						foreach ($categorias as $categoria) 

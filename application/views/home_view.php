@@ -193,13 +193,15 @@
 		<!-- ANUNCIOS  -->
         <div class="col-sm-8">
 			
-			<h2 class="mt-4">Nuevos anuncios</h2>
+			<h2 class="mt-4">Anuncios</h2>
 						
 			<?php
 			if(isset($anuncios))
-			{			
-				for ($i = 0 ; $i < count($anuncios) ; $i++) 
-				{ 
+			{
+				if(count($anuncios) != 0)
+				{
+					for ($i = 0 ; $i < count($anuncios) ; $i++) 
+					{ 
 			?>
 					<div class="card bg-light mb-3 sombra">
 						<div class="card-body">
@@ -293,6 +295,18 @@
 							</div>
 						</div>
 					</div>
+			<?php	
+					}
+				}
+				else
+				{
+			?>
+				<br>
+				<div class="alert alert-warning" role="alert">
+					<h1 class='text-center'>Lo sentimos!</h1>
+					<h3 class='text-center'>no hubieron concurrencias con su busqueda :(</h3>
+
+				</div>
 			<?php
 				}
 			}
