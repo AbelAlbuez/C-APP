@@ -23,7 +23,7 @@ class Noticias extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url','form')); //para redireccionar paginas
 		$this->load->library(array('form_validation', 'upload'));
-		$this->load->model(array('M_noticias','M_categorias'));
+		$this->load->model(array('M_noticias','M_categoria'));
 
 	
 	}
@@ -172,7 +172,13 @@ class Noticias extends CI_Controller {
 		$data['noticias_listado'] = $this->M_noticias->get_todos();
 		$data['categorias'] = $this->M_categoria->get_todos(); 
 		//$this->load->view('admin/view_categorias.php', $data);
-		$this->load->view('admin/view_noticias_user.php', $data);
+		$this->load->view('view_noticias_user.php', $data);
+	}
+	public function View_Notice_Detail(){
+		$data['noticias_listado'] = $this->M_noticias->get_todos();
+		$data['categorias'] = $this->M_categoria->get_todos(); 
+		//$this->load->view('admin/view_categorias.php', $data);
+		$this->load->view('view_noticias_detail.php', $data);
 	}
 
 }

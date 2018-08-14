@@ -73,11 +73,11 @@
 						</li>
 
 						<li class="nav-item active">
-							<a class="nav-link" href="#"> Noticias </a>
+							<a class="nav-link" href="#"> Eventos </a>
 						</li>
 
 						<li class="nav-item active">
-							<a class="nav-link" href="#"> Eventos </a>
+							<a class="nav-link" href="<?php echo base_url('panel/noticias/View_User')?>"> Noticias </a>
 						</li>
 
 					</ul>
