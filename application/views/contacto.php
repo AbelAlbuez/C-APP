@@ -20,13 +20,13 @@
                     </ol>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img  style="max-height:470px" class="d-block  w-100" src="https://www.sonnwies.com/pics/0000009164-1300x480-c-x50-y50.jpg" alt="First slide">
+                        <img  style="max-height:470px" class="d-block  w-100" src="http://aldroteam.com/wp-content/uploads/2017/02/Aroz-franja-1200x480.jpg" alt="First slide">
                       </div>
                       <div class="carousel-item">
-                        <img style="max-height:470px" class="d-block  w-100" src="https://www.sonnwies.com/pics/0000009164-1300x480-c-x50-y50.jpg" alt="Second slide">
+                        <img style="max-height:470px" class="d-block  w-100" src="http://www.superenduromtb.com/img/news/2016/08/Santa-Caterina-Superenduro-2016_153-1200x480.jpg" alt="Second slide">
                       </div>
                       <div class="carousel-item">
-                        <img  style="max-height:470px" class="d-block w-100" src="http://tankwatrek.co.za/wp-content/uploads/2016/12/5-1200x480.jpg" alt="Third slide">
+                        <img  style="max-height:470px" class="d-block w-100" src="https://www.disc-me.com/wp-content/uploads/2017/08/5-4-1200x480.jpg" alt="Third slide">
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -44,7 +44,7 @@
             <h1 style="color:#247BA0 ;"> Contacto </h1>
                     <div style="height:auto"class=" container">
                         
-                        <p>Si desea contactarnos puede hacerlo a través de nuestro correo electrónico:
+                        <p>Si desea contactarnos puede hacerlo a través de nuestro correo electrónico: C-App@gmail.com.
 
 </p>
         

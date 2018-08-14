@@ -11,10 +11,10 @@
               </ol>
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img  style="max-height:470px" class="d-block  w-100" src="https://www.sonnwies.com/pics/0000009164-1300x480-c-x50-y50.jpg" alt="First slide">
+                  <img  style="max-height:470px" class="d-block  w-100" src="http://www.travelnewsnamibia.com/wp-content/uploads/MG_2517-1200x480.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                  <img style="max-height:470px" class="d-block  w-100" src="https://www.sonnwies.com/pics/0000009164-1300x480-c-x50-y50.jpg" alt="Second slide">
+                  <img style="max-height:470px" class="d-block  w-100" src="http://aldroteam.com/wp-content/uploads/2017/02/Aroz-franja-1200x480.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
                   <img  style="max-height:470px" class="d-block w-100" src="http://tankwatrek.co.za/wp-content/uploads/2016/12/5-1200x480.jpg" alt="Third slide">
@@ -34,7 +34,7 @@
         <div class="container" >
         <h1 style="color:#247BA0 ;"> Publicidad </h1>
                 <div style="height:auto"class=" container">
-                    <p>Repecho.com es una página web dirigida a ciclistas de todo los niveles y estilos, y por ende nuestro espacio publicitario es ideal para compañías que ofrezcan productos o servicios relacionados no solo con la bicicleta sino también con el rendimiento físico, actividades al aire libre y un estilo de vida saludable. Actualmente puede anunciarse con nosotros a través de nuestros espacios publicitarios para compañías en general.</p>
+                    <p>Esta pagina web esta dirigida a ciclistas de todo los niveles y estilos, y por ende nuestro espacio publicitario es ideal para compañías que ofrezcan productos o servicios relacionados no solo con la bicicleta sino también con el rendimiento físico, actividades al aire libre y un estilo de vida saludable. Actualmente puede anunciarse con nosotros a través de nuestros espacios publicitarios para compañías en general.</p>
                 </div> 
         </div>
     </div>
