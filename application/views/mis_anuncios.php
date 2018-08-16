@@ -192,10 +192,20 @@
     ?>
 
     <?php
+    if(count($anuncios) == 0)
+    {
+    ?>
+        <br>
+        <div class="alert alert-warning" role="alert">
+            <h1 class='text-center'>Disculpa!</h1>
+            <h3 class='text-center'>Aun no has publicado ningún anuncio.</h3>
+        </div>
+    <?php
+    }
     if(isset($anuncios))
     {			
         for ($i = 0 ; $i < count($anuncios) ; $i++) 
-        { 
+        {
     ?>
             <div class="card bg-light mb-3 sombra">
                 <div class="card-body">

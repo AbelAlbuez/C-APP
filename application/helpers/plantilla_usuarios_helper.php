@@ -103,7 +103,6 @@
 							<div class="btn-group">
 								<div class="dropdown-menu dropdown-menu-right">
 									<a href="<?php echo base_url('usuario/')?>" class="dropdown-item" >Mis anuncios</a>
-									<a href="<?php echo base_url('user/profile/')?>" class="dropdown-item" >Editar perfil</a>
 									<a href="<?php echo base_url('user/login/')?>CerrarSesion" class="dropdown-item" >Cerrar Session</a>
 								</div>
 								<a class="btn btn-outline-light" href='<?php echo base_url('Anuncios');?>'> Anuncio <i class="fas fa-pen-alt"></i> </a> |

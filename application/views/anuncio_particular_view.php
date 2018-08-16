@@ -1,4 +1,6 @@
-<?php plantilla_usuarios::iniciar($categorias); ?>
+<?php
+    if(!isset($_SESSION)) { session_start(); }
+    plantilla_usuarios::iniciar($categorias); ?>
 
 <style>
     .colorLetras{

@@ -308,7 +308,6 @@
 				<div class="alert alert-warning" role="alert">
 					<h1 class='text-center'>Lo sentimos!</h1>
 					<h3 class='text-center'>no hubieron concurrencias con su busqueda :(</h3>
-
 				</div>
 			<?php
 				}
