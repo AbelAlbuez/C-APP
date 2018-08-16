@@ -51,15 +51,16 @@ class Noticias extends CI_Controller {
 
         if (!$this->upload->do_upload("fileimagen")) {
 			$data['error'] = $this->upload->display_errors();
-			$data['fechaActual'] = date('d-m-Y H:i:s');
+	
 			$this->load->view('admin/view_add_noticias.php',$data);
         } else {
 
             $file_info = $this->upload->data();
-         //   $this->crearMiniatura($file_info['file_name']);
+		 //   $this->crearMiniatura($file_info['file_name']);
+		 $fecha_actual = date('Y-m-d');
 		 $titulo = $this->input->post('titulo');
 		 $descripcion = $this->input->post('descripcion');
-		 $fecha = $this->input->post('fecha_de_creacion');
+		 $fecha = $fecha_actual;
 		 $imagen = $file_info['file_name'];
 		 $datos_noticias= array(
 			 'titulo'=> $titulo, 'descripcion'=> $descripcion, 'url_imagen'=> $imagen,
@@ -91,12 +92,14 @@ class Noticias extends CI_Controller {
         } else {
 
             $file_info = $this->upload->data();
-         //   $this->crearMiniatura($file_info['file_name']);
-			$titulo = $this->input->post('titulo');
-			$descripcion = $this->input->post('descripcion');
-			$fecha = $this->input->post('fecha_de_creacion');
-            $imagen = $file_info['file_name'];
-            $datos_noticias= array(
+		 //   $this->crearMiniatura($file_info['file_name']);
+		 $data['datos_noticias'] =$this->M_noticias->get_by_id($id);
+		 $fecha_actual = date('Y-m-d');
+		 $titulo = $this->input->post('titulo');
+		 $descripcion = $this->input->post('descripcion');
+		 $fecha = $fecha_actual;
+		 $imagen = $file_info['file_name'];
+        $datos_noticias= array(
 				'titulo'=> $titulo, 'descripcion'=> $descripcion, 'url_imagen'=> $imagen,
 			'fecha_de_creacion'=>$fecha);
             $subir = $this->M_noticias->edit($datos_noticias, $id);      

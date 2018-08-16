@@ -75,7 +75,7 @@ class Login extends CI_Controller {
 		session_destroy();
 		session_unset();
 		
-		redirect('Home','refresh');
+		redirect(base_url());
 		
     }
 

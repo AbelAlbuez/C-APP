@@ -81,44 +81,23 @@
             <span class="nav-link-text">Noticias</span>
           </a>
         </li>
-   
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+  				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="<?php echo base_url('Home');?>">
-					<i class="fa fa-sign-out" aria-hidden="true"></i>
-            <span class="nav-link-text">Volver</span>
+					<i class="fa fa-file-code-o" aria-hidden="true"></i>
+					<span class="nav-link-text">Pagina principal</span>
+          </a>
+        </li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="<?php echo base_url('user/login/')?>CerrarSesion">
+					<i class="fa fa-sign-out" aria-hidden="true"></i> 
+						<span class="nav-link-text">Cerrar Session</span>
           </a>
         </li>
       </ul>
-     <!--Otro menu-->
-		 <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<i class="fa fa-user-circle-o" aria-hidden="true"></i> 
 
-            
-            <span class="indicator text-primary d-none d-lg-block">
-           
-            </span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-            <h6 class="dropdown-header">Ajustes de la cuenta:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-						<i class="fa fa-cog" ></i>
-              <strong>Editar Perfil</strong>
-            </a>
-						<div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-						<i class="fa fa-fw fa-sign-out"></i>
-            <strong>Cerrar Session</strong>
-            </a>
-        </li>
-        
-      
-       
-      </ul>
+		 
 
-    </div>
+    
   </nav>
 
 
