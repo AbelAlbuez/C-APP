@@ -43,7 +43,7 @@ class Usuario extends CI_Controller{
 		return $array_limpio;
 	}
 
-    public function index()
+    public function index($id = null, $categoria_p = null)
 	{
         $destacar_id = 0;
 		$anuncios = array();
@@ -86,6 +86,13 @@ class Usuario extends CI_Controller{
 			}
 		}
 
+		if($id != null && is_numeric($id) && $categoria_p != null)
+		{
+			$data['eliminar_anuncio'] = 'eliminar';
+			$data['eliminar_anuncio_id'] = $id;
+			$data['eliminar_anuncio_categoria'] = $categoria_p;
+		}
+
 		$data['anuncios'] = $anuncios;
 		$data['categorias'] = $categorias; 
 		$data['subcategorias'] = $this->m_subcategorias->get_todos(); 
@@ -95,8 +102,34 @@ class Usuario extends CI_Controller{
 		$data['id_ultimo_anuncio_destacado'] = $destacar_id;
 
 		$this->load->view('mis_anuncios', $data);
-    }
+	}
+	
+	public function eliminar_anuncio_comprobado()
+	{
+		if($this->input->post())
+		{
+			$r = false;
+			
+			switch ($this->input->post('categoria')) 
+			{
+				case 'Accesorios':
+					$r = $this->m_categoria_accesorios->delete($this->input->post('id'));
+					break;
+				case 'Bicicletas':
+					$r = $this->m_categoria_bicicletas->delete($this->input->post('id'));
+					break;
+				case 'Componentes':
+					$r = $this->m_categoria_componentes->delete($this->input->post('id'));
+					break;
+				case 'Servicios':
+					$r = $this->m_categoria_servicios->delete($this->input->post('id'));
+					break;
+			}
 
-    
-    
+			if($r)
+			{
+				redirect(base_url().'usuario');
+			}
+		}
+	}
 }

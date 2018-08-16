@@ -1,9 +1,10 @@
 <?php 
-if(empty($_SESSION['info_user']))
-{
-  redirect(base_url());
-}
-plantilla_usuarios::iniciar($categorias); ?>
+    if(empty($_SESSION['info_user']))
+    {
+    redirect(base_url());
+    }
+    plantilla_usuarios::iniciar($categorias); 
+?>
 
 <style>
     .quitandoElSobrando{
@@ -99,7 +100,6 @@ plantilla_usuarios::iniciar($categorias); ?>
 	}
 </style>
 
-
 <div class="container">
 
     <!-- PUBLICIDAD CENTRO ARRIBA -->
@@ -114,7 +114,7 @@ plantilla_usuarios::iniciar($categorias); ?>
 							if($banner->posicion == '0')
 							{
 				?>
-					<img class="img-slider" src="<?php echo base_url(); ?>uploads/imagenesBanner/<?php echo $banner->url_imagen; ?>" alt="Los Angeles">
+					            <img class="img-slider" src="<?php echo base_url(); ?>uploads/imagenesBanner/<?php echo $banner->url_imagen; ?>" alt="Los Angeles">
 				<?php
 							}
 						}
@@ -168,7 +168,29 @@ plantilla_usuarios::iniciar($categorias); ?>
 <div class="col-sm-8">
     
     <h2 class="mt-4">Mis anuncios</h2>
+         
+    <?php
+        if(isset($eliminar_anuncio))
+        {  
+    ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <b>¿Estás seguro?</b><br> 
+                El anuncio se eliminará permanentemente. 
                 
+                <form action="<?php echo base_url(); ?>usuario/eliminar_anuncio_comprobado" method="post">
+                    <input type="hidden" name='id' value='<?php echo $eliminar_anuncio_id; ?>'>
+                    <input type="hidden" name='categoria' value='<?php echo $eliminar_anuncio_categoria; ?>'>
+                    <button type='submit' class='btn btn-danger btn-sm'> Si, deseo eliminarlo! </button>
+                </form>
+                
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+    <?php
+        }    
+    ?>
+
     <?php
     if(isset($anuncios))
     {			
@@ -249,13 +271,15 @@ plantilla_usuarios::iniciar($categorias); ?>
                                 
                                 <i class="far fa-calendar-alt"></i> <?php echo $anuncios[$i]->fecha_de_inicio; ?> | 
                                 <i class="fas fa-dollar-sign"></i> <?php echo $anuncios[$i]->precio; ?> <br/>
+                                
                                 <span style="text-align:justify">
                                     <?php echo substr($anuncios[$i]->descripcion, 0, 40) ?> ...
                                 </span>								
                             </p>
-                            
-                            <a href="<?php echo base_url() ?>Anuncios/detalles/<?php echo  $anuncios[$i]->id + 0; ?>/<?php echo $categoria_para_el_editar_x; ?>" style="float:right; margin-left:5px!important;" class="btn btn-outline-danger"> <i class="fas fa-trash-alt"></i> </a>                             
+
+                            <a href="<?php echo base_url() ?>usuario/index/<?php echo  $anuncios[$i]->id + 0; ?>/<?php echo $categoria_para_el_editar_x; ?>" style="float:right; margin-left:5px!important;"  class="btn btn-outline-danger"> <i class="fas fa-trash-alt"></i> </a>                             
                             <a href="<?php echo base_url() ?>Anuncios/detalles/<?php echo  $anuncios[$i]->id + 0; ?>/<?php echo $categoria_para_el_editar_x; ?>" style="float:right;"  class="btn btn-outline-primary"> <i class="fas fa-edit"></i> </a>  
+
                         </div>
                     </div>
                 </div>
