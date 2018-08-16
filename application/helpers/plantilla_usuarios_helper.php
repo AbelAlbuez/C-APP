@@ -56,7 +56,7 @@
 								foreach ($categorias as $categoria)
 								{
 							?>
-								<a class="dropdown-item" href="#"> <?php echo $categoria->nombre; ?>  </a>
+								<a class="dropdown-item" href="<?php echo base_url(); ?>Home/filtrar/<?php echo $categoria->nombre; ?>"> <?php echo $categoria->nombre; ?>  </a>
 							<?php
 								}
 							}
