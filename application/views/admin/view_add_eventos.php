@@ -64,17 +64,15 @@ plantilla::iniciar();?>
         <td><input type="text" name="link" class="form-control"
 	></td>
       </tr>
-			<tr>
-        <td>idUser</td>
-        <td><input type="text" name="id_usuario" class="form-control" value="<?php echo $_SESSION['info_user'][0]->id?>"></td>
-      </tr>
+
+        <input type="hidden" name="id_usuario" class="form-control" value="<?php echo $_SESSION['info_user'][0]->id?>">
+      
       <tr>
         <td colspan="2"> 
-          <input class="btn btn-dark float-right" type="submit" value="Guardar"  ><br>
-          
+          <input class="btn btn-dark float-right" type="submit" value="Guardar"  >
+        	<a  class="btn btn-dark float-left" href="<?php echo base_url('panel/eventos')?>">Volver</a>          
         </td>
-      	<a class='btn btn-success float-right' href="<?php echo base_url('panel/subcategorias/load/'.$listado_contado[0]->id)?>" >Volver</a>
-      </tr>
+           </tr>
     </table>
     </form>
     </div>

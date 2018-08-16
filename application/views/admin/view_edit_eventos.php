@@ -72,7 +72,7 @@ plantilla::iniciar();?>
       <tr>
         <td colspan="2"> 
           <input class="btn btn-dark float-right" type="submit" value="Guardar" name="btn_enviar" ><br>
-          
+					<a href="<?php echo base_url('panel/eventos')?>">Volver</a>
         </td>
       
       </tr>
