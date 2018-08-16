@@ -164,7 +164,7 @@
 			
 					
 							  <div class='card mt-4'>
-								<img class='card-img-top img-fluid' src='../../uploads/thumbs/{$even->url_imagen}' alt=''>
+								<img class='card-img-top img-fluid' src='../../uploads/thumb/{$even->url_imagen}' alt=''>
 								<div class='card-body'>
 								  <h3 class='card-title'>{$even->titulo}</h3>
 								  <h6>Lugar: {$even->lugar}</h6>
