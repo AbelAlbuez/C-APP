@@ -87,8 +87,8 @@
 						if(empty($_SESSION['info_user']))
 						{
 					?>
-						<a class="btn btn-outline-light" href='<?php echo base_url('user/login');?>' ><i class="fas fa-sign-in-alt"></i> </a> |
-						<a class="btn btn-outline-light"  href='<?php echo base_url('user/register');?>' ><i class="fas fa-plus-square"></i> </a> 
+						<a class="btn btn-outline-light" href='<?php echo base_url('user/login');?>' >Iniciar Sesión <i class="fas fa-sign-in-alt"></i> </a> |
+						<a class="btn btn-outline-light"  href='<?php echo base_url('user/register');?>' >Registrarme <i class="fas fa-plus-square"></i> </a> 
 					<?php 
 						}
 						else
@@ -101,7 +101,7 @@
 									<a href="<?php echo base_url('user/profile/')?>" class="dropdown-item" >Editar perfil</a>
 									<a href="<?php echo base_url('user/login/')?>CerrarSesion" class="dropdown-item" >Cerrar Session</a>
 								</div>
-								<a class="btn btn-outline-light" href='<?php echo base_url('Anuncios');?>'> Redactar Anuncio <i class="fas fa-pen-alt"></i> </a> |
+								<a class="btn btn-outline-light" href='<?php echo base_url('Anuncios');?>'> Anuncio <i class="fas fa-pen-alt"></i> </a> |
 								<?php
 									if($_SESSION['info_user'][0]->tipo == '1')
 									{

@@ -1,6 +1,16 @@
 <?php plantilla_usuarios::iniciar($categorias); ?>
 
 <style>
+	.titulos_anuncios{
+		color:black!important;
+		transition: 0.5s;
+	}
+
+	.titulos_anuncios:hover{
+		font-size:150%;
+		text-decoration: none;
+	}
+
 	.quitandoElSobrando{
 		margin-top:-20px!important;
 	}
@@ -39,7 +49,7 @@
 							if($banner->posicion == '0')
 							{
 				?>
-					<img class="img-slider" src="<?php echo base_url(); ?>uploads/imagenesBanner/<?php echo $banner->url_imagen; ?>" alt="Los Angeles">
+								<img class="img-slider" src="<?php echo base_url(); ?>uploads/imagenesBanner/<?php echo $banner->url_imagen; ?>" alt="Los Angeles">
 				<?php
 							}
 						}
@@ -221,7 +231,19 @@
 								?>
 
 								<div class="col-sm-8">
-									<h4 class=""><?php echo $anuncios[$i]->titulo_anuncio; ?></h4>
+									
+									<?php
+									$categoria_para_el_editar_x = '';
+									foreach ($categorias as $categoria)
+									{
+										if($anuncios[$i]->idcategoria == $categoria->id)
+										{
+											$categoria_para_el_editar_x = $categoria->nombre;
+										}
+									}
+									?>
+
+									<h4 class="titulos_anuncios"> <a class="titulos_anuncios" href="<?php echo base_url() ?>Anuncio_Particular/index/<?php echo  $anuncios[$i]->id + 0; ?>/<?php echo $categoria_para_el_editar_x; ?>"> <?php echo $anuncios[$i]->titulo_anuncio; ?></a></h4>
 									<p>
 										<?php
 										foreach ($categorias as $categoria)
