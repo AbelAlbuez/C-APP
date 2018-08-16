@@ -53,7 +53,7 @@ $input_username = array(
 );
 
 $submit = array(
-	'class' => 'btn btn-login float-right',
+	'class' => 'btn btn-primary float-right',
 	'id'=>		'Successbtn',
 	'name'=>'btn_guardar',
 	'value' => 'Guardar'
@@ -77,7 +77,7 @@ $submit = array(
 	<div class="container">
 		<div class="wrapable">
 			<div class="col-md-6 login-sec">
-				<h2 class="text-center">Crea tu cuenta</h2>
+				<h2 class="text-center" style="color:#0275D8!important;">Crea tu cuenta</h2>
 
 				<?php echo form_open();?>
 				<br>
@@ -124,7 +124,7 @@ $submit = array(
 
 				<div class="copy-text">
 					<div class="registrarme">
-						<a class="" href="<?php echo base_url('user/login/')?>">¿Ya tienes una cuenta?</a>
+						<a class="" style="color:#0275D8!important;" href="<?php echo base_url('user/login/')?>">¿Ya tienes una cuenta?</a>
 					</div>
 				</div>
 			</div>

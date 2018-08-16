@@ -4,7 +4,6 @@ if(!empty($_SESSION['info_user']))
 {
   redirect(base_url());
 }
-plantilla_usuarios::iniciar($categorias); 
 
 $input_correo = array(
 	'type'  	 => 	'text',
@@ -26,7 +25,7 @@ $input_contrasenia = array(
 );
 
 $submit = array(
-	'class' =>'btn btn-login float-right',
+	'class' =>'btn btn-primary float-right',
 	'value' => 'Inciar'
 );
 
@@ -48,7 +47,7 @@ $submit = array(
 	<div class="container">
 		<div class="wrapable">
 			<div class="col-md-6 login-sec">
-				<h2 class="text-center">Ingresa a tu cuenta</h2>
+				<h2 class="text-center" style='color:#0275D8!important'>Ingresa a tu cuenta</h2>
 
 				<?php echo form_open();?>
 				<br>
@@ -73,11 +72,11 @@ $submit = array(
 
 				<div class="copy-text">
 					<div class="registrarme">
-						<a class="" href="<?php echo base_url('user/register')?>">Registrarme</a>
+						<a class=""  style='color:#0275D8!important;' href="<?php echo base_url('user/register')?>">Registrarme</a>
 					</div>
 						
 					<div class="forgot">
-						<a class=" " href="forgot-password.html">¿Olvidaste tu clave?</a>
+						<a class=" " style='color:#0275D8!important;' href="forgot-password.html">¿Olvidaste tu clave?</a>
 					</div>
 
 
