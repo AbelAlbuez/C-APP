@@ -151,10 +151,21 @@
 								<?php									
 									}
 								?>
+								
+								<?php
+									$categoria_para_el_editar_y = '';
+									foreach ($categorias as $categoria)
+									{
+										if($anuncios[$i]->idcategoria == $categoria->id)
+										{
+											$categoria_para_el_editar_y = $categoria->nombre;
+										}
+									}
+								?>
 
 								<div class="carousel-caption d-none d-md-block">
-									<h5><?php echo $anuncios[$i]->titulo_anuncio; ?></h5>
-									<p><?php echo substr($anuncios[$i]->descripcion, 0, 25)?> ...</p>
+									<h5> <a class='titulos_anuncios' style='text-shadow:2px 2px 2px black; color:white!important;' href="<?php echo base_url() ?>Anuncio_Particular/index/<?php echo  $anuncios[$i]->id + 0; ?>/<?php echo $categoria_para_el_editar_y; ?>"> <?php echo substr($anuncios[$i]->titulo_anuncio, 0, 15); ?> </a> </h5>
+									<p style='text-shadow:1px 1px 1px black;'><?php echo substr($anuncios[$i]->descripcion, 0, 25); ?> ...</p>
 								</div>
 					</div>
 				<?php
@@ -243,7 +254,7 @@
 									}
 									?>
 
-									<h4 class="titulos_anuncios"> <a class="titulos_anuncios" href="<?php echo base_url() ?>Anuncio_Particular/index/<?php echo  $anuncios[$i]->id + 0; ?>/<?php echo $categoria_para_el_editar_x; ?>"> <?php echo $anuncios[$i]->titulo_anuncio; ?></a></h4>
+									<h4 class="titulos_anuncios"> <a class="titulos_anuncios" href="<?php echo base_url() ?>Anuncio_Particular/index/<?php echo  $anuncios[$i]->id + 0; ?>/<?php echo $categoria_para_el_editar_x; ?>"> <?php echo substr($anuncios[$i]->titulo_anuncio, 0, 15) ?></a></h4>
 									<p>
 										<?php
 										foreach ($categorias as $categoria)
